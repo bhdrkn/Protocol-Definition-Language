@@ -1,0 +1,58 @@
+pdlfile fileName
+[DEFINITIONS]
+    Alice = Participant
+    Bob = Participant
+    Trent = Arbitrator
+    MyCipher = AsyncronusCipher
+[END]
+[TRANSACTIONS]
+    TRANSACTION trentFromAliceAction(Message m)
+    [BEGIN]
+        decrypt m for Alice
+        encrypt m for Bob
+        m :: Trent -> Bob
+    [END]
+    
+    TRANSACTION trentFromBobAction(Message m)
+    [BEGIN]
+        decrypt m for Bob
+        encrypt m for Alice
+        m :: Trent -> Alice
+    [END]
+    
+    TRANSACTION AliceAction(Message m)
+    [BEGIN]
+        decrypt m for Alice
+        print m
+    [END]
+    
+    TRANSACTION BobAction(Messsage m)
+    [BEGIN]
+        decrypt m for Bob
+        print m
+    [END]
+[END]
+[STATES]
+    STATE State1 (Message IS_SEND)
+    [BEGIN]
+        |source = Trent => Message :: Trent -> MessageTo
+        |otherwise => Message :: MessageFrom -> Trent
+    [END]
+    
+    STATE State2 (Trent GET Message)
+    [BEGIN]
+        |from = Alice => CALL trentFromAliceAction
+        |from = bob => CALL trentFromBobAction
+    [END]
+    
+    STATE State3 (Alice GET Message)
+    [BEGIN]
+        |always => CALL AliceAction
+    [END]
+    
+    STATE State4 (Bob GET Message)
+    [BEGIN]
+        |always => CALL BobAction
+    [END]
+    
+[END]

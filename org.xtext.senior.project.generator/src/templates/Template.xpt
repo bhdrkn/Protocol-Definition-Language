@@ -1,0 +1,285 @@
+«REM»
+/*
+*   Copyright 2011 Bahadýr AKIN
+*
+*   Licensed under the Apache License, Version 2.0 (the "License");
+*   you may not use this file except in compliance with the License.
+*   You may obtain a copy of the License at
+*
+*       http://www.apache.org/licenses/LICENSE-2.0
+*
+*   Unless required by applicable law or agreed to in writing, software
+*   distributed under the License is distributed on an "AS IS" BASIS,
+*   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*   See the License for the specific language governing permissions and
+*   limitations under the License.
+*/
+«ENDREM»
+«IMPORT org::xtext::senior::project::protocol»
+
+«EXTENSION templates::Extensions»
+
+«DEFINE main FOR PDLFile»
+    «EXPAND definitionsPath FOR this.definition»
+    «EXPAND buildProtocolClass FOR this»
+«ENDDEFINE»
+
+«REM»Classes from definitions are generating below here«ENDREM»
+«DEFINE definitionsPath FOR Definitions»
+    «EXPAND defines FOREACH this.definitions »
+    «REM»An Enum Class for Message.java is generating. But Message.java has not yet generated«ENDREM»
+    «FILE  "com/generated/java/source/message/MyMessageSource.java"»
+package com.generated.java.source.message;
+    
+public enum MyMessageSource{
+    «EXPAND generateMessageSource FOREACH this.definitions »
+    None   
+}
+    «ENDFILE »
+«ENDDEFINE»
+
+«REM»MyChipher, Alice, Bob and Trent like class'es are generating«ENDREM»
+«DEFINE defines FOR Define»
+    «IF this.keyword.compareTo("Participant") == 0»
+        «EXPAND generateParticipantJava FOR this»
+    «ELSEIF this.keyword.compareTo("Arbitrator") == 0»
+        «EXPAND generateArbitratorJava FOR this»
+    «ELSEIF this.keyword.compareTo("AsynchronousCipher") == 0»
+        «EXPAND generateAsyncronusCipherJava FOR this»
+    «ENDIF»
+«ENDDEFINE»
+
+«REM»Alice, Bob like classes generating below.«ENDREM»
+«DEFINE generateParticipantJava FOR Define»
+    «FILE "com/generated/java/source/"+this.name+".java"»
+package com.generated.java.source;
+
+import protocol.cipher.BaseCipher;
+import example.message.Message;
+import source.Participant;
+
+public class «this.name»<Cipher extends BaseCipher> extends «this.keyword»<Message, Cipher>{
+
+    public «this.name»(Cipher cipher) {
+        super(cipher);
+    }
+
+    @Override
+    public void sendMessage(Message msg) {
+        setChanged();
+        notifyObservers(msg);
+    }
+
+}
+    «ENDFILE»
+«ENDDEFINE»
+
+«REM»Trent like classes are generaing below«ENDREM»
+«DEFINE generateArbitratorJava FOR Define»
+    «FILE "com/generated/java/source/"+this.name+".java"»
+package com.generated.java.source;
+
+import java.util.Hashtable;
+
+import protocol.cipher.BaseCipher;
+import example.message.Message;
+import source.Arbitrator;
+
+public class «this.name»<Cipher extends BaseCipher> extends
+        «this.keyword»<Message, Cipher> {
+    
+    public «this.name»(Alice<Cipher> alice, Bob<Cipher> bob) {
+    // Alice And Bob Must be generated... How to get The Generated Class Names???
+        super(new Hashtable<String, Cipher>());
+        super.addCipher(Alice.class.getSimpleName(), alice.getCipher());
+        super.addCipher(Bob.class.getSimpleName(), bob.getCipher());
+    }
+
+    public «this.name»(Hashtable<String, Cipher> cipherTable) {
+        super(cipherTable);
+    }
+
+    @Override
+    public void sendMessage(Message msg) {
+        setChanged();
+        notifyObservers(msg);
+    }
+
+}
+    «ENDFILE»
+«ENDDEFINE»
+
+«REM»MyCipher like classes are generating below«ENDREM»
+«DEFINE generateAsyncronusCipherJava FOR Define»
+    «FILE "com/generated/java/source/cipher/"+this.name+".java"»
+package com.generated.java.source.cipher;
+
+import protocol.cipher.AsynchronousCipher;
+
+public class «this.name» extends «this.keyword»{
+
+    public «this.name»(String key) {
+        super(key);
+    }
+
+}
+    «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE generateMessageSource FOR Define»
+    «IF this.keyword.compareTo("AsynchronousCipher") != 0»«this.name»,«ENDIF»
+«ENDDEFINE»
+
+«REM»The Main Part is Starting here. MyBigProtocol.java building by using both Transactions and States.«ENDREM»
+«DEFINE buildProtocolClass FOR PDLFile»
+        «FILE "com/generated/java/source/protocol/"+this.name+".java"»
+package com.generated.java.source.protocol;
+
+import com.generated.java.source.*;
+
+import java.util.Observable;
+import java.util.Observer;
+
+import protocol.cipher.BaseCipher;
+
+import example.message.Message;
+
+public class «this.name»<Cipher extends BaseCipher> implements Observer{
+    
+    «REM»MyBigProtocol.java class has attributes which are deifned in Definition area«ENDREM»
+    «EXPAND buildProtocolAttributes FOREACH this.definition.definitions»
+    
+    «REM»So does Constructors are binded to Definition area because of attributes«ENDREM»
+    «EXPAND buildProtocolConstructor(this.name) FOR this.definition»
+    
+    «REM»We need an update method in order to implement Observer interface«ENDREM»    
+    @Override
+    public void update(Observable o, Object arg) {
+       //TODO - This part must be generated from States
+       Message msg = (Message) arg;
+       «REM»updateMethod builds by using State area, But state area using Transactions. So transactions building as private methods«ENDREM»
+       «EXPAND buildUpdateMethod FOREACH this.state.states»
+    }
+    
+    «REM»Private methods generating from transactions in order to serve update method«ENDREM»
+    «EXPAND buildPrivateMethodsFromTransactions FOREACH this.transaction.transactions»
+}
+    «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE buildProtocolAttributes FOR Define»
+    «IF this.keyword.compareTo("Participant") == 0 || this.keyword.compareTo("Arbitrator") == 0»
+        private «this.name»<Cipher> «this.name.toLowerCase()» = null;
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE buildProtocolConstructor(String name) FOR Definitions»
+    public «name» («EXPAND buildConstructorParameters FOREACH  this.definitions»){
+        «EXPAND assingnParametersToAttributes FOREACH this.definitions»
+    }
+«ENDDEFINE»
+
+«DEFINE buildConstructorParameters FOR Define»
+    «IF this.keyword.compareTo("Participant") == 0»
+        «this.name» «this.name.toLowerCase()»,
+    «ELSEIF this.keyword.compareTo("Arbitrator") == 0»
+        «this.name» «this.name.toLowerCase()»
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE assingnParametersToAttributes FOR Define»
+    «IF this.keyword.compareTo("Participant") == 0 || this.keyword.compareTo("Arbitrator") == 0»
+        this.«this.name.toLowerCase()» = «this.name.toLowerCase()»;
+        this.«this.name.toLowerCase()».addObserver(this);
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE buildPrivateMethodsFromTransactions FOR Transaction»
+    private void «this.name» («EXPAND buildMethodArguments(this.arguments) FOREACH this.arguments»){
+        «EXPAND buildMethodOperation(this.arguments.get(0)) FOREACH  this.operations»
+    }
+«ENDDEFINE»
+
+«DEFINE buildMethodArguments(List arguments) FOR Argument»
+    «IF arguments.size != (arguments.indexOf(this) + 1) »
+    «this.keyword» «this.name»,
+    «ELSE»
+    «this.keyword» «this.name»
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE buildMethodOperation(Argument arg) FOR Operation»
+    «IF Decrypt.isInstance(this)»
+        «EXPAND decryptOperation(arg) FOR ((Decrypt)this)»
+    «ELSEIF Encrypt.isInstance(this)»
+        «EXPAND encryptOperation(arg) FOR ((Encrypt)this)»
+    «ELSEIF Send.isInstance(this)»
+        «EXPAND sendOperation(arg) FOR ((Send)this)»
+    «ELSEIF Print.isInstance(this)»
+        «EXPAND printOperation(arg) FOR ((Print)this)»
+    «ELSEIF Call.isInstance(this)»
+        «EXPAND callOperation(arg) FOR ((Call)this)»
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE decryptOperation(Argument arg) FOR Decrypt»
+try{
+    byte[] cryptedMessage = «arg.name».getMessage();
+    byte[] realMsg = «this.participant.toLowerCase()».getCipher().decrypt(cryptedMessage);
+    «arg.name».setMessage(realMsg);
+   } catch(Exception e){
+    e.printStackTrace();
+   }
+«ENDDEFINE»
+
+«DEFINE encryptOperation(Argument arg) FOR Encrypt»
+try{
+    byte[] realMsg = «arg.name».getMessage();
+    byte[] cryptedMessage = «this.participant.toLowerCase()».getCipher().encrypt(realMsg);
+    «arg.name».setMessage(cryptedMessage);
+    }catch(Exception e){
+    e.printStackTrace();
+    }
+«ENDDEFINE»
+
+«DEFINE sendOperation(Argument arg) FOR Send»
+    «arg.name».setFrom(«this.source.toLowerCase()».getClass().getSimpleName());
+    «arg.name».setTo(«this.destination.toLowerCase()».getClass().getSimpleName());
+    «this.source.toLowerCase()».sendMessage(«arg.name»);
+«ENDDEFINE»
+
+«DEFINE printOperation(Argument arg) FOR Print»
+    System.out.println(«arg.name».toString());
+«ENDDEFINE»
+
+«DEFINE callOperation(Argument arg) FOR Call»
+    «this.transactionName»(arg);
+«ENDDEFINE»
+
+«DEFINE buildUpdateMethod FOR State»
+    «IF GetEvent.isInstance(this.event)»
+        if( o instanceof «((GetEvent)this.event).who» ){
+        «EXPAND buildGuards FOREACH this.guards»
+    }
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE buildGuards FOR Guard»
+    «IF this.casem != null»
+    if( «EXPAND buildCase FOR this.casem»){
+        // Expand to Operation what about arg....
+     }
+     «ELSE»
+     // Expand to Operation what about arg....
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE buildCase FOR Case»
+    «IF Source.isInstance(this)»
+       msg.getTo().compareTo("«((Source)this).defineName.toLowerCase()»") == 0
+    «ELSEIF From.isInstance(this)»
+        msg.getFrom().compareTo("«((From)this).defineName.toLowerCase()»") == 0
+    «ELSEIF 1 == 1»
+        true
+    «ENDIF»
+«ENDDEFINE»
