@@ -13,15 +13,15 @@
 *   See the License for the specific language governing permissions and
 *   limitations under the License.
 */
-package example.source;
+package example.protocol.source;
 
 import protocol.cipher.BaseCipher;
-import example.message.Message;
+import example.protocol.message.Message;
 import source.Participant;
 
-public class Alice<Cipher extends BaseCipher> extends Participant<Message, Cipher>{
+public class Bob<Cipher extends BaseCipher> extends Participant<Message, Cipher>{
 
-	public Alice(Cipher cipher) {
+	public Bob(Cipher cipher) {
 		super(cipher);
 	}
 
@@ -38,6 +38,7 @@ public class Alice<Cipher extends BaseCipher> extends Participant<Message, Ciphe
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 			setChanged();
 			notifyObservers(msg);
 		}

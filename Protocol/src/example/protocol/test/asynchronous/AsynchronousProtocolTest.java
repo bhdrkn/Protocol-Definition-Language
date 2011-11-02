@@ -13,16 +13,16 @@
 *   See the License for the specific language governing permissions and
 *   limitations under the License.
 */
-package example.asynchronous;
+package example.protocol.test.asynchronous;
 
-import protocol.MyProtocol;
 import protocol.cipher.AsynchronousCipher;
-import example.message.Message;
-import example.message.MessageSource;
-import example.message.ProtocolType;
-import example.source.Alice;
-import example.source.Bob;
-import example.source.Trent;
+import example.protocol.MyProtocol;
+import example.protocol.message.Message;
+import example.protocol.message.MessageSource;
+import example.protocol.message.ProtocolType;
+import example.protocol.source.Alice;
+import example.protocol.source.Bob;
+import example.protocol.source.Trent;
 
 @SuppressWarnings( { "unused", "deprecation" })
 public class AsynchronousProtocolTest implements Runnable{
@@ -42,8 +42,6 @@ public class AsynchronousProtocolTest implements Runnable{
 	public static void main(String[] args) throws InterruptedException {
 		Thread thread = new Thread(new AsynchronousProtocolTest());
 		thread.start();
-		Thread.sleep(5000);
-		thread.stop();
 	}
 	
 	@Override

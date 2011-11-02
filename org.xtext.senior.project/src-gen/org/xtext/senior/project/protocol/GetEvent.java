@@ -16,6 +16,7 @@ package org.xtext.senior.project.protocol;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.senior.project.protocol.GetEvent#getWho <em>Who</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.GetEvent#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,29 +27,55 @@ package org.xtext.senior.project.protocol;
 public interface GetEvent extends Event
 {
   /**
-   * Returns the value of the '<em><b>Who</b></em>' attribute.
+   * Returns the value of the '<em><b>Who</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Who</em>' attribute isn't clear,
+   * If the meaning of the '<em>Who</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Who</em>' attribute.
-   * @see #setWho(String)
+   * @return the value of the '<em>Who</em>' reference.
+   * @see #setWho(Define)
    * @see org.xtext.senior.project.protocol.ProtocolPackage#getGetEvent_Who()
    * @model
    * @generated
    */
-  String getWho();
+  Define getWho();
 
   /**
-   * Sets the value of the '{@link org.xtext.senior.project.protocol.GetEvent#getWho <em>Who</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.senior.project.protocol.GetEvent#getWho <em>Who</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Who</em>' attribute.
+   * @param value the new value of the '<em>Who</em>' reference.
    * @see #getWho()
    * @generated
    */
-  void setWho(String value);
+  void setWho(Define value);
+
+  /**
+   * Returns the value of the '<em><b>Message</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Message</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Message</em>' attribute.
+   * @see #setMessage(String)
+   * @see org.xtext.senior.project.protocol.ProtocolPackage#getGetEvent_Message()
+   * @model
+   * @generated
+   */
+  String getMessage();
+
+  /**
+   * Sets the value of the '{@link org.xtext.senior.project.protocol.GetEvent#getMessage <em>Message</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Message</em>' attribute.
+   * @see #getMessage()
+   * @generated
+   */
+  void setMessage(String value);
 
 } // GetEvent

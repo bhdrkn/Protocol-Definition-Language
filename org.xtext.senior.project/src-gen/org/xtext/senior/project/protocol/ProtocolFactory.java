@@ -54,6 +54,42 @@ public interface ProtocolFactory extends EFactory
   Define createDefine();
 
   /**
+   * Returns a new object of class '<em>Event Source</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Event Source</em>'.
+   * @generated
+   */
+  EventSource createEventSource();
+
+  /**
+   * Returns a new object of class '<em>Arbitrator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Arbitrator</em>'.
+   * @generated
+   */
+  Arbitrator createArbitrator();
+
+  /**
+   * Returns a new object of class '<em>Participant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Participant</em>'.
+   * @generated
+   */
+  Participant createParticipant();
+
+  /**
+   * Returns a new object of class '<em>Cipher</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cipher</em>'.
+   * @generated
+   */
+  Cipher createCipher();
+
+  /**
    * Returns a new object of class '<em>Transactions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -135,6 +171,15 @@ public interface ProtocolFactory extends EFactory
   Call createCall();
 
   /**
+   * Returns a new object of class '<em>Exchange</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exchange</em>'.
+   * @generated
+   */
+  Exchange createExchange();
+
+  /**
    * Returns a new object of class '<em>States</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -189,6 +234,15 @@ public interface ProtocolFactory extends EFactory
   IsSendEvent createIsSendEvent();
 
   /**
+   * Returns a new object of class '<em>Init</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Init</em>'.
+   * @generated
+   */
+  Init createInit();
+
+  /**
    * Returns a new object of class '<em>Case</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -196,6 +250,24 @@ public interface ProtocolFactory extends EFactory
    * @generated
    */
   Case createCase();
+
+  /**
+   * Returns a new object of class '<em>Always</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Always</em>'.
+   * @generated
+   */
+  Always createAlways();
+
+  /**
+   * Returns a new object of class '<em>Otherwise</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Otherwise</em>'.
+   * @generated
+   */
+  Otherwise createOtherwise();
 
   /**
    * Returns a new object of class '<em>Source</em>'.

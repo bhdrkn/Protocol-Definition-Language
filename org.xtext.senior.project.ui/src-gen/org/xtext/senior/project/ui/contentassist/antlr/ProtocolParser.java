@@ -37,12 +37,16 @@ public class ProtocolParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getDefineAccess().getAlternatives(), "rule__Define__Alternatives");
+					put(grammarAccess.getEventSourceAccess().getAlternatives(), "rule__EventSource__Alternatives");
 					put(grammarAccess.getOperationAccess().getAlternatives(), "rule__Operation__Alternatives");
 					put(grammarAccess.getEventAccess().getAlternatives(), "rule__Event__Alternatives");
 					put(grammarAccess.getCaseAccess().getAlternatives(), "rule__Case__Alternatives");
 					put(grammarAccess.getPDLFileAccess().getGroup(), "rule__PDLFile__Group__0");
 					put(grammarAccess.getDefinitionsAccess().getGroup(), "rule__Definitions__Group__0");
-					put(grammarAccess.getDefineAccess().getGroup(), "rule__Define__Group__0");
+					put(grammarAccess.getArbitratorAccess().getGroup(), "rule__Arbitrator__Group__0");
+					put(grammarAccess.getParticipantAccess().getGroup(), "rule__Participant__Group__0");
+					put(grammarAccess.getCipherAccess().getGroup(), "rule__Cipher__Group__0");
 					put(grammarAccess.getTransactionsAccess().getGroup(), "rule__Transactions__Group__0");
 					put(grammarAccess.getTransactionAccess().getGroup(), "rule__Transaction__Group__0");
 					put(grammarAccess.getArgumentAccess().getGroup(), "rule__Argument__Group__0");
@@ -51,6 +55,7 @@ public class ProtocolParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSendAccess().getGroup(), "rule__Send__Group__0");
 					put(grammarAccess.getPrintAccess().getGroup(), "rule__Print__Group__0");
 					put(grammarAccess.getCallAccess().getGroup(), "rule__Call__Group__0");
+					put(grammarAccess.getExchangeAccess().getGroup(), "rule__Exchange__Group__0");
 					put(grammarAccess.getStatesAccess().getGroup(), "rule__States__Group__0");
 					put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 					put(grammarAccess.getGuardAccess().getGroup(), "rule__Guard__Group__0");
@@ -59,12 +64,17 @@ public class ProtocolParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSourceAccess().getGroup(), "rule__Source__Group__0");
 					put(grammarAccess.getFromAccess().getGroup(), "rule__From__Group__0");
 					put(grammarAccess.getPDLFileAccess().getNameAssignment_1(), "rule__PDLFile__NameAssignment_1");
-					put(grammarAccess.getPDLFileAccess().getDefinitionAssignment_2(), "rule__PDLFile__DefinitionAssignment_2");
-					put(grammarAccess.getPDLFileAccess().getTransactionAssignment_3(), "rule__PDLFile__TransactionAssignment_3");
-					put(grammarAccess.getPDLFileAccess().getStateAssignment_4(), "rule__PDLFile__StateAssignment_4");
-					put(grammarAccess.getDefinitionsAccess().getDefinitionsAssignment_1(), "rule__Definitions__DefinitionsAssignment_1");
-					put(grammarAccess.getDefineAccess().getNameAssignment_0(), "rule__Define__NameAssignment_0");
-					put(grammarAccess.getDefineAccess().getKeywordAssignment_2(), "rule__Define__KeywordAssignment_2");
+					put(grammarAccess.getPDLFileAccess().getDefinitionAssignment_3(), "rule__PDLFile__DefinitionAssignment_3");
+					put(grammarAccess.getPDLFileAccess().getTransactionAssignment_4(), "rule__PDLFile__TransactionAssignment_4");
+					put(grammarAccess.getPDLFileAccess().getStateAssignment_5(), "rule__PDLFile__StateAssignment_5");
+					put(grammarAccess.getDefinitionsAccess().getSourcesAssignment_1(), "rule__Definitions__SourcesAssignment_1");
+					put(grammarAccess.getDefinitionsAccess().getCipherAssignment_2(), "rule__Definitions__CipherAssignment_2");
+					put(grammarAccess.getArbitratorAccess().getNameAssignment_0(), "rule__Arbitrator__NameAssignment_0");
+					put(grammarAccess.getArbitratorAccess().getKeywordAssignment_2(), "rule__Arbitrator__KeywordAssignment_2");
+					put(grammarAccess.getParticipantAccess().getNameAssignment_0(), "rule__Participant__NameAssignment_0");
+					put(grammarAccess.getParticipantAccess().getKeywordAssignment_2(), "rule__Participant__KeywordAssignment_2");
+					put(grammarAccess.getCipherAccess().getNameAssignment_0(), "rule__Cipher__NameAssignment_0");
+					put(grammarAccess.getCipherAccess().getKeywordAssignment_2(), "rule__Cipher__KeywordAssignment_2");
 					put(grammarAccess.getTransactionsAccess().getTransactionsAssignment_1(), "rule__Transactions__TransactionsAssignment_1");
 					put(grammarAccess.getTransactionAccess().getNameAssignment_1(), "rule__Transaction__NameAssignment_1");
 					put(grammarAccess.getTransactionAccess().getArgumentsAssignment_3(), "rule__Transaction__ArgumentsAssignment_3");
@@ -80,6 +90,8 @@ public class ProtocolParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSendAccess().getDestinationAssignment_4(), "rule__Send__DestinationAssignment_4");
 					put(grammarAccess.getPrintAccess().getMessageAssignment_1(), "rule__Print__MessageAssignment_1");
 					put(grammarAccess.getCallAccess().getTransactionNameAssignment_1(), "rule__Call__TransactionNameAssignment_1");
+					put(grammarAccess.getExchangeAccess().getSourceAssignment_0(), "rule__Exchange__SourceAssignment_0");
+					put(grammarAccess.getExchangeAccess().getDestinationAssignment_2(), "rule__Exchange__DestinationAssignment_2");
 					put(grammarAccess.getStatesAccess().getStatesAssignment_1(), "rule__States__StatesAssignment_1");
 					put(grammarAccess.getStateAccess().getNameAssignment_1(), "rule__State__NameAssignment_1");
 					put(grammarAccess.getStateAccess().getEventAssignment_3(), "rule__State__EventAssignment_3");
@@ -87,10 +99,15 @@ public class ProtocolParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGuardAccess().getCasemAssignment_1(), "rule__Guard__CasemAssignment_1");
 					put(grammarAccess.getGuardAccess().getOperationAssignment_3(), "rule__Guard__OperationAssignment_3");
 					put(grammarAccess.getGetEventAccess().getWhoAssignment_0(), "rule__GetEvent__WhoAssignment_0");
-					put(grammarAccess.getGetEventAccess().getKeywordAssignment_2(), "rule__GetEvent__KeywordAssignment_2");
-					put(grammarAccess.getIsSendEventAccess().getKeywordAssignment_0(), "rule__IsSendEvent__KeywordAssignment_0");
-					put(grammarAccess.getSourceAccess().getDefineNameAssignment_2(), "rule__Source__DefineNameAssignment_2");
-					put(grammarAccess.getFromAccess().getDefineNameAssignment_2(), "rule__From__DefineNameAssignment_2");
+					put(grammarAccess.getGetEventAccess().getMessageAssignment_2(), "rule__GetEvent__MessageAssignment_2");
+					put(grammarAccess.getIsSendEventAccess().getMessageAssignment_0(), "rule__IsSendEvent__MessageAssignment_0");
+					put(grammarAccess.getInitAccess().getKeywordAssignment(), "rule__Init__KeywordAssignment");
+					put(grammarAccess.getAlwaysAccess().getKeywordAssignment(), "rule__Always__KeywordAssignment");
+					put(grammarAccess.getOtherwiseAccess().getKeywordAssignment(), "rule__Otherwise__KeywordAssignment");
+					put(grammarAccess.getSourceAccess().getKeywordAssignment_0(), "rule__Source__KeywordAssignment_0");
+					put(grammarAccess.getSourceAccess().getEventSourceAssignment_2(), "rule__Source__EventSourceAssignment_2");
+					put(grammarAccess.getFromAccess().getKeywordAssignment_0(), "rule__From__KeywordAssignment_0");
+					put(grammarAccess.getFromAccess().getEventSourceAssignment_2(), "rule__From__EventSourceAssignment_2");
 				}
 			};
 		}

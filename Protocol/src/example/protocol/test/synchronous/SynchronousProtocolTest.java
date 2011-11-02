@@ -13,17 +13,16 @@
 *   See the License for the specific language governing permissions and
 *   limitations under the License.
 */
-package example.synchronous;
-
-import protocol.MyProtocol;
+package example.protocol.test.synchronous;
 
 import protocol.cipher.SynchronousCipher;
-import example.message.Message;
-import example.message.MessageSource;
-import example.message.ProtocolType;
-import example.source.Alice;
-import example.source.Bob;
-import example.source.Trent;
+import example.protocol.MyProtocol;
+import example.protocol.message.Message;
+import example.protocol.message.MessageSource;
+import example.protocol.message.ProtocolType;
+import example.protocol.source.Alice;
+import example.protocol.source.Bob;
+import example.protocol.source.Trent;
 
 /**
  * Test object. That uses MyProtocol. Has two Participant One is Alice, Other is
@@ -36,14 +35,14 @@ import example.source.Trent;
  * 
  */
 @SuppressWarnings( { "unused", "deprecation" })
-public class MyProtocolTest implements Runnable {
+public class SynchronousProtocolTest implements Runnable {
 
 	private Alice<SynchronousCipher> alice = null;
 	private Bob<SynchronousCipher> bob = null;
 	private Trent<SynchronousCipher> trent = null;
 	private MyProtocol<Message, SynchronousCipher> myProtocol = null;
 
-	public MyProtocolTest() {
+	public SynchronousProtocolTest() {
 		alice = new Alice<SynchronousCipher>(new SynchronousCipher("KeyOfAlice"));
 		bob = new Bob<SynchronousCipher>(new SynchronousCipher("KeyOfBob"));
 		trent = new Trent<SynchronousCipher>(alice,bob);
@@ -51,10 +50,8 @@ public class MyProtocolTest implements Runnable {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		Thread thread = new Thread(new MyProtocolTest());
+		Thread thread = new Thread(new SynchronousProtocolTest());
 		thread.start();
-		Thread.sleep(5000);
-		thread.stop();
 	}
 
 	@Override

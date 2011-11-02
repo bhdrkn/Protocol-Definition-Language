@@ -53,29 +53,29 @@ public interface Decrypt extends Operation
   void setMessage(String value);
 
   /**
-   * Returns the value of the '<em><b>Participant</b></em>' attribute.
+   * Returns the value of the '<em><b>Participant</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Participant</em>' attribute isn't clear,
+   * If the meaning of the '<em>Participant</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Participant</em>' attribute.
-   * @see #setParticipant(String)
+   * @return the value of the '<em>Participant</em>' reference.
+   * @see #setParticipant(Participant)
    * @see org.xtext.senior.project.protocol.ProtocolPackage#getDecrypt_Participant()
    * @model
    * @generated
    */
-  String getParticipant();
+  Participant getParticipant();
 
   /**
-   * Sets the value of the '{@link org.xtext.senior.project.protocol.Decrypt#getParticipant <em>Participant</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.senior.project.protocol.Decrypt#getParticipant <em>Participant</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Participant</em>' attribute.
+   * @param value the new value of the '<em>Participant</em>' reference.
    * @see #getParticipant()
    * @generated
    */
-  void setParticipant(String value);
+  void setParticipant(Participant value);
 
 } // Decrypt

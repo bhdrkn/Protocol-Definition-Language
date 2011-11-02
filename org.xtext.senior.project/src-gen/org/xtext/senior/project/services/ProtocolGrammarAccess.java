@@ -20,25 +20,27 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	public class PDLFileElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PDLFile");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPdlfileKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cDefinitionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDefinitionDefinitionsParserRuleCall_2_0 = (RuleCall)cDefinitionAssignment_2.eContents().get(0);
-		private final Assignment cTransactionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTransactionTransactionsParserRuleCall_3_0 = (RuleCall)cTransactionAssignment_3.eContents().get(0);
-		private final Assignment cStateAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cStateStatesParserRuleCall_4_0 = (RuleCall)cStateAssignment_4.eContents().get(0);
+		private final Keyword cRGhtSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDefinitionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDefinitionDefinitionsParserRuleCall_3_0 = (RuleCall)cDefinitionAssignment_3.eContents().get(0);
+		private final Assignment cTransactionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTransactionTransactionsParserRuleCall_4_0 = (RuleCall)cTransactionAssignment_4.eContents().get(0);
+		private final Assignment cStateAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cStateStatesParserRuleCall_5_0 = (RuleCall)cStateAssignment_5.eContents().get(0);
+		private final Keyword cENDKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//PDLFile:
-		//	"pdlfile" name=ID definition=Definitions transaction=Transactions state=States;
+		//	"[" name=ID "]" definition=Definitions transaction=Transactions state=States "[END]";
 		public ParserRule getRule() { return rule; }
 
-		//"pdlfile" name=ID definition=Definitions transaction=Transactions state=States
+		//"[" name=ID "]" definition=Definitions transaction=Transactions state=States "[END]"
 		public Group getGroup() { return cGroup; }
 
-		//"pdlfile"
-		public Keyword getPdlfileKeyword_0() { return cPdlfileKeyword_0; }
+		//"["
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -46,55 +48,174 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
+		//"]"
+		public Keyword getRGhtSquareBracketKeyword_2() { return cRGhtSquareBracketKeyword_2; }
+
 		//definition=Definitions
-		public Assignment getDefinitionAssignment_2() { return cDefinitionAssignment_2; }
+		public Assignment getDefinitionAssignment_3() { return cDefinitionAssignment_3; }
 
 		//Definitions
-		public RuleCall getDefinitionDefinitionsParserRuleCall_2_0() { return cDefinitionDefinitionsParserRuleCall_2_0; }
+		public RuleCall getDefinitionDefinitionsParserRuleCall_3_0() { return cDefinitionDefinitionsParserRuleCall_3_0; }
 
 		//transaction=Transactions
-		public Assignment getTransactionAssignment_3() { return cTransactionAssignment_3; }
+		public Assignment getTransactionAssignment_4() { return cTransactionAssignment_4; }
 
 		//Transactions
-		public RuleCall getTransactionTransactionsParserRuleCall_3_0() { return cTransactionTransactionsParserRuleCall_3_0; }
+		public RuleCall getTransactionTransactionsParserRuleCall_4_0() { return cTransactionTransactionsParserRuleCall_4_0; }
 
 		//state=States
-		public Assignment getStateAssignment_4() { return cStateAssignment_4; }
+		public Assignment getStateAssignment_5() { return cStateAssignment_5; }
 
 		//States
-		public RuleCall getStateStatesParserRuleCall_4_0() { return cStateStatesParserRuleCall_4_0; }
+		public RuleCall getStateStatesParserRuleCall_5_0() { return cStateStatesParserRuleCall_5_0; }
+
+		//"[END]"
+		public Keyword getENDKeyword_6() { return cENDKeyword_6; }
 	}
 
 	public class DefinitionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Definitions");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDEFINITIONSKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cDefinitionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDefinitionsDefineParserRuleCall_1_0 = (RuleCall)cDefinitionsAssignment_1.eContents().get(0);
-		private final Keyword cENDKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSourcesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSourcesEventSourceParserRuleCall_1_0 = (RuleCall)cSourcesAssignment_1.eContents().get(0);
+		private final Assignment cCipherAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCipherCipherParserRuleCall_2_0 = (RuleCall)cCipherAssignment_2.eContents().get(0);
+		private final Keyword cENDKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Definitions:
-		//	"[DEFINITIONS]" definitions+=Define* "[END]";
+		//	"[DEFINITIONS]" sources+=EventSource* cipher=Cipher "[END]";
 		public ParserRule getRule() { return rule; }
 
-		//"[DEFINITIONS]" definitions+=Define* "[END]"
+		//"[DEFINITIONS]" sources+=EventSource* cipher=Cipher "[END]"
 		public Group getGroup() { return cGroup; }
 
 		//"[DEFINITIONS]"
 		public Keyword getDEFINITIONSKeyword_0() { return cDEFINITIONSKeyword_0; }
 
-		//definitions+=Define*
-		public Assignment getDefinitionsAssignment_1() { return cDefinitionsAssignment_1; }
+		//sources+=EventSource*
+		public Assignment getSourcesAssignment_1() { return cSourcesAssignment_1; }
 
-		//Define
-		public RuleCall getDefinitionsDefineParserRuleCall_1_0() { return cDefinitionsDefineParserRuleCall_1_0; }
+		//EventSource
+		public RuleCall getSourcesEventSourceParserRuleCall_1_0() { return cSourcesEventSourceParserRuleCall_1_0; }
+
+		//cipher=Cipher
+		public Assignment getCipherAssignment_2() { return cCipherAssignment_2; }
+
+		//Cipher
+		public RuleCall getCipherCipherParserRuleCall_2_0() { return cCipherCipherParserRuleCall_2_0; }
 
 		//"[END]"
-		public Keyword getENDKeyword_2() { return cENDKeyword_2; }
+		public Keyword getENDKeyword_3() { return cENDKeyword_3; }
 	}
 
 	public class DefineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Define");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cEventSourceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCipherParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//// Works Like Interface
+		//Define:
+		//	EventSource | Cipher;
+		public ParserRule getRule() { return rule; }
+
+		//EventSource | Cipher
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//EventSource
+		public RuleCall getEventSourceParserRuleCall_0() { return cEventSourceParserRuleCall_0; }
+
+		//Cipher
+		public RuleCall getCipherParserRuleCall_1() { return cCipherParserRuleCall_1; }
+	}
+
+	public class EventSourceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EventSource");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cArbitratorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cParticipantParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//EventSource:
+		//	Arbitrator | Participant;
+		public ParserRule getRule() { return rule; }
+
+		//Arbitrator | Participant
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Arbitrator
+		public RuleCall getArbitratorParserRuleCall_0() { return cArbitratorParserRuleCall_0; }
+
+		//Participant
+		public RuleCall getParticipantParserRuleCall_1() { return cParticipantParserRuleCall_1; }
+	}
+
+	public class ArbitratorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Arbitrator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSGnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cKeywordAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cKeywordArbitratorKeyword_2_0 = (Keyword)cKeywordAssignment_2.eContents().get(0);
+		
+		//Arbitrator:
+		//	name=ID "=" keyword="Arbitrator";
+		public ParserRule getRule() { return rule; }
+
+		//name=ID "=" keyword="Arbitrator"
+		public Group getGroup() { return cGroup; }
+
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+
+		//"="
+		public Keyword getEqualsSGnKeyword_1() { return cEqualsSGnKeyword_1; }
+
+		//keyword="Arbitrator"
+		public Assignment getKeywordAssignment_2() { return cKeywordAssignment_2; }
+
+		//"Arbitrator"
+		public Keyword getKeywordArbitratorKeyword_2_0() { return cKeywordArbitratorKeyword_2_0; }
+	}
+
+	public class ParticipantElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Participant");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSGnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cKeywordAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cKeywordParticipantKeyword_2_0 = (Keyword)cKeywordAssignment_2.eContents().get(0);
+		
+		//Participant:
+		//	name=ID "=" keyword="Participant";
+		public ParserRule getRule() { return rule; }
+
+		//name=ID "=" keyword="Participant"
+		public Group getGroup() { return cGroup; }
+
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+
+		//"="
+		public Keyword getEqualsSGnKeyword_1() { return cEqualsSGnKeyword_1; }
+
+		//keyword="Participant"
+		public Assignment getKeywordAssignment_2() { return cKeywordAssignment_2; }
+
+		//"Participant"
+		public Keyword getKeywordParticipantKeyword_2_0() { return cKeywordParticipantKeyword_2_0; }
+	}
+
+	public class CipherElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Cipher");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
@@ -102,7 +223,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cKeywordAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cKeywordIDTerminalRuleCall_2_0 = (RuleCall)cKeywordAssignment_2.eContents().get(0);
 		
-		//Define:
+		//Cipher:
 		//	name=ID "=" keyword=ID;
 		public ParserRule getRule() { return rule; }
 
@@ -245,12 +366,13 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSendParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cPrintParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cCallParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cExchangeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Operation:
-		//	Decrypt | Encrypt | Send | Print | Call;
+		//	Decrypt | Encrypt | Send | Print | Call | Exchange;
 		public ParserRule getRule() { return rule; }
 
-		//Decrypt | Encrypt | Send | Print | Call
+		//Decrypt | Encrypt | Send | Print | Call | Exchange
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Decrypt
@@ -267,6 +389,9 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Call
 		public RuleCall getCallParserRuleCall_4() { return cCallParserRuleCall_4; }
+
+		//Exchange
+		public RuleCall getExchangeParserRuleCall_5() { return cExchangeParserRuleCall_5; }
 	}
 
 	public class DecryptElements extends AbstractParserRuleElementFinder {
@@ -277,13 +402,14 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMessageIDTerminalRuleCall_1_0 = (RuleCall)cMessageAssignment_1.eContents().get(0);
 		private final Keyword cForKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cParticipantAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cParticipantIDTerminalRuleCall_3_0 = (RuleCall)cParticipantAssignment_3.eContents().get(0);
+		private final CrossReference cParticipantParticipantCrossReference_3_0 = (CrossReference)cParticipantAssignment_3.eContents().get(0);
+		private final RuleCall cParticipantParticipantIDTerminalRuleCall_3_0_1 = (RuleCall)cParticipantParticipantCrossReference_3_0.eContents().get(1);
 		
 		//Decrypt:
-		//	"decrypt" message=ID "for" participant=ID;
+		//	"decrypt" message=ID "for" participant=[Participant];
 		public ParserRule getRule() { return rule; }
 
-		//"decrypt" message=ID "for" participant=ID
+		//"decrypt" message=ID "for" participant=[Participant]
 		public Group getGroup() { return cGroup; }
 
 		//"decrypt"
@@ -298,11 +424,14 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		//"for"
 		public Keyword getForKeyword_2() { return cForKeyword_2; }
 
-		//participant=ID
+		//participant=[Participant]
 		public Assignment getParticipantAssignment_3() { return cParticipantAssignment_3; }
 
+		//[Participant]
+		public CrossReference getParticipantParticipantCrossReference_3_0() { return cParticipantParticipantCrossReference_3_0; }
+
 		//ID
-		public RuleCall getParticipantIDTerminalRuleCall_3_0() { return cParticipantIDTerminalRuleCall_3_0; }
+		public RuleCall getParticipantParticipantIDTerminalRuleCall_3_0_1() { return cParticipantParticipantIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class EncryptElements extends AbstractParserRuleElementFinder {
@@ -313,13 +442,14 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMessageIDTerminalRuleCall_1_0 = (RuleCall)cMessageAssignment_1.eContents().get(0);
 		private final Keyword cForKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cParticipantAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cParticipantIDTerminalRuleCall_3_0 = (RuleCall)cParticipantAssignment_3.eContents().get(0);
+		private final CrossReference cParticipantParticipantCrossReference_3_0 = (CrossReference)cParticipantAssignment_3.eContents().get(0);
+		private final RuleCall cParticipantParticipantIDTerminalRuleCall_3_0_1 = (RuleCall)cParticipantParticipantCrossReference_3_0.eContents().get(1);
 		
 		//Encrypt:
-		//	"encrypt" message=ID "for" participant=ID;
+		//	"encrypt" message=ID "for" participant=[Participant];
 		public ParserRule getRule() { return rule; }
 
-		//"encrypt" message=ID "for" participant=ID
+		//"encrypt" message=ID "for" participant=[Participant]
 		public Group getGroup() { return cGroup; }
 
 		//"encrypt"
@@ -334,11 +464,14 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		//"for"
 		public Keyword getForKeyword_2() { return cForKeyword_2; }
 
-		//participant=ID
+		//participant=[Participant]
 		public Assignment getParticipantAssignment_3() { return cParticipantAssignment_3; }
 
+		//[Participant]
+		public CrossReference getParticipantParticipantCrossReference_3_0() { return cParticipantParticipantCrossReference_3_0; }
+
 		//ID
-		public RuleCall getParticipantIDTerminalRuleCall_3_0() { return cParticipantIDTerminalRuleCall_3_0; }
+		public RuleCall getParticipantParticipantIDTerminalRuleCall_3_0_1() { return cParticipantParticipantIDTerminalRuleCall_3_0_1; }
 	}
 
 	public class SendElements extends AbstractParserRuleElementFinder {
@@ -348,16 +481,18 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMessageIDTerminalRuleCall_0_0 = (RuleCall)cMessageAssignment_0.eContents().get(0);
 		private final Keyword cColonColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cSourceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSourceIDTerminalRuleCall_2_0 = (RuleCall)cSourceAssignment_2.eContents().get(0);
+		private final CrossReference cSourceEventSourceCrossReference_2_0 = (CrossReference)cSourceAssignment_2.eContents().get(0);
+		private final RuleCall cSourceEventSourceIDTerminalRuleCall_2_0_1 = (RuleCall)cSourceEventSourceCrossReference_2_0.eContents().get(1);
 		private final Keyword cHyphenMNusGreaterThanSGnKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cDestinationAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDestinationIDTerminalRuleCall_4_0 = (RuleCall)cDestinationAssignment_4.eContents().get(0);
+		private final CrossReference cDestinationEventSourceCrossReference_4_0 = (CrossReference)cDestinationAssignment_4.eContents().get(0);
+		private final RuleCall cDestinationEventSourceIDTerminalRuleCall_4_0_1 = (RuleCall)cDestinationEventSourceCrossReference_4_0.eContents().get(1);
 		
 		//Send:
-		//	message=ID "::" source=ID "->" destination=ID;
+		//	message=ID "::" source=[EventSource] "->" destination=[EventSource];
 		public ParserRule getRule() { return rule; }
 
-		//message=ID "::" source=ID "->" destination=ID
+		//message=ID "::" source=[EventSource] "->" destination=[EventSource]
 		public Group getGroup() { return cGroup; }
 
 		//message=ID
@@ -369,20 +504,26 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		//"::"
 		public Keyword getColonColonKeyword_1() { return cColonColonKeyword_1; }
 
-		//source=ID
+		//source=[EventSource]
 		public Assignment getSourceAssignment_2() { return cSourceAssignment_2; }
 
+		//[EventSource]
+		public CrossReference getSourceEventSourceCrossReference_2_0() { return cSourceEventSourceCrossReference_2_0; }
+
 		//ID
-		public RuleCall getSourceIDTerminalRuleCall_2_0() { return cSourceIDTerminalRuleCall_2_0; }
+		public RuleCall getSourceEventSourceIDTerminalRuleCall_2_0_1() { return cSourceEventSourceIDTerminalRuleCall_2_0_1; }
 
 		//"->"
 		public Keyword getHyphenMNusGreaterThanSGnKeyword_3() { return cHyphenMNusGreaterThanSGnKeyword_3; }
 
-		//destination=ID
+		//destination=[EventSource]
 		public Assignment getDestinationAssignment_4() { return cDestinationAssignment_4; }
 
+		//[EventSource]
+		public CrossReference getDestinationEventSourceCrossReference_4_0() { return cDestinationEventSourceCrossReference_4_0; }
+
 		//ID
-		public RuleCall getDestinationIDTerminalRuleCall_4_0() { return cDestinationIDTerminalRuleCall_4_0; }
+		public RuleCall getDestinationEventSourceIDTerminalRuleCall_4_0_1() { return cDestinationEventSourceIDTerminalRuleCall_4_0_1; }
 	}
 
 	public class PrintElements extends AbstractParserRuleElementFinder {
@@ -414,23 +555,67 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCALLKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cTransactionNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTransactionNameIDTerminalRuleCall_1_0 = (RuleCall)cTransactionNameAssignment_1.eContents().get(0);
+		private final CrossReference cTransactionNameTransactionCrossReference_1_0 = (CrossReference)cTransactionNameAssignment_1.eContents().get(0);
+		private final RuleCall cTransactionNameTransactionIDTerminalRuleCall_1_0_1 = (RuleCall)cTransactionNameTransactionCrossReference_1_0.eContents().get(1);
 		
 		//Call:
-		//	"CALL" transactionName=ID;
+		//	"CALL" transactionName=[Transaction];
 		public ParserRule getRule() { return rule; }
 
-		//"CALL" transactionName=ID
+		//"CALL" transactionName=[Transaction]
 		public Group getGroup() { return cGroup; }
 
 		//"CALL"
 		public Keyword getCALLKeyword_0() { return cCALLKeyword_0; }
 
-		//transactionName=ID
+		//transactionName=[Transaction]
 		public Assignment getTransactionNameAssignment_1() { return cTransactionNameAssignment_1; }
 
+		//[Transaction]
+		public CrossReference getTransactionNameTransactionCrossReference_1_0() { return cTransactionNameTransactionCrossReference_1_0; }
+
 		//ID
-		public RuleCall getTransactionNameIDTerminalRuleCall_1_0() { return cTransactionNameIDTerminalRuleCall_1_0; }
+		public RuleCall getTransactionNameTransactionIDTerminalRuleCall_1_0_1() { return cTransactionNameTransactionIDTerminalRuleCall_1_0_1; }
+	}
+
+	public class ExchangeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Exchange");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSourceEventSourceCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
+		private final RuleCall cSourceEventSourceIDTerminalRuleCall_0_0_1 = (RuleCall)cSourceEventSourceCrossReference_0_0.eContents().get(1);
+		private final Keyword cExchangeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDestinationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cDestinationEventSourceCrossReference_2_0 = (CrossReference)cDestinationAssignment_2.eContents().get(0);
+		private final RuleCall cDestinationEventSourceIDTerminalRuleCall_2_0_1 = (RuleCall)cDestinationEventSourceCrossReference_2_0.eContents().get(1);
+		
+		//Exchange:
+		//	source=[EventSource] "exchange" destination=[EventSource];
+		public ParserRule getRule() { return rule; }
+
+		//source=[EventSource] "exchange" destination=[EventSource]
+		public Group getGroup() { return cGroup; }
+
+		//source=[EventSource]
+		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
+
+		//[EventSource]
+		public CrossReference getSourceEventSourceCrossReference_0_0() { return cSourceEventSourceCrossReference_0_0; }
+
+		//ID
+		public RuleCall getSourceEventSourceIDTerminalRuleCall_0_0_1() { return cSourceEventSourceIDTerminalRuleCall_0_0_1; }
+
+		//"exchange"
+		public Keyword getExchangeKeyword_1() { return cExchangeKeyword_1; }
+
+		//destination=[EventSource]
+		public Assignment getDestinationAssignment_2() { return cDestinationAssignment_2; }
+
+		//[EventSource]
+		public CrossReference getDestinationEventSourceCrossReference_2_0() { return cDestinationEventSourceCrossReference_2_0; }
+
+		//ID
+		public RuleCall getDestinationEventSourceIDTerminalRuleCall_2_0_1() { return cDestinationEventSourceIDTerminalRuleCall_2_0_1; }
 	}
 
 	public class StatesElements extends AbstractParserRuleElementFinder {
@@ -558,12 +743,13 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cGetEventParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cIsSendEventParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cInitParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Event:
-		//	GetEvent | IsSendEvent;
+		//	GetEvent | IsSendEvent | Init;
 		public ParserRule getRule() { return rule; }
 
-		//GetEvent | IsSendEvent
+		//GetEvent | IsSendEvent | Init
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//GetEvent
@@ -571,62 +757,85 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 
 		//IsSendEvent
 		public RuleCall getIsSendEventParserRuleCall_1() { return cIsSendEventParserRuleCall_1; }
+
+		//Init
+		public RuleCall getInitParserRuleCall_2() { return cInitParserRuleCall_2; }
 	}
 
 	public class GetEventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GetEvent");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cWhoAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cWhoIDTerminalRuleCall_0_0 = (RuleCall)cWhoAssignment_0.eContents().get(0);
+		private final CrossReference cWhoDefineCrossReference_0_0 = (CrossReference)cWhoAssignment_0.eContents().get(0);
+		private final RuleCall cWhoDefineIDTerminalRuleCall_0_0_1 = (RuleCall)cWhoDefineCrossReference_0_0.eContents().get(1);
 		private final Keyword cGETKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cKeywordAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cKeywordIDTerminalRuleCall_2_0 = (RuleCall)cKeywordAssignment_2.eContents().get(0);
+		private final Assignment cMessageAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMessageIDTerminalRuleCall_2_0 = (RuleCall)cMessageAssignment_2.eContents().get(0);
 		
 		//GetEvent:
-		//	who=ID "GET" keyword=ID;
+		//	who=[Define] "GET" message=ID;
 		public ParserRule getRule() { return rule; }
 
-		//who=ID "GET" keyword=ID
+		//who=[Define] "GET" message=ID
 		public Group getGroup() { return cGroup; }
 
-		//who=ID
+		//who=[Define]
 		public Assignment getWhoAssignment_0() { return cWhoAssignment_0; }
 
+		//[Define]
+		public CrossReference getWhoDefineCrossReference_0_0() { return cWhoDefineCrossReference_0_0; }
+
 		//ID
-		public RuleCall getWhoIDTerminalRuleCall_0_0() { return cWhoIDTerminalRuleCall_0_0; }
+		public RuleCall getWhoDefineIDTerminalRuleCall_0_0_1() { return cWhoDefineIDTerminalRuleCall_0_0_1; }
 
 		//"GET"
 		public Keyword getGETKeyword_1() { return cGETKeyword_1; }
 
-		//keyword=ID
-		public Assignment getKeywordAssignment_2() { return cKeywordAssignment_2; }
+		//message=ID
+		public Assignment getMessageAssignment_2() { return cMessageAssignment_2; }
 
 		//ID
-		public RuleCall getKeywordIDTerminalRuleCall_2_0() { return cKeywordIDTerminalRuleCall_2_0; }
+		public RuleCall getMessageIDTerminalRuleCall_2_0() { return cMessageIDTerminalRuleCall_2_0; }
 	}
 
 	public class IsSendEventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IsSendEvent");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cKeywordAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cKeywordIDTerminalRuleCall_0_0 = (RuleCall)cKeywordAssignment_0.eContents().get(0);
+		private final Assignment cMessageAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cMessageIDTerminalRuleCall_0_0 = (RuleCall)cMessageAssignment_0.eContents().get(0);
 		private final Keyword cIS_SENDKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//IsSendEvent:
-		//	keyword=ID "IS_SEND";
+		//	message=ID "IS_SEND";
 		public ParserRule getRule() { return rule; }
 
-		//keyword=ID "IS_SEND"
+		//message=ID "IS_SEND"
 		public Group getGroup() { return cGroup; }
 
-		//keyword=ID
-		public Assignment getKeywordAssignment_0() { return cKeywordAssignment_0; }
+		//message=ID
+		public Assignment getMessageAssignment_0() { return cMessageAssignment_0; }
 
 		//ID
-		public RuleCall getKeywordIDTerminalRuleCall_0_0() { return cKeywordIDTerminalRuleCall_0_0; }
+		public RuleCall getMessageIDTerminalRuleCall_0_0() { return cMessageIDTerminalRuleCall_0_0; }
 
 		//"IS_SEND"
 		public Keyword getIS_SENDKeyword_1() { return cIS_SENDKeyword_1; }
+	}
+
+	public class InitElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Init");
+		private final Assignment cKeywordAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cKeywordINITKeyword_0 = (Keyword)cKeywordAssignment.eContents().get(0);
+		
+		//Init:
+		//	keyword="INIT";
+		public ParserRule getRule() { return rule; }
+
+		//keyword="INIT"
+		public Assignment getKeywordAssignment() { return cKeywordAssignment; }
+
+		//"INIT"
+		public Keyword getKeywordINITKeyword_0() { return cKeywordINITKeyword_0; }
 	}
 
 	public class CaseElements extends AbstractParserRuleElementFinder {
@@ -659,88 +868,116 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class AlwaysElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Always");
-		private final Keyword cAlwaysKeyword = (Keyword)rule.eContents().get(1);
+		private final Assignment cKeywordAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cKeywordAlwaysKeyword_0 = (Keyword)cKeywordAssignment.eContents().get(0);
 		
-		//Always returns ecore::EString:
-		//	"always";
+		//Always:
+		//	keyword="always";
 		public ParserRule getRule() { return rule; }
 
+		//keyword="always"
+		public Assignment getKeywordAssignment() { return cKeywordAssignment; }
+
 		//"always"
-		public Keyword getAlwaysKeyword() { return cAlwaysKeyword; }
+		public Keyword getKeywordAlwaysKeyword_0() { return cKeywordAlwaysKeyword_0; }
 	}
 
 	public class OtherwiseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Otherwise");
-		private final Keyword cOtherwiseKeyword = (Keyword)rule.eContents().get(1);
+		private final Assignment cKeywordAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cKeywordOtherwiseKeyword_0 = (Keyword)cKeywordAssignment.eContents().get(0);
 		
-		//Otherwise returns ecore::EString:
-		//	"otherwise";
+		//Otherwise:
+		//	keyword="otherwise";
 		public ParserRule getRule() { return rule; }
 
+		//keyword="otherwise"
+		public Assignment getKeywordAssignment() { return cKeywordAssignment; }
+
 		//"otherwise"
-		public Keyword getOtherwiseKeyword() { return cOtherwiseKeyword; }
+		public Keyword getKeywordOtherwiseKeyword_0() { return cKeywordOtherwiseKeyword_0; }
 	}
 
 	public class SourceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Source");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSourceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeywordAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeywordSourceKeyword_0_0 = (Keyword)cKeywordAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSGnKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDefineNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDefineNameIDTerminalRuleCall_2_0 = (RuleCall)cDefineNameAssignment_2.eContents().get(0);
+		private final Assignment cEventSourceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cEventSourceEventSourceCrossReference_2_0 = (CrossReference)cEventSourceAssignment_2.eContents().get(0);
+		private final RuleCall cEventSourceEventSourceIDTerminalRuleCall_2_0_1 = (RuleCall)cEventSourceEventSourceCrossReference_2_0.eContents().get(1);
 		
 		//Source:
-		//	"source" "=" defineName=ID;
+		//	keyword="source" "=" eventSource=[EventSource];
 		public ParserRule getRule() { return rule; }
 
-		//"source" "=" defineName=ID
+		//keyword="source" "=" eventSource=[EventSource]
 		public Group getGroup() { return cGroup; }
 
+		//keyword="source"
+		public Assignment getKeywordAssignment_0() { return cKeywordAssignment_0; }
+
 		//"source"
-		public Keyword getSourceKeyword_0() { return cSourceKeyword_0; }
+		public Keyword getKeywordSourceKeyword_0_0() { return cKeywordSourceKeyword_0_0; }
 
 		//"="
 		public Keyword getEqualsSGnKeyword_1() { return cEqualsSGnKeyword_1; }
 
-		//defineName=ID
-		public Assignment getDefineNameAssignment_2() { return cDefineNameAssignment_2; }
+		//eventSource=[EventSource]
+		public Assignment getEventSourceAssignment_2() { return cEventSourceAssignment_2; }
+
+		//[EventSource]
+		public CrossReference getEventSourceEventSourceCrossReference_2_0() { return cEventSourceEventSourceCrossReference_2_0; }
 
 		//ID
-		public RuleCall getDefineNameIDTerminalRuleCall_2_0() { return cDefineNameIDTerminalRuleCall_2_0; }
+		public RuleCall getEventSourceEventSourceIDTerminalRuleCall_2_0_1() { return cEventSourceEventSourceIDTerminalRuleCall_2_0_1; }
 	}
 
 	public class FromElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "From");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFromKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeywordAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cKeywordFromKeyword_0_0 = (Keyword)cKeywordAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSGnKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cDefineNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDefineNameIDTerminalRuleCall_2_0 = (RuleCall)cDefineNameAssignment_2.eContents().get(0);
+		private final Assignment cEventSourceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cEventSourceEventSourceCrossReference_2_0 = (CrossReference)cEventSourceAssignment_2.eContents().get(0);
+		private final RuleCall cEventSourceEventSourceIDTerminalRuleCall_2_0_1 = (RuleCall)cEventSourceEventSourceCrossReference_2_0.eContents().get(1);
 		
 		//From:
-		//	"from" "=" defineName=ID;
+		//	keyword="from" "=" eventSource=[EventSource];
 		public ParserRule getRule() { return rule; }
 
-		//"from" "=" defineName=ID
+		//keyword="from" "=" eventSource=[EventSource]
 		public Group getGroup() { return cGroup; }
 
+		//keyword="from"
+		public Assignment getKeywordAssignment_0() { return cKeywordAssignment_0; }
+
 		//"from"
-		public Keyword getFromKeyword_0() { return cFromKeyword_0; }
+		public Keyword getKeywordFromKeyword_0_0() { return cKeywordFromKeyword_0_0; }
 
 		//"="
 		public Keyword getEqualsSGnKeyword_1() { return cEqualsSGnKeyword_1; }
 
-		//defineName=ID
-		public Assignment getDefineNameAssignment_2() { return cDefineNameAssignment_2; }
+		//eventSource=[EventSource]
+		public Assignment getEventSourceAssignment_2() { return cEventSourceAssignment_2; }
+
+		//[EventSource]
+		public CrossReference getEventSourceEventSourceCrossReference_2_0() { return cEventSourceEventSourceCrossReference_2_0; }
 
 		//ID
-		public RuleCall getDefineNameIDTerminalRuleCall_2_0() { return cDefineNameIDTerminalRuleCall_2_0; }
+		public RuleCall getEventSourceEventSourceIDTerminalRuleCall_2_0_1() { return cEventSourceEventSourceIDTerminalRuleCall_2_0_1; }
 	}
 	
 	
 	private PDLFileElements pPDLFile;
 	private DefinitionsElements pDefinitions;
 	private DefineElements pDefine;
+	private EventSourceElements pEventSource;
+	private ArbitratorElements pArbitrator;
+	private ParticipantElements pParticipant;
+	private CipherElements pCipher;
 	private TransactionsElements pTransactions;
 	private TransactionElements pTransaction;
 	private ArgumentElements pArgument;
@@ -750,12 +987,14 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	private SendElements pSend;
 	private PrintElements pPrint;
 	private CallElements pCall;
+	private ExchangeElements pExchange;
 	private StatesElements pStates;
 	private StateElements pState;
 	private GuardElements pGuard;
 	private EventElements pEvent;
 	private GetEventElements pGetEvent;
 	private IsSendEventElements pIsSendEvent;
+	private InitElements pInit;
 	private CaseElements pCase;
 	private AlwaysElements pAlways;
 	private OtherwiseElements pOtherwise;
@@ -784,7 +1023,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//PDLFile:
-	//	"pdlfile" name=ID definition=Definitions transaction=Transactions state=States;
+	//	"[" name=ID "]" definition=Definitions transaction=Transactions state=States "[END]";
 	public PDLFileElements getPDLFileAccess() {
 		return (pPDLFile != null) ? pPDLFile : (pPDLFile = new PDLFileElements());
 	}
@@ -794,7 +1033,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Definitions:
-	//	"[DEFINITIONS]" definitions+=Define* "[END]";
+	//	"[DEFINITIONS]" sources+=EventSource* cipher=Cipher "[END]";
 	public DefinitionsElements getDefinitionsAccess() {
 		return (pDefinitions != null) ? pDefinitions : (pDefinitions = new DefinitionsElements());
 	}
@@ -803,14 +1042,55 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		return getDefinitionsAccess().getRule();
 	}
 
+	//// Works Like Interface
 	//Define:
-	//	name=ID "=" keyword=ID;
+	//	EventSource | Cipher;
 	public DefineElements getDefineAccess() {
 		return (pDefine != null) ? pDefine : (pDefine = new DefineElements());
 	}
 	
 	public ParserRule getDefineRule() {
 		return getDefineAccess().getRule();
+	}
+
+	//EventSource:
+	//	Arbitrator | Participant;
+	public EventSourceElements getEventSourceAccess() {
+		return (pEventSource != null) ? pEventSource : (pEventSource = new EventSourceElements());
+	}
+	
+	public ParserRule getEventSourceRule() {
+		return getEventSourceAccess().getRule();
+	}
+
+	//Arbitrator:
+	//	name=ID "=" keyword="Arbitrator";
+	public ArbitratorElements getArbitratorAccess() {
+		return (pArbitrator != null) ? pArbitrator : (pArbitrator = new ArbitratorElements());
+	}
+	
+	public ParserRule getArbitratorRule() {
+		return getArbitratorAccess().getRule();
+	}
+
+	//Participant:
+	//	name=ID "=" keyword="Participant";
+	public ParticipantElements getParticipantAccess() {
+		return (pParticipant != null) ? pParticipant : (pParticipant = new ParticipantElements());
+	}
+	
+	public ParserRule getParticipantRule() {
+		return getParticipantAccess().getRule();
+	}
+
+	//Cipher:
+	//	name=ID "=" keyword=ID;
+	public CipherElements getCipherAccess() {
+		return (pCipher != null) ? pCipher : (pCipher = new CipherElements());
+	}
+	
+	public ParserRule getCipherRule() {
+		return getCipherAccess().getRule();
 	}
 
 	//Transactions:
@@ -844,7 +1124,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Operation:
-	//	Decrypt | Encrypt | Send | Print | Call;
+	//	Decrypt | Encrypt | Send | Print | Call | Exchange;
 	public OperationElements getOperationAccess() {
 		return (pOperation != null) ? pOperation : (pOperation = new OperationElements());
 	}
@@ -854,7 +1134,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Decrypt:
-	//	"decrypt" message=ID "for" participant=ID;
+	//	"decrypt" message=ID "for" participant=[Participant];
 	public DecryptElements getDecryptAccess() {
 		return (pDecrypt != null) ? pDecrypt : (pDecrypt = new DecryptElements());
 	}
@@ -864,7 +1144,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Encrypt:
-	//	"encrypt" message=ID "for" participant=ID;
+	//	"encrypt" message=ID "for" participant=[Participant];
 	public EncryptElements getEncryptAccess() {
 		return (pEncrypt != null) ? pEncrypt : (pEncrypt = new EncryptElements());
 	}
@@ -874,7 +1154,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Send:
-	//	message=ID "::" source=ID "->" destination=ID;
+	//	message=ID "::" source=[EventSource] "->" destination=[EventSource];
 	public SendElements getSendAccess() {
 		return (pSend != null) ? pSend : (pSend = new SendElements());
 	}
@@ -894,13 +1174,23 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Call:
-	//	"CALL" transactionName=ID;
+	//	"CALL" transactionName=[Transaction];
 	public CallElements getCallAccess() {
 		return (pCall != null) ? pCall : (pCall = new CallElements());
 	}
 	
 	public ParserRule getCallRule() {
 		return getCallAccess().getRule();
+	}
+
+	//Exchange:
+	//	source=[EventSource] "exchange" destination=[EventSource];
+	public ExchangeElements getExchangeAccess() {
+		return (pExchange != null) ? pExchange : (pExchange = new ExchangeElements());
+	}
+	
+	public ParserRule getExchangeRule() {
+		return getExchangeAccess().getRule();
 	}
 
 	//States:
@@ -934,7 +1224,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Event:
-	//	GetEvent | IsSendEvent;
+	//	GetEvent | IsSendEvent | Init;
 	public EventElements getEventAccess() {
 		return (pEvent != null) ? pEvent : (pEvent = new EventElements());
 	}
@@ -944,7 +1234,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//GetEvent:
-	//	who=ID "GET" keyword=ID;
+	//	who=[Define] "GET" message=ID;
 	public GetEventElements getGetEventAccess() {
 		return (pGetEvent != null) ? pGetEvent : (pGetEvent = new GetEventElements());
 	}
@@ -954,13 +1244,23 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IsSendEvent:
-	//	keyword=ID "IS_SEND";
+	//	message=ID "IS_SEND";
 	public IsSendEventElements getIsSendEventAccess() {
 		return (pIsSendEvent != null) ? pIsSendEvent : (pIsSendEvent = new IsSendEventElements());
 	}
 	
 	public ParserRule getIsSendEventRule() {
 		return getIsSendEventAccess().getRule();
+	}
+
+	//Init:
+	//	keyword="INIT";
+	public InitElements getInitAccess() {
+		return (pInit != null) ? pInit : (pInit = new InitElements());
+	}
+	
+	public ParserRule getInitRule() {
+		return getInitAccess().getRule();
 	}
 
 	//Case:
@@ -973,8 +1273,8 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		return getCaseAccess().getRule();
 	}
 
-	//Always returns ecore::EString:
-	//	"always";
+	//Always:
+	//	keyword="always";
 	public AlwaysElements getAlwaysAccess() {
 		return (pAlways != null) ? pAlways : (pAlways = new AlwaysElements());
 	}
@@ -983,8 +1283,8 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 		return getAlwaysAccess().getRule();
 	}
 
-	//Otherwise returns ecore::EString:
-	//	"otherwise";
+	//Otherwise:
+	//	keyword="otherwise";
 	public OtherwiseElements getOtherwiseAccess() {
 		return (pOtherwise != null) ? pOtherwise : (pOtherwise = new OtherwiseElements());
 	}
@@ -994,7 +1294,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Source:
-	//	"source" "=" defineName=ID;
+	//	keyword="source" "=" eventSource=[EventSource];
 	public SourceElements getSourceAccess() {
 		return (pSource != null) ? pSource : (pSource = new SourceElements());
 	}
@@ -1004,7 +1304,7 @@ public class ProtocolGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//From:
-	//	"from" "=" defineName=ID;
+	//	keyword="from" "=" eventSource=[EventSource];
 	public FromElements getFromAccess() {
 		return (pFrom != null) ? pFrom : (pFrom = new FromElements());
 	}

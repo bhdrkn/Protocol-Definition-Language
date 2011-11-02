@@ -2,7 +2,7 @@
 package com.generated.java.source;
 
 import protocol.cipher.BaseCipher;
-import example.message.Message;
+import example.protocol.message.Message;
 import source.Participant;
 
 public class Bob<Cipher extends BaseCipher> extends Participant<Message, Cipher>{

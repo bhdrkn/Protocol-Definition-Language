@@ -26,26 +26,25 @@
 
 «REM»Classes from definitions are generating below here«ENDREM»
 «DEFINE definitionsPath FOR Definitions»
-    «EXPAND defines FOREACH this.definitions »
+    «EXPAND defines FOREACH this.sources »
+    e«EXPAND generateAsyncronusCipherJava FOR this.cipher»
     «REM»An Enum Class for Message.java is generating. But Message.java has not yet generated«ENDREM»
     «FILE  "com/generated/java/source/message/MyMessageSource.java"»
 package com.generated.java.source.message;
     
 public enum MyMessageSource{
-    «EXPAND generateMessageSource FOREACH this.definitions »
+    «EXPAND generateMessageSource FOREACH this.sources »
     None   
 }
     «ENDFILE »
 «ENDDEFINE»
 
 «REM»MyChipher, Alice, Bob and Trent like class'es are generating«ENDREM»
-«DEFINE defines FOR Define»
+«DEFINE defines FOR EventSource»
     «IF this.keyword.compareTo("Participant") == 0»
         «EXPAND generateParticipantJava FOR this»
     «ELSEIF this.keyword.compareTo("Arbitrator") == 0»
         «EXPAND generateArbitratorJava FOR this»
-    «ELSEIF this.keyword.compareTo("AsynchronousCipher") == 0»
-        «EXPAND generateAsyncronusCipherJava FOR this»
     «ENDIF»
 «ENDDEFINE»
 
@@ -55,7 +54,7 @@ public enum MyMessageSource{
 package com.generated.java.source;
 
 import protocol.cipher.BaseCipher;
-import example.message.Message;
+import example.protocol.message.Message;
 import source.Participant;
 
 public class «this.name»<Cipher extends BaseCipher> extends «this.keyword»<Message, Cipher>{
@@ -82,7 +81,7 @@ package com.generated.java.source;
 import java.util.Hashtable;
 
 import protocol.cipher.BaseCipher;
-import example.message.Message;
+import example.protocol.message.Message;
 import source.Arbitrator;
 
 public class «this.name»<Cipher extends BaseCipher> extends
@@ -110,7 +109,7 @@ public class «this.name»<Cipher extends BaseCipher> extends
 «ENDDEFINE»
 
 «REM»MyCipher like classes are generating below«ENDREM»
-«DEFINE generateAsyncronusCipherJava FOR Define»
+«DEFINE generateAsyncronusCipherJava FOR Cipher»
     «FILE "com/generated/java/source/cipher/"+this.name+".java"»
 package com.generated.java.source.cipher;
 
@@ -126,8 +125,8 @@ public class «this.name» extends «this.keyword»{
     «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE generateMessageSource FOR Define»
-    «IF this.keyword.compareTo("AsynchronousCipher") != 0»«this.name»,«ENDIF»
+«DEFINE generateMessageSource FOR EventSource»
+    «this.name»,
 «ENDDEFINE»
 
 «REM»The Main Part is Starting here. MyBigProtocol.java building by using both Transactions and States.«ENDREM»
@@ -142,16 +141,19 @@ import java.util.Observer;
 
 import protocol.cipher.BaseCipher;
 
-import example.message.Message;
+import example.protocol.message.Message;
 
 public class «this.name»<Cipher extends BaseCipher> implements Observer{
     
     «REM»MyBigProtocol.java class has attributes which are deifned in Definition area«ENDREM»
-    «EXPAND buildProtocolAttributes FOREACH this.definition.definitions»
+    «EXPAND buildProtocolAttributes FOREACH this.definition.sources»
     
     «REM»So does Constructors are binded to Definition area because of attributes«ENDREM»
     «EXPAND buildProtocolConstructor(this.name) FOR this.definition»
     
+    public void init(){
+    «EXPAND buildInitMethod FOREACH this.state.states»
+    }
     «REM»We need an update method in order to implement Observer interface«ENDREM»    
     @Override
     public void update(Observable o, Object arg) {
@@ -167,19 +169,21 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
     «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE buildProtocolAttributes FOR Define»
-    «IF this.keyword.compareTo("Participant") == 0 || this.keyword.compareTo("Arbitrator") == 0»
+«REM»Building Protocol Attributes«ENDREM»
+«DEFINE buildProtocolAttributes FOR EventSource»
         private «this.name»<Cipher> «this.name.toLowerCase()» = null;
-    «ENDIF»
 «ENDDEFINE»
 
+«REM»Building Protocol Constructor.. First Constructor Argumants THEN assign args to attrb«ENDREM»
 «DEFINE buildProtocolConstructor(String name) FOR Definitions»
-    public «name» («EXPAND buildConstructorParameters FOREACH  this.definitions»){
-        «EXPAND assingnParametersToAttributes FOREACH this.definitions»
+    public «name» («EXPAND buildConstructorParameters FOREACH  this.sources»){
+        «EXPAND assingnParametersToAttributes FOREACH this.sources»
+        init();
     }
 «ENDDEFINE»
 
-«DEFINE buildConstructorParameters FOR Define»
+«REM»Protocol Constructor Argumants«ENDREM»
+«DEFINE buildConstructorParameters FOR EventSource»
     «IF this.keyword.compareTo("Participant") == 0»
         «this.name» «this.name.toLowerCase()»,
     «ELSEIF this.keyword.compareTo("Arbitrator") == 0»
@@ -187,16 +191,16 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
     «ENDIF»
 «ENDDEFINE»
 
-«DEFINE assingnParametersToAttributes FOR Define»
-    «IF this.keyword.compareTo("Participant") == 0 || this.keyword.compareTo("Arbitrator") == 0»
+«REM»Assigning Constructor Args to Attrb«ENDREM»
+«DEFINE assingnParametersToAttributes FOR EventSource»
         this.«this.name.toLowerCase()» = «this.name.toLowerCase()»;
-        this.«this.name.toLowerCase()».addObserver(this);
-    «ENDIF»
+        this.«this.name.toLowerCase()».addObserver(this);    
 «ENDDEFINE»
 
+«REM»Building Private Methods for Protocol with using Transactions«ENDREM»
 «DEFINE buildPrivateMethodsFromTransactions FOR Transaction»
     private void «this.name» («EXPAND buildMethodArguments(this.arguments) FOREACH this.arguments»){
-        «EXPAND buildMethodOperation(this.arguments.get(0)) FOREACH  this.operations»
+        «EXPAND buildMethodOperation FOREACH this.operations»
     }
 «ENDDEFINE»
 
@@ -208,78 +212,99 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
     «ENDIF»
 «ENDDEFINE»
 
-«DEFINE buildMethodOperation(Argument arg) FOR Operation»
-    «IF Decrypt.isInstance(this)»
-        «EXPAND decryptOperation(arg) FOR ((Decrypt)this)»
-    «ELSEIF Encrypt.isInstance(this)»
-        «EXPAND encryptOperation(arg) FOR ((Encrypt)this)»
-    «ELSEIF Send.isInstance(this)»
-        «EXPAND sendOperation(arg) FOR ((Send)this)»
-    «ELSEIF Print.isInstance(this)»
-        «EXPAND printOperation(arg) FOR ((Print)this)»
-    «ELSEIF Call.isInstance(this)»
-        «EXPAND callOperation(arg) FOR ((Call)this)»
+«REM»Building INIT method using InýtState«ENDREM»
+«DEFINE buildInitMethod FOR State»
+    «IF Init.isInstance(this.event)»
+        «EXPAND buildGuards FOREACH this.guards»
     «ENDIF»
 «ENDDEFINE»
 
-«DEFINE decryptOperation(Argument arg) FOR Decrypt»
-try{
-    byte[] cryptedMessage = «arg.name».getMessage();
-    byte[] realMsg = «this.participant.toLowerCase()».getCipher().decrypt(cryptedMessage);
-    «arg.name».setMessage(realMsg);
-   } catch(Exception e){
-    e.printStackTrace();
-   }
-«ENDDEFINE»
-
-«DEFINE encryptOperation(Argument arg) FOR Encrypt»
-try{
-    byte[] realMsg = «arg.name».getMessage();
-    byte[] cryptedMessage = «this.participant.toLowerCase()».getCipher().encrypt(realMsg);
-    «arg.name».setMessage(cryptedMessage);
-    }catch(Exception e){
-    e.printStackTrace();
-    }
-«ENDDEFINE»
-
-«DEFINE sendOperation(Argument arg) FOR Send»
-    «arg.name».setFrom(«this.source.toLowerCase()».getClass().getSimpleName());
-    «arg.name».setTo(«this.destination.toLowerCase()».getClass().getSimpleName());
-    «this.source.toLowerCase()».sendMessage(«arg.name»);
-«ENDDEFINE»
-
-«DEFINE printOperation(Argument arg) FOR Print»
-    System.out.println(«arg.name».toString());
-«ENDDEFINE»
-
-«DEFINE callOperation(Argument arg) FOR Call»
-    «this.transactionName»(arg);
-«ENDDEFINE»
-
+«REM»Building Protocols updateMethod Using States And Events Except INIT state«ENDREM»
 «DEFINE buildUpdateMethod FOR State»
     «IF GetEvent.isInstance(this.event)»
-        if( o instanceof «((GetEvent)this.event).who» ){
+        if( o instanceof «((GetEvent)this.event).who.name» ){
         «EXPAND buildGuards FOREACH this.guards»
     }
     «ENDIF»
 «ENDDEFINE»
 
-«DEFINE buildGuards FOR Guard»
-    «IF this.casem != null»
-    if( «EXPAND buildCase FOR this.casem»){
-        // Expand to Operation what about arg....
-     }
-     «ELSE»
-     // Expand to Operation what about arg....
+«REM»BUILDING OPERATIONS ... REFERENCE TO ALL OPERATIONS«ENDREM»
+«DEFINE buildMethodOperation FOR Operation»
+    «IF Decrypt.isInstance(this)»
+        «EXPAND decryptOperation FOR ((Decrypt)this)»
+    «ELSEIF Encrypt.isInstance(this)»
+        «EXPAND encryptOperation FOR ((Encrypt)this)»
+    «ELSEIF Send.isInstance(this)»
+        «EXPAND sendOperation FOR ((Send)this)»
+    «ELSEIF Print.isInstance(this)»
+        «EXPAND printOperation FOR ((Print)this)»
+    «ELSEIF Call.isInstance(this)»
+        «EXPAND callOperation FOR ((Call)this)»
+    «ELSEIF Exchange.isInstance(this)»
+        «EXPAND exchangeOperation FOR ((Exchange)this)»
     «ENDIF»
 «ENDDEFINE»
 
+«DEFINE decryptOperation FOR Decrypt»
+// DECRYPT
+try{
+    byte[] cryptedMessage = «this.message».getMessage();
+    byte[] realMsg = «this.participant.name.toLowerCase()».getCipher().decrypt(cryptedMessage);
+    «this.message».setMessage(realMsg);
+   } catch(Exception e){
+    e.printStackTrace();
+   }
+«ENDDEFINE»
+
+«DEFINE encryptOperation FOR Encrypt»
+// ENCRYPT
+try{
+    byte[] realMsg = «this.message».getMessage();
+    byte[] cryptedMessage = «this.participant.name.toLowerCase()».getCipher().encrypt(realMsg);
+    «this.message».setMessage(cryptedMessage);
+    }catch(Exception e){
+    e.printStackTrace();
+    }
+«ENDDEFINE»
+
+«DEFINE sendOperation FOR Send»
+    // SEND
+    «this.message».setFrom(«this.source.name.toLowerCase()».getClass().getSimpleName());
+    «this.message».setTo(«this.destination.name.toLowerCase()».getClass().getSimpleName());
+    «this.source.name.toLowerCase()».sendMessage(«this.message»);
+«ENDDEFINE»
+
+«DEFINE printOperation FOR Print»
+    // PRINT
+    System.out.println(«this.message».toString());
+«ENDDEFINE»
+
+«DEFINE callOperation FOR Call»
+    // CALL    
+    «this.transactionName.name»(msg);
+«ENDDEFINE»
+
+«DEFINE exchangeOperation FOR Exchange»
+// exchangeOperation
+    «this.destination.name.toLowerCase()».addCipher(«this.source.name.toLowerCase()».getClass().getSimpleName(),«this.source.name.toLowerCase()».getCipher());
+«ENDDEFINE»
+
+
+«REM»GUARDS BUILDING ... REFERANCE TO ALL GUARD«ENDREM»
+«DEFINE buildGuards FOR Guard»    
+    if( «EXPAND buildCase FOR this.casem»){
+        // Expand to Operation what about arg....
+        «EXPAND buildMethodOperation FOR this.operation»
+     }
+«ENDDEFINE»
+
+«REM»OTHERWISE case not defined yet«ENDREM»
 «DEFINE buildCase FOR Case»
     «IF Source.isInstance(this)»
-       msg.getTo().compareTo("«((Source)this).defineName.toLowerCase()»") == 0
+       msg.getTo().compareTo("«((Source)this).eventSource.name.toLowerCase()»") == 0
     «ELSEIF From.isInstance(this)»
-        msg.getFrom().compareTo("«((From)this).defineName.toLowerCase()»") == 0
-    «ELSEIF 1 == 1»
+        msg.getFrom().compareTo("«((From)this).eventSource.name.toLowerCase()»") == 0
+    «ELSEIF Always.isInstance(this)»
         true
     «ENDIF»
 «ENDDEFINE»

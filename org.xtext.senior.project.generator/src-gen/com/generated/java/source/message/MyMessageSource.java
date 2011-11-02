@@ -9,8 +9,6 @@ public enum MyMessageSource{
 
     Trent,
 
-    
-
     None   
 }
     

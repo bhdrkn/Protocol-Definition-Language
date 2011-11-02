@@ -9,9 +9,11 @@ package org.xtext.senior.project.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.senior.project.protocol.Define;
 import org.xtext.senior.project.protocol.GetEvent;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 
@@ -23,6 +25,7 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.senior.project.protocol.impl.GetEventImpl#getWho <em>Who</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.impl.GetEventImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +34,34 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
 public class GetEventImpl extends EventImpl implements GetEvent
 {
   /**
-   * The default value of the '{@link #getWho() <em>Who</em>}' attribute.
+   * The cached value of the '{@link #getWho() <em>Who</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getWho()
    * @generated
    * @ordered
    */
-  protected static final String WHO_EDEFAULT = null;
+  protected Define who;
 
   /**
-   * The cached value of the '{@link #getWho() <em>Who</em>}' attribute.
+   * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWho()
+   * @see #getMessage()
    * @generated
    * @ordered
    */
-  protected String who = WHO_EDEFAULT;
+  protected static final String MESSAGE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMessage()
+   * @generated
+   * @ordered
+   */
+  protected String message = MESSAGE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,7 +89,27 @@ public class GetEventImpl extends EventImpl implements GetEvent
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getWho()
+  public Define getWho()
+  {
+    if (who != null && who.eIsProxy())
+    {
+      InternalEObject oldWho = (InternalEObject)who;
+      who = (Define)eResolveProxy(oldWho);
+      if (who != oldWho)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtocolPackage.GET_EVENT__WHO, oldWho, who));
+      }
+    }
+    return who;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Define basicGetWho()
   {
     return who;
   }
@@ -86,12 +119,35 @@ public class GetEventImpl extends EventImpl implements GetEvent
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWho(String newWho)
+  public void setWho(Define newWho)
   {
-    String oldWho = who;
+    Define oldWho = who;
     who = newWho;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.GET_EVENT__WHO, oldWho, who));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getMessage()
+  {
+    return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMessage(String newMessage)
+  {
+    String oldMessage = message;
+    message = newMessage;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.GET_EVENT__MESSAGE, oldMessage, message));
   }
 
   /**
@@ -105,7 +161,10 @@ public class GetEventImpl extends EventImpl implements GetEvent
     switch (featureID)
     {
       case ProtocolPackage.GET_EVENT__WHO:
-        return getWho();
+        if (resolve) return getWho();
+        return basicGetWho();
+      case ProtocolPackage.GET_EVENT__MESSAGE:
+        return getMessage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,7 +180,10 @@ public class GetEventImpl extends EventImpl implements GetEvent
     switch (featureID)
     {
       case ProtocolPackage.GET_EVENT__WHO:
-        setWho((String)newValue);
+        setWho((Define)newValue);
+        return;
+      case ProtocolPackage.GET_EVENT__MESSAGE:
+        setMessage((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,7 +200,10 @@ public class GetEventImpl extends EventImpl implements GetEvent
     switch (featureID)
     {
       case ProtocolPackage.GET_EVENT__WHO:
-        setWho(WHO_EDEFAULT);
+        setWho((Define)null);
+        return;
+      case ProtocolPackage.GET_EVENT__MESSAGE:
+        setMessage(MESSAGE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,7 +220,9 @@ public class GetEventImpl extends EventImpl implements GetEvent
     switch (featureID)
     {
       case ProtocolPackage.GET_EVENT__WHO:
-        return WHO_EDEFAULT == null ? who != null : !WHO_EDEFAULT.equals(who);
+        return who != null;
+      case ProtocolPackage.GET_EVENT__MESSAGE:
+        return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +238,8 @@ public class GetEventImpl extends EventImpl implements GetEvent
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (who: ");
-    result.append(who);
+    result.append(" (message: ");
+    result.append(message);
     result.append(')');
     return result.toString();
   }

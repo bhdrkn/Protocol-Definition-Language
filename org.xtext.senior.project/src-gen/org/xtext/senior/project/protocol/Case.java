@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.senior.project.protocol.Case#getDefineName <em>Define Name</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.Case#getKeyword <em>Keyword</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,29 +27,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Case extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Define Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Define Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Keyword</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Define Name</em>' attribute.
-   * @see #setDefineName(String)
-   * @see org.xtext.senior.project.protocol.ProtocolPackage#getCase_DefineName()
+   * @return the value of the '<em>Keyword</em>' attribute.
+   * @see #setKeyword(String)
+   * @see org.xtext.senior.project.protocol.ProtocolPackage#getCase_Keyword()
    * @model
    * @generated
    */
-  String getDefineName();
+  String getKeyword();
 
   /**
-   * Sets the value of the '{@link org.xtext.senior.project.protocol.Case#getDefineName <em>Define Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.senior.project.protocol.Case#getKeyword <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Define Name</em>' attribute.
-   * @see #getDefineName()
+   * @param value the new value of the '<em>Keyword</em>' attribute.
+   * @see #getKeyword()
    * @generated
    */
-  void setDefineName(String value);
+  void setKeyword(String value);
 
 } // Case

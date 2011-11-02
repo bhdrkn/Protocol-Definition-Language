@@ -54,55 +54,55 @@ public interface Send extends Operation
   void setMessage(String value);
 
   /**
-   * Returns the value of the '<em><b>Source</b></em>' attribute.
+   * Returns the value of the '<em><b>Source</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Source</em>' attribute isn't clear,
+   * If the meaning of the '<em>Source</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source</em>' attribute.
-   * @see #setSource(String)
+   * @return the value of the '<em>Source</em>' reference.
+   * @see #setSource(EventSource)
    * @see org.xtext.senior.project.protocol.ProtocolPackage#getSend_Source()
    * @model
    * @generated
    */
-  String getSource();
+  EventSource getSource();
 
   /**
-   * Sets the value of the '{@link org.xtext.senior.project.protocol.Send#getSource <em>Source</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.senior.project.protocol.Send#getSource <em>Source</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source</em>' attribute.
+   * @param value the new value of the '<em>Source</em>' reference.
    * @see #getSource()
    * @generated
    */
-  void setSource(String value);
+  void setSource(EventSource value);
 
   /**
-   * Returns the value of the '<em><b>Destination</b></em>' attribute.
+   * Returns the value of the '<em><b>Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Destination</em>' attribute isn't clear,
+   * If the meaning of the '<em>Destination</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Destination</em>' attribute.
-   * @see #setDestination(String)
+   * @return the value of the '<em>Destination</em>' reference.
+   * @see #setDestination(EventSource)
    * @see org.xtext.senior.project.protocol.ProtocolPackage#getSend_Destination()
    * @model
    * @generated
    */
-  String getDestination();
+  EventSource getDestination();
 
   /**
-   * Sets the value of the '{@link org.xtext.senior.project.protocol.Send#getDestination <em>Destination</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.senior.project.protocol.Send#getDestination <em>Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Destination</em>' attribute.
+   * @param value the new value of the '<em>Destination</em>' reference.
    * @see #getDestination()
    * @generated
    */
-  void setDestination(String value);
+  void setDestination(EventSource value);
 
 } // Send

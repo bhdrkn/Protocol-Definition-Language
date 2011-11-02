@@ -9,10 +9,12 @@ package org.xtext.senior.project.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.senior.project.protocol.Decrypt;
+import org.xtext.senior.project.protocol.Participant;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 
 /**
@@ -52,24 +54,14 @@ public class DecryptImpl extends OperationImpl implements Decrypt
   protected String message = MESSAGE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getParticipant() <em>Participant</em>}' attribute.
+   * The cached value of the '{@link #getParticipant() <em>Participant</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParticipant()
    * @generated
    * @ordered
    */
-  protected static final String PARTÝCÝPANT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getParticipant() <em>Participant</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParticipant()
-   * @generated
-   * @ordered
-   */
-  protected String participant = PARTÝCÝPANT_EDEFAULT;
+  protected Participant participant;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,7 +112,27 @@ public class DecryptImpl extends OperationImpl implements Decrypt
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getParticipant()
+  public Participant getParticipant()
+  {
+    if (participant != null && participant.eIsProxy())
+    {
+      InternalEObject oldParticipant = (InternalEObject)participant;
+      participant = (Participant)eResolveProxy(oldParticipant);
+      if (participant != oldParticipant)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtocolPackage.DECRYPT__PARTÝCÝPANT, oldParticipant, participant));
+      }
+    }
+    return participant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Participant basicGetParticipant()
   {
     return participant;
   }
@@ -130,9 +142,9 @@ public class DecryptImpl extends OperationImpl implements Decrypt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParticipant(String newParticipant)
+  public void setParticipant(Participant newParticipant)
   {
-    String oldParticipant = participant;
+    Participant oldParticipant = participant;
     participant = newParticipant;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.DECRYPT__PARTÝCÝPANT, oldParticipant, participant));
@@ -151,7 +163,8 @@ public class DecryptImpl extends OperationImpl implements Decrypt
       case ProtocolPackage.DECRYPT__MESSAGE:
         return getMessage();
       case ProtocolPackage.DECRYPT__PARTÝCÝPANT:
-        return getParticipant();
+        if (resolve) return getParticipant();
+        return basicGetParticipant();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -170,7 +183,7 @@ public class DecryptImpl extends OperationImpl implements Decrypt
         setMessage((String)newValue);
         return;
       case ProtocolPackage.DECRYPT__PARTÝCÝPANT:
-        setParticipant((String)newValue);
+        setParticipant((Participant)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -190,7 +203,7 @@ public class DecryptImpl extends OperationImpl implements Decrypt
         setMessage(MESSAGE_EDEFAULT);
         return;
       case ProtocolPackage.DECRYPT__PARTÝCÝPANT:
-        setParticipant(PARTÝCÝPANT_EDEFAULT);
+        setParticipant((Participant)null);
         return;
     }
     super.eUnset(featureID);
@@ -209,7 +222,7 @@ public class DecryptImpl extends OperationImpl implements Decrypt
       case ProtocolPackage.DECRYPT__MESSAGE:
         return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
       case ProtocolPackage.DECRYPT__PARTÝCÝPANT:
-        return PARTÝCÝPANT_EDEFAULT == null ? participant != null : !PARTÝCÝPANT_EDEFAULT.equals(participant);
+        return participant != null;
     }
     return super.eIsSet(featureID);
   }
@@ -227,8 +240,6 @@ public class DecryptImpl extends OperationImpl implements Decrypt
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (message: ");
     result.append(message);
-    result.append(", participant: ");
-    result.append(participant);
     result.append(')');
     return result.toString();
   }

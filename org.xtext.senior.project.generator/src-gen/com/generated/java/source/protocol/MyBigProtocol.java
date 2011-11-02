@@ -1,3 +1,4 @@
+
 package com.generated.java.source.protocol;
 
 import com.generated.java.source.*;
@@ -7,166 +8,329 @@ import java.util.Observer;
 
 import protocol.cipher.BaseCipher;
 
-import example.message.Message;
+import example.protocol.message.Message;
 
-public class MyBigProtocol<Cipher extends BaseCipher> implements Observer {
+public class MyBigProtocol<Cipher extends BaseCipher> implements Observer{
+    
+    
+    
+        private Alice<Cipher> alice = null;
 
-	private Alice<Cipher> alice = null;
+        private Bob<Cipher> bob = null;
 
-	private Bob<Cipher> bob = null;
+        private Trent<Cipher> trent = null;
 
-	private Trent<Cipher> trent = null;
+    
+    
+    
+    public MyBigProtocol (
+    
+        Alice alice,
+    
 
-	public MyBigProtocol(
+    
+        Bob bob,
+    
 
-	Alice alice,
+    
+        Trent trent
+    
+){
+        
+        this.alice = alice;
+        this.alice.addObserver(this);    
 
-	Bob bob,
+        this.bob = bob;
+        this.bob.addObserver(this);    
 
-	Trent trent
+        this.trent = trent;
+        this.trent.addObserver(this);    
 
-	) {
+        init();
+    }
 
-		this.alice = alice;
-		this.alice.addObserver(this);
+    
+    public void init(){
+    
+    
+            
+    if( 
+    
+        true
+    
+){
+        // Expand to Operation what about arg....
+        
+    
+        
+// exchangeOperation
+    trent.addCipher(alice.getClass().getSimpleName(),alice.getCipher());
 
-		this.bob = bob;
-		this.bob.addObserver(this);
+    
 
-		this.trent = trent;
-		this.trent.addObserver(this);
+     }
+    
+    if( 
+    
+        true
+    
+){
+        // Expand to Operation what about arg....
+        
+    
+        
+// exchangeOperation
+    trent.addCipher(bob.getClass().getSimpleName(),bob.getCipher());
 
-	}
+    
 
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO - This part must be generated from States
-		Message msg = (Message) arg;
+     }
 
-		if (o instanceof Trent) {
+    
 
-			if (
+    
 
-			msg.getFrom().compareTo("alice") == 0
+    
 
-			) {
-				// Expand to Operation what about arg....
-			}
+    
 
-			if (
+    }
+        
+    @Override
+    public void update(Observable o, Object arg) {
+       //TODO - This part must be generated from States
+       Message msg = (Message) arg;
+       
+       
+    
 
-			msg.getFrom().compareTo("bob") == 0
+    
+        if( o instanceof Trent ){
+            
+    if( 
+    
+        msg.getFrom().compareTo("alice") == 0
+    
+){
+        // Expand to Operation what about arg....
+        
+    
+        
+    // CALL    
+    trentFromAliceAction(msg);
 
-			) {
-				// Expand to Operation what about arg....
-			}
+    
 
-		}
+     }
+    
+    if( 
+    
+        msg.getFrom().compareTo("bob") == 0
+    
+){
+        // Expand to Operation what about arg....
+        
+    
+        
+    // CALL    
+    trentFromBobAction(msg);
 
-		if (o instanceof Alice) {
+    
 
-			// Expand to Operation what about arg....
+     }
 
-		}
+    }
+    
 
-		if (o instanceof Bob) {
+    
+        if( o instanceof Alice ){
+            
+    if( 
+    
+        true
+    
+){
+        // Expand to Operation what about arg....
+        
+    
+        
+    // CALL    
+    AliceAction(msg);
 
-			// Expand to Operation what about arg....
+    
 
-		}
+     }
 
-	}
+    }
+    
 
-	private void trentFromAliceAction(
+    
+        if( o instanceof Bob ){
+            
+    if( 
+    
+        true
+    
+){
+        // Expand to Operation what about arg....
+        
+    
+        
+    // CALL    
+    BobAction(msg);
 
-	Message m
+    
 
-	) {
+     }
 
-		try {
-			byte[] cryptedMessage = m.getMessage();
-			byte[] realMsg = alice.getCipher().decrypt(cryptedMessage);
-			m.setMessage(realMsg);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    }
+    
 
-		try {
-			byte[] realMsg = m.getMessage();
-			byte[] cryptedMessage = bob.getCipher().encrypt(realMsg);
-			m.setMessage(cryptedMessage);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    }
+    
+    
+    
+    private void trentFromAliceAction (
+    
+    Message m
+    
+){
+        
+    
+        
+// DECRYPT
+try{
+    byte[] cryptedMessage = m.getMessage();
+    byte[] realMsg = alice.getCipher().decrypt(cryptedMessage);
+    m.setMessage(realMsg);
+   } catch(Exception e){
+    e.printStackTrace();
+   }
 
-		m.setFrom(trent.getClass().getSimpleName());
-		m.setTo(bob.getClass().getSimpleName());
-		trent.sendMessage(m);
+    
 
-	}
+    
+        
+// ENCRYPT
+try{
+    byte[] realMsg = m.getMessage();
+    byte[] cryptedMessage = bob.getCipher().encrypt(realMsg);
+    m.setMessage(cryptedMessage);
+    }catch(Exception e){
+    e.printStackTrace();
+    }
 
-	private void trentFromBobAction(
+    
 
-	Message m
+    
+        
+    // SEND
+    m.setFrom(trent.getClass().getSimpleName());
+    m.setTo(bob.getClass().getSimpleName());
+    trent.sendMessage(m);
 
-	) {
+    
 
-		try {
-			byte[] cryptedMessage = m.getMessage();
-			byte[] realMsg = bob.getCipher().decrypt(cryptedMessage);
-			m.setMessage(realMsg);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    }
 
-		try {
-			byte[] realMsg = m.getMessage();
-			byte[] cryptedMessage = alice.getCipher().encrypt(realMsg);
-			m.setMessage(cryptedMessage);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    private void trentFromBobAction (
+    
+    Message m
+    
+){
+        
+    
+        
+// DECRYPT
+try{
+    byte[] cryptedMessage = m.getMessage();
+    byte[] realMsg = bob.getCipher().decrypt(cryptedMessage);
+    m.setMessage(realMsg);
+   } catch(Exception e){
+    e.printStackTrace();
+   }
 
-		m.setFrom(trent.getClass().getSimpleName());
-		m.setTo(alice.getClass().getSimpleName());
-		trent.sendMessage(m);
+    
 
-	}
+    
+        
+// ENCRYPT
+try{
+    byte[] realMsg = m.getMessage();
+    byte[] cryptedMessage = alice.getCipher().encrypt(realMsg);
+    m.setMessage(cryptedMessage);
+    }catch(Exception e){
+    e.printStackTrace();
+    }
 
-	private void AliceAction(
+    
 
-	Message m
+    
+        
+    // SEND
+    m.setFrom(trent.getClass().getSimpleName());
+    m.setTo(alice.getClass().getSimpleName());
+    trent.sendMessage(m);
 
-	) {
+    
 
-		try {
-			byte[] cryptedMessage = m.getMessage();
-			byte[] realMsg = alice.getCipher().decrypt(cryptedMessage);
-			m.setMessage(realMsg);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    }
 
-		System.out.println(m.toString());
+    private void AliceAction (
+    
+    Message m
+    
+){
+        
+    
+        
+// DECRYPT
+try{
+    byte[] cryptedMessage = m.getMessage();
+    byte[] realMsg = alice.getCipher().decrypt(cryptedMessage);
+    m.setMessage(realMsg);
+   } catch(Exception e){
+    e.printStackTrace();
+   }
 
-	}
+    
 
-	private void BobAction(
+    
+        
+    // PRINT
+    System.out.println(m.toString());
 
-	Message m
+    
 
-	) {
+    }
 
-		try {
-			byte[] cryptedMessage = m.getMessage();
-			byte[] realMsg = bob.getCipher().decrypt(cryptedMessage);
-			m.setMessage(realMsg);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    private void BobAction (
+    
+    Message m
+    
+){
+        
+    
+        
+// DECRYPT
+try{
+    byte[] cryptedMessage = m.getMessage();
+    byte[] realMsg = bob.getCipher().decrypt(cryptedMessage);
+    m.setMessage(realMsg);
+   } catch(Exception e){
+    e.printStackTrace();
+   }
 
-		System.out.println(m.toString());
+    
 
-	}
+    
+        
+    // PRINT
+    System.out.println(m.toString());
+
+    
+
+    }
 
 }
+    

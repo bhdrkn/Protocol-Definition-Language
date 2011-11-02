@@ -13,12 +13,12 @@
 *   See the License for the specific language governing permissions and
 *   limitations under the License.
 */
-package example.source;
+package example.protocol.source;
 
 import java.util.Hashtable;
 
 import protocol.cipher.BaseCipher;
-import example.message.Message;
+import example.protocol.message.Message;
 import source.Arbitrator;
 
 public class Trent<Cipher extends BaseCipher> extends
@@ -33,11 +33,14 @@ public class Trent<Cipher extends BaseCipher> extends
 	public Trent(Hashtable<String, Cipher> cipherTable) {
 		super(cipherTable);
 	}
+	
+	public Trent(){
+		super(new Hashtable<String, Cipher>());
+	}
 
 	@Override
 	public void sendMessage(Message msg) {
 		setChanged();
 		notifyObservers(msg);
 	}
-
 }

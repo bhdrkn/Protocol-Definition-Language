@@ -13,17 +13,17 @@
 *   See the License for the specific language governing permissions and
 *   limitations under the License.
 */
-package example.message;
+package example.protocol.message;
 
 import protocol.message.AbstractMessage;
-import example.synchronous.MyProtocolTest;
+import example.protocol.test.synchronous.SynchronousProtocolTest;
 
 /**
  * This is a example of custom message which is subclass of
  * {@link AbstractMessage}. If you want to use custom messages your messages
  * must be subclass of {@link AbstractMessage}
  * 
- * This message is using in {@link MyProtocolTest} example.
+ * This message is using in {@link SynchronousProtocolTest} example.
  * 
  * @author Bahadir Akin
  * 

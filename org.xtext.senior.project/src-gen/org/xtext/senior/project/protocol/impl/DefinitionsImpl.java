@@ -8,6 +8,7 @@ package org.xtext.senior.project.protocol.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,13 +16,15 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.senior.project.protocol.Define;
+import org.xtext.senior.project.protocol.Cipher;
 import org.xtext.senior.project.protocol.Definitions;
+import org.xtext.senior.project.protocol.EventSource;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 
 /**
@@ -31,7 +34,8 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.senior.project.protocol.impl.DefinitionsImpl#getDefinitions <em>Definitions</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.impl.DefinitionsImpl#getSources <em>Sources</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.impl.DefinitionsImpl#getCipher <em>Cipher</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,14 +44,24 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
 public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Definitions
 {
   /**
-   * The cached value of the '{@link #getDefinitions() <em>Definitions</em>}' containment reference list.
+   * The cached value of the '{@link #getSources() <em>Sources</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDefinitions()
+   * @see #getSources()
    * @generated
    * @ordered
    */
-  protected EList<Define> definitions;
+  protected EList<EventSource> sources;
+
+  /**
+   * The cached value of the '{@link #getCipher() <em>Cipher</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCipher()
+   * @generated
+   * @ordered
+   */
+  protected Cipher cipher;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,13 +89,61 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Define> getDefinitions()
+  public EList<EventSource> getSources()
   {
-    if (definitions == null)
+    if (sources == null)
     {
-      definitions = new EObjectContainmentEList<Define>(Define.class, this, ProtocolPackage.DEFÝNÝTÝONS__DEFÝNÝTÝONS);
+      sources = new EObjectContainmentEList<EventSource>(EventSource.class, this, ProtocolPackage.DEFÝNÝTÝONS__SOURCES);
     }
-    return definitions;
+    return sources;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Cipher getCipher()
+  {
+    return cipher;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCipher(Cipher newCipher, NotificationChain msgs)
+  {
+    Cipher oldCipher = cipher;
+    cipher = newCipher;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtocolPackage.DEFÝNÝTÝONS__CÝPHER, oldCipher, newCipher);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCipher(Cipher newCipher)
+  {
+    if (newCipher != cipher)
+    {
+      NotificationChain msgs = null;
+      if (cipher != null)
+        msgs = ((InternalEObject)cipher).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtocolPackage.DEFÝNÝTÝONS__CÝPHER, null, msgs);
+      if (newCipher != null)
+        msgs = ((InternalEObject)newCipher).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtocolPackage.DEFÝNÝTÝONS__CÝPHER, null, msgs);
+      msgs = basicSetCipher(newCipher, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.DEFÝNÝTÝONS__CÝPHER, newCipher, newCipher));
   }
 
   /**
@@ -94,8 +156,10 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
   {
     switch (featureID)
     {
-      case ProtocolPackage.DEFÝNÝTÝONS__DEFÝNÝTÝONS:
-        return ((InternalEList<?>)getDefinitions()).basicRemove(otherEnd, msgs);
+      case ProtocolPackage.DEFÝNÝTÝONS__SOURCES:
+        return ((InternalEList<?>)getSources()).basicRemove(otherEnd, msgs);
+      case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
+        return basicSetCipher(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -110,8 +174,10 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
   {
     switch (featureID)
     {
-      case ProtocolPackage.DEFÝNÝTÝONS__DEFÝNÝTÝONS:
-        return getDefinitions();
+      case ProtocolPackage.DEFÝNÝTÝONS__SOURCES:
+        return getSources();
+      case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
+        return getCipher();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -127,9 +193,12 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
   {
     switch (featureID)
     {
-      case ProtocolPackage.DEFÝNÝTÝONS__DEFÝNÝTÝONS:
-        getDefinitions().clear();
-        getDefinitions().addAll((Collection<? extends Define>)newValue);
+      case ProtocolPackage.DEFÝNÝTÝONS__SOURCES:
+        getSources().clear();
+        getSources().addAll((Collection<? extends EventSource>)newValue);
+        return;
+      case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
+        setCipher((Cipher)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -145,8 +214,11 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
   {
     switch (featureID)
     {
-      case ProtocolPackage.DEFÝNÝTÝONS__DEFÝNÝTÝONS:
-        getDefinitions().clear();
+      case ProtocolPackage.DEFÝNÝTÝONS__SOURCES:
+        getSources().clear();
+        return;
+      case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
+        setCipher((Cipher)null);
         return;
     }
     super.eUnset(featureID);
@@ -162,8 +234,10 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
   {
     switch (featureID)
     {
-      case ProtocolPackage.DEFÝNÝTÝONS__DEFÝNÝTÝONS:
-        return definitions != null && !definitions.isEmpty();
+      case ProtocolPackage.DEFÝNÝTÝONS__SOURCES:
+        return sources != null && !sources.isEmpty();
+      case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
+        return cipher != null;
     }
     return super.eIsSet(featureID);
   }

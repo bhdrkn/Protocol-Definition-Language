@@ -24,7 +24,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalProtocolParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'pdlfile'", "'[DEFINITIONS]'", "'[END]'", "'='", "'[TRANSACTIONS]'", "'TRANSACTION'", "'('", "')'", "'[BEGIN]'", "'decrypt'", "'for'", "'encrypt'", "'::'", "'->'", "'print'", "'CALL'", "'[STATES]'", "'STATE'", "'|'", "'=>'", "'GET'", "'IS_SEND'", "'always'", "'otherwise'", "'source'", "'from'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'['", "']'", "'[END]'", "'[DEFINITIONS]'", "'='", "'Arbitrator'", "'Participant'", "'[TRANSACTIONS]'", "'TRANSACTION'", "'('", "')'", "'[BEGIN]'", "'decrypt'", "'for'", "'encrypt'", "'::'", "'->'", "'print'", "'CALL'", "'exchange'", "'[STATES]'", "'STATE'", "'|'", "'=>'", "'GET'", "'IS_SEND'", "'INIT'", "'always'", "'otherwise'", "'source'", "'from'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_STRING=6;
@@ -108,30 +108,30 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePDLFile
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:86:1: rulePDLFile returns [EObject current=null] : ( 'pdlfile' ( (lv_name_1_0= RULE_ID ) ) ( (lv_definition_2_0= ruleDefinitions ) ) ( (lv_transaction_3_0= ruleTransactions ) ) ( (lv_state_4_0= ruleStates ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:86:1: rulePDLFile returns [EObject current=null] : ( '[' ( (lv_name_1_0= RULE_ID ) ) ']' ( (lv_definition_3_0= ruleDefinitions ) ) ( (lv_transaction_4_0= ruleTransactions ) ) ( (lv_state_5_0= ruleStates ) ) '[END]' ) ;
     public final EObject rulePDLFile() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_1_0=null;
-        EObject lv_definition_2_0 = null;
+        EObject lv_definition_3_0 = null;
 
-        EObject lv_transaction_3_0 = null;
+        EObject lv_transaction_4_0 = null;
 
-        EObject lv_state_4_0 = null;
+        EObject lv_state_5_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:91:6: ( ( 'pdlfile' ( (lv_name_1_0= RULE_ID ) ) ( (lv_definition_2_0= ruleDefinitions ) ) ( (lv_transaction_3_0= ruleTransactions ) ) ( (lv_state_4_0= ruleStates ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:92:1: ( 'pdlfile' ( (lv_name_1_0= RULE_ID ) ) ( (lv_definition_2_0= ruleDefinitions ) ) ( (lv_transaction_3_0= ruleTransactions ) ) ( (lv_state_4_0= ruleStates ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:91:6: ( ( '[' ( (lv_name_1_0= RULE_ID ) ) ']' ( (lv_definition_3_0= ruleDefinitions ) ) ( (lv_transaction_4_0= ruleTransactions ) ) ( (lv_state_5_0= ruleStates ) ) '[END]' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:92:1: ( '[' ( (lv_name_1_0= RULE_ID ) ) ']' ( (lv_definition_3_0= ruleDefinitions ) ) ( (lv_transaction_4_0= ruleTransactions ) ) ( (lv_state_5_0= ruleStates ) ) '[END]' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:92:1: ( 'pdlfile' ( (lv_name_1_0= RULE_ID ) ) ( (lv_definition_2_0= ruleDefinitions ) ) ( (lv_transaction_3_0= ruleTransactions ) ) ( (lv_state_4_0= ruleStates ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:92:3: 'pdlfile' ( (lv_name_1_0= RULE_ID ) ) ( (lv_definition_2_0= ruleDefinitions ) ) ( (lv_transaction_3_0= ruleTransactions ) ) ( (lv_state_4_0= ruleStates ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:92:1: ( '[' ( (lv_name_1_0= RULE_ID ) ) ']' ( (lv_definition_3_0= ruleDefinitions ) ) ( (lv_transaction_4_0= ruleTransactions ) ) ( (lv_state_5_0= ruleStates ) ) '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:92:3: '[' ( (lv_name_1_0= RULE_ID ) ) ']' ( (lv_definition_3_0= ruleDefinitions ) ) ( (lv_transaction_4_0= ruleTransactions ) ) ( (lv_state_5_0= ruleStates ) ) '[END]'
             {
             match(input,11,FOLLOW_11_in_rulePDLFile120); 
 
-                    createLeafNode(grammarAccess.getPDLFileAccess().getPdlfileKeyword_0(), null); 
+                    createLeafNode(grammarAccess.getPDLFileAccess().getLeftSquareBracketKeyword_0(), null); 
                 
             // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:96:1: ( (lv_name_1_0= RULE_ID ) )
             // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:97:1: (lv_name_1_0= RULE_ID )
@@ -166,17 +166,21 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:120:2: ( (lv_definition_2_0= ruleDefinitions ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:121:1: (lv_definition_2_0= ruleDefinitions )
+            match(input,12,FOLLOW_12_in_rulePDLFile152); 
+
+                    createLeafNode(grammarAccess.getPDLFileAccess().getRGhtSquareBracketKeyword_2(), null); 
+                
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:124:1: ( (lv_definition_3_0= ruleDefinitions ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:125:1: (lv_definition_3_0= ruleDefinitions )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:121:1: (lv_definition_2_0= ruleDefinitions )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:122:3: lv_definition_2_0= ruleDefinitions
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:125:1: (lv_definition_3_0= ruleDefinitions )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:126:3: lv_definition_3_0= ruleDefinitions
             {
              
-            	        currentNode=createCompositeNode(grammarAccess.getPDLFileAccess().getDefinitionDefinitionsParserRuleCall_2_0(), currentNode); 
+            	        currentNode=createCompositeNode(grammarAccess.getPDLFileAccess().getDefinitionDefinitionsParserRuleCall_3_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleDefinitions_in_rulePDLFile163);
-            lv_definition_2_0=ruleDefinitions();
+            pushFollow(FOLLOW_ruleDefinitions_in_rulePDLFile173);
+            lv_definition_3_0=ruleDefinitions();
             _fsp--;
 
 
@@ -188,7 +192,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	       		set(
             	       			current, 
             	       			"definition",
-            	        		lv_definition_2_0, 
+            	        		lv_definition_3_0, 
             	        		"Definitions", 
             	        		currentNode);
             	        } catch (ValueConverterException vce) {
@@ -202,17 +206,17 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:144:2: ( (lv_transaction_3_0= ruleTransactions ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:145:1: (lv_transaction_3_0= ruleTransactions )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:148:2: ( (lv_transaction_4_0= ruleTransactions ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:149:1: (lv_transaction_4_0= ruleTransactions )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:145:1: (lv_transaction_3_0= ruleTransactions )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:146:3: lv_transaction_3_0= ruleTransactions
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:149:1: (lv_transaction_4_0= ruleTransactions )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:150:3: lv_transaction_4_0= ruleTransactions
             {
              
-            	        currentNode=createCompositeNode(grammarAccess.getPDLFileAccess().getTransactionTransactionsParserRuleCall_3_0(), currentNode); 
+            	        currentNode=createCompositeNode(grammarAccess.getPDLFileAccess().getTransactionTransactionsParserRuleCall_4_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleTransactions_in_rulePDLFile184);
-            lv_transaction_3_0=ruleTransactions();
+            pushFollow(FOLLOW_ruleTransactions_in_rulePDLFile194);
+            lv_transaction_4_0=ruleTransactions();
             _fsp--;
 
 
@@ -224,7 +228,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	       		set(
             	       			current, 
             	       			"transaction",
-            	        		lv_transaction_3_0, 
+            	        		lv_transaction_4_0, 
             	        		"Transactions", 
             	        		currentNode);
             	        } catch (ValueConverterException vce) {
@@ -238,17 +242,17 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:168:2: ( (lv_state_4_0= ruleStates ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:169:1: (lv_state_4_0= ruleStates )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:172:2: ( (lv_state_5_0= ruleStates ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:173:1: (lv_state_5_0= ruleStates )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:169:1: (lv_state_4_0= ruleStates )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:170:3: lv_state_4_0= ruleStates
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:173:1: (lv_state_5_0= ruleStates )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:174:3: lv_state_5_0= ruleStates
             {
              
-            	        currentNode=createCompositeNode(grammarAccess.getPDLFileAccess().getStateStatesParserRuleCall_4_0(), currentNode); 
+            	        currentNode=createCompositeNode(grammarAccess.getPDLFileAccess().getStateStatesParserRuleCall_5_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleStates_in_rulePDLFile205);
-            lv_state_4_0=ruleStates();
+            pushFollow(FOLLOW_ruleStates_in_rulePDLFile215);
+            lv_state_5_0=ruleStates();
             _fsp--;
 
 
@@ -260,7 +264,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	       		set(
             	       			current, 
             	       			"state",
-            	        		lv_state_4_0, 
+            	        		lv_state_5_0, 
             	        		"States", 
             	        		currentNode);
             	        } catch (ValueConverterException vce) {
@@ -274,6 +278,10 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
+            match(input,13,FOLLOW_13_in_rulePDLFile225); 
+
+                    createLeafNode(grammarAccess.getPDLFileAccess().getENDKeyword_6(), null); 
+                
 
             }
 
@@ -297,7 +305,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDefinitions
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:200:1: entryRuleDefinitions returns [EObject current=null] : iv_ruleDefinitions= ruleDefinitions EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:208:1: entryRuleDefinitions returns [EObject current=null] : iv_ruleDefinitions= ruleDefinitions EOF ;
     public final EObject entryRuleDefinitions() throws RecognitionException {
         EObject current = null;
 
@@ -305,16 +313,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:201:2: (iv_ruleDefinitions= ruleDefinitions EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:202:2: iv_ruleDefinitions= ruleDefinitions EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:209:2: (iv_ruleDefinitions= ruleDefinitions EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:210:2: iv_ruleDefinitions= ruleDefinitions EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDefinitionsRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDefinitions_in_entryRuleDefinitions241);
+            pushFollow(FOLLOW_ruleDefinitions_in_entryRuleDefinitions261);
             iv_ruleDefinitions=ruleDefinitions();
             _fsp--;
 
              current =iv_ruleDefinitions; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefinitions251); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDefinitions271); 
 
             }
 
@@ -332,49 +340,63 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDefinitions
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:209:1: ruleDefinitions returns [EObject current=null] : ( '[DEFINITIONS]' ( (lv_definitions_1_0= ruleDefine ) )* '[END]' ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:217:1: ruleDefinitions returns [EObject current=null] : ( '[DEFINITIONS]' ( (lv_sources_1_0= ruleEventSource ) )* ( (lv_cipher_2_0= ruleCipher ) ) '[END]' ) ;
     public final EObject ruleDefinitions() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_definitions_1_0 = null;
+        EObject lv_sources_1_0 = null;
+
+        EObject lv_cipher_2_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:214:6: ( ( '[DEFINITIONS]' ( (lv_definitions_1_0= ruleDefine ) )* '[END]' ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:215:1: ( '[DEFINITIONS]' ( (lv_definitions_1_0= ruleDefine ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:222:6: ( ( '[DEFINITIONS]' ( (lv_sources_1_0= ruleEventSource ) )* ( (lv_cipher_2_0= ruleCipher ) ) '[END]' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:223:1: ( '[DEFINITIONS]' ( (lv_sources_1_0= ruleEventSource ) )* ( (lv_cipher_2_0= ruleCipher ) ) '[END]' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:215:1: ( '[DEFINITIONS]' ( (lv_definitions_1_0= ruleDefine ) )* '[END]' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:215:3: '[DEFINITIONS]' ( (lv_definitions_1_0= ruleDefine ) )* '[END]'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:223:1: ( '[DEFINITIONS]' ( (lv_sources_1_0= ruleEventSource ) )* ( (lv_cipher_2_0= ruleCipher ) ) '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:223:3: '[DEFINITIONS]' ( (lv_sources_1_0= ruleEventSource ) )* ( (lv_cipher_2_0= ruleCipher ) ) '[END]'
             {
-            match(input,12,FOLLOW_12_in_ruleDefinitions286); 
+            match(input,14,FOLLOW_14_in_ruleDefinitions306); 
 
                     createLeafNode(grammarAccess.getDefinitionsAccess().getDEFINITIONSKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:219:1: ( (lv_definitions_1_0= ruleDefine ) )*
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:227:1: ( (lv_sources_1_0= ruleEventSource ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
                 if ( (LA1_0==RULE_ID) ) {
-                    alt1=1;
+                    int LA1_1 = input.LA(2);
+
+                    if ( (LA1_1==15) ) {
+                        int LA1_2 = input.LA(3);
+
+                        if ( ((LA1_2>=16 && LA1_2<=17)) ) {
+                            alt1=1;
+                        }
+
+
+                    }
+
+
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:220:1: (lv_definitions_1_0= ruleDefine )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:228:1: (lv_sources_1_0= ruleEventSource )
             	    {
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:220:1: (lv_definitions_1_0= ruleDefine )
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:221:3: lv_definitions_1_0= ruleDefine
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:228:1: (lv_sources_1_0= ruleEventSource )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:229:3: lv_sources_1_0= ruleEventSource
             	    {
             	     
-            	    	        currentNode=createCompositeNode(grammarAccess.getDefinitionsAccess().getDefinitionsDefineParserRuleCall_1_0(), currentNode); 
+            	    	        currentNode=createCompositeNode(grammarAccess.getDefinitionsAccess().getSourcesEventSourceParserRuleCall_1_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleDefine_in_ruleDefinitions307);
-            	    lv_definitions_1_0=ruleDefine();
+            	    pushFollow(FOLLOW_ruleEventSource_in_ruleDefinitions327);
+            	    lv_sources_1_0=ruleEventSource();
             	    _fsp--;
 
 
@@ -385,9 +407,9 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	    	        try {
             	    	       		add(
             	    	       			current, 
-            	    	       			"definitions",
-            	    	        		lv_definitions_1_0, 
-            	    	        		"Define", 
+            	    	       			"sources",
+            	    	        		lv_sources_1_0, 
+            	    	        		"EventSource", 
             	    	        		currentNode);
             	    	        } catch (ValueConverterException vce) {
             	    				handleValueConverterException(vce);
@@ -406,9 +428,45 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            match(input,13,FOLLOW_13_in_ruleDefinitions318); 
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:251:3: ( (lv_cipher_2_0= ruleCipher ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:252:1: (lv_cipher_2_0= ruleCipher )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:252:1: (lv_cipher_2_0= ruleCipher )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:253:3: lv_cipher_2_0= ruleCipher
+            {
+             
+            	        currentNode=createCompositeNode(grammarAccess.getDefinitionsAccess().getCipherCipherParserRuleCall_2_0(), currentNode); 
+            	    
+            pushFollow(FOLLOW_ruleCipher_in_ruleDefinitions349);
+            lv_cipher_2_0=ruleCipher();
+            _fsp--;
 
-                    createLeafNode(grammarAccess.getDefinitionsAccess().getENDKeyword_2(), null); 
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getDefinitionsRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode.getParent(), current);
+            	        }
+            	        try {
+            	       		set(
+            	       			current, 
+            	       			"cipher",
+            	        		lv_cipher_2_0, 
+            	        		"Cipher", 
+            	        		currentNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	        currentNode = currentNode.getParent();
+            	    
+
+            }
+
+
+            }
+
+            match(input,13,FOLLOW_13_in_ruleDefinitions359); 
+
+                    createLeafNode(grammarAccess.getDefinitionsAccess().getENDKeyword_3(), null); 
                 
 
             }
@@ -432,25 +490,25 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleDefinitions
 
 
-    // $ANTLR start entryRuleDefine
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:255:1: entryRuleDefine returns [EObject current=null] : iv_ruleDefine= ruleDefine EOF ;
-    public final EObject entryRuleDefine() throws RecognitionException {
+    // $ANTLR start entryRuleEventSource
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:289:1: entryRuleEventSource returns [EObject current=null] : iv_ruleEventSource= ruleEventSource EOF ;
+    public final EObject entryRuleEventSource() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDefine = null;
+        EObject iv_ruleEventSource = null;
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:256:2: (iv_ruleDefine= ruleDefine EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:257:2: iv_ruleDefine= ruleDefine EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:290:2: (iv_ruleEventSource= ruleEventSource EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:291:2: iv_ruleEventSource= ruleEventSource EOF
             {
-             currentNode = createCompositeNode(grammarAccess.getDefineRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDefine_in_entryRuleDefine354);
-            iv_ruleDefine=ruleDefine();
+             currentNode = createCompositeNode(grammarAccess.getEventSourceRule(), currentNode); 
+            pushFollow(FOLLOW_ruleEventSource_in_entryRuleEventSource397);
+            iv_ruleEventSource=ruleEventSource();
             _fsp--;
 
-             current =iv_ruleDefine; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefine364); 
+             current =iv_ruleEventSource; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEventSource407); 
 
             }
 
@@ -464,12 +522,156 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end entryRuleDefine
+    // $ANTLR end entryRuleEventSource
 
 
-    // $ANTLR start ruleDefine
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:264:1: ruleDefine returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) ) ;
-    public final EObject ruleDefine() throws RecognitionException {
+    // $ANTLR start ruleEventSource
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:298:1: ruleEventSource returns [EObject current=null] : (this_Arbitrator_0= ruleArbitrator | this_Participant_1= ruleParticipant ) ;
+    public final EObject ruleEventSource() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Arbitrator_0 = null;
+
+        EObject this_Participant_1 = null;
+
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:303:6: ( (this_Arbitrator_0= ruleArbitrator | this_Participant_1= ruleParticipant ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:304:1: (this_Arbitrator_0= ruleArbitrator | this_Participant_1= ruleParticipant )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:304:1: (this_Arbitrator_0= ruleArbitrator | this_Participant_1= ruleParticipant )
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0==RULE_ID) ) {
+                int LA2_1 = input.LA(2);
+
+                if ( (LA2_1==15) ) {
+                    int LA2_2 = input.LA(3);
+
+                    if ( (LA2_2==16) ) {
+                        alt2=1;
+                    }
+                    else if ( (LA2_2==17) ) {
+                        alt2=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("304:1: (this_Arbitrator_0= ruleArbitrator | this_Participant_1= ruleParticipant )", 2, 2, input);
+
+                        throw nvae;
+                    }
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("304:1: (this_Arbitrator_0= ruleArbitrator | this_Participant_1= ruleParticipant )", 2, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("304:1: (this_Arbitrator_0= ruleArbitrator | this_Participant_1= ruleParticipant )", 2, 0, input);
+
+                throw nvae;
+            }
+            switch (alt2) {
+                case 1 :
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:305:5: this_Arbitrator_0= ruleArbitrator
+                    {
+                     
+                            currentNode=createCompositeNode(grammarAccess.getEventSourceAccess().getArbitratorParserRuleCall_0(), currentNode); 
+                        
+                    pushFollow(FOLLOW_ruleArbitrator_in_ruleEventSource454);
+                    this_Arbitrator_0=ruleArbitrator();
+                    _fsp--;
+
+                     
+                            current = this_Arbitrator_0; 
+                            currentNode = currentNode.getParent();
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:315:5: this_Participant_1= ruleParticipant
+                    {
+                     
+                            currentNode=createCompositeNode(grammarAccess.getEventSourceAccess().getParticipantParserRuleCall_1(), currentNode); 
+                        
+                    pushFollow(FOLLOW_ruleParticipant_in_ruleEventSource481);
+                    this_Participant_1=ruleParticipant();
+                    _fsp--;
+
+                     
+                            current = this_Participant_1; 
+                            currentNode = currentNode.getParent();
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleEventSource
+
+
+    // $ANTLR start entryRuleArbitrator
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:331:1: entryRuleArbitrator returns [EObject current=null] : iv_ruleArbitrator= ruleArbitrator EOF ;
+    public final EObject entryRuleArbitrator() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleArbitrator = null;
+
+
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:332:2: (iv_ruleArbitrator= ruleArbitrator EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:333:2: iv_ruleArbitrator= ruleArbitrator EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getArbitratorRule(), currentNode); 
+            pushFollow(FOLLOW_ruleArbitrator_in_entryRuleArbitrator516);
+            iv_ruleArbitrator=ruleArbitrator();
+            _fsp--;
+
+             current =iv_ruleArbitrator; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleArbitrator526); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleArbitrator
+
+
+    // $ANTLR start ruleArbitrator
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:340:1: ruleArbitrator returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Arbitrator' ) ) ) ;
+    public final EObject ruleArbitrator() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
@@ -478,26 +680,26 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:269:6: ( ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:270:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:345:6: ( ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Arbitrator' ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:346:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Arbitrator' ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:270:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:270:2: ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:346:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Arbitrator' ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:346:2: ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Arbitrator' ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:270:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:271:1: (lv_name_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:346:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:347:1: (lv_name_0_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:271:1: (lv_name_0_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:272:3: lv_name_0_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:347:1: (lv_name_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:348:3: lv_name_0_0= RULE_ID
             {
             lv_name_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDefine406); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArbitrator568); 
 
-            			createLeafNode(grammarAccess.getDefineAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+            			createLeafNode(grammarAccess.getArbitratorAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
             		
 
             	        if (current==null) {
-            	            current = factory.create(grammarAccess.getDefineRule().getType().getClassifier());
+            	            current = factory.create(grammarAccess.getArbitratorRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
             	        try {
@@ -517,24 +719,304 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,14,FOLLOW_14_in_ruleDefine421); 
+            match(input,15,FOLLOW_15_in_ruleArbitrator583); 
 
-                    createLeafNode(grammarAccess.getDefineAccess().getEqualsSGnKeyword_1(), null); 
+                    createLeafNode(grammarAccess.getArbitratorAccess().getEqualsSGnKeyword_1(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:298:1: ( (lv_keyword_2_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:299:1: (lv_keyword_2_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:374:1: ( (lv_keyword_2_0= 'Arbitrator' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:375:1: (lv_keyword_2_0= 'Arbitrator' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:299:1: (lv_keyword_2_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:300:3: lv_keyword_2_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:375:1: (lv_keyword_2_0= 'Arbitrator' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:376:3: lv_keyword_2_0= 'Arbitrator'
             {
             lv_keyword_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDefine438); 
+            match(input,16,FOLLOW_16_in_ruleArbitrator601); 
 
-            			createLeafNode(grammarAccess.getDefineAccess().getKeywordIDTerminalRuleCall_2_0(), "keyword"); 
+                    createLeafNode(grammarAccess.getArbitratorAccess().getKeywordArbitratorKeyword_2_0(), "keyword"); 
+                
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getArbitratorRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        
+            	        try {
+            	       		set(current, "keyword", lv_keyword_2_0, "Arbitrator", lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleArbitrator
+
+
+    // $ANTLR start entryRuleParticipant
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:403:1: entryRuleParticipant returns [EObject current=null] : iv_ruleParticipant= ruleParticipant EOF ;
+    public final EObject entryRuleParticipant() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleParticipant = null;
+
+
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:404:2: (iv_ruleParticipant= ruleParticipant EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:405:2: iv_ruleParticipant= ruleParticipant EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getParticipantRule(), currentNode); 
+            pushFollow(FOLLOW_ruleParticipant_in_entryRuleParticipant650);
+            iv_ruleParticipant=ruleParticipant();
+            _fsp--;
+
+             current =iv_ruleParticipant; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParticipant660); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleParticipant
+
+
+    // $ANTLR start ruleParticipant
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:412:1: ruleParticipant returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Participant' ) ) ) ;
+    public final EObject ruleParticipant() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_name_0_0=null;
+        Token lv_keyword_2_0=null;
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:417:6: ( ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Participant' ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:418:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Participant' ) ) )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:418:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Participant' ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:418:2: ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= 'Participant' ) )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:418:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:419:1: (lv_name_0_0= RULE_ID )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:419:1: (lv_name_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:420:3: lv_name_0_0= RULE_ID
+            {
+            lv_name_0_0=(Token)input.LT(1);
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParticipant702); 
+
+            			createLeafNode(grammarAccess.getParticipantAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
             		
 
             	        if (current==null) {
-            	            current = factory.create(grammarAccess.getDefineRule().getType().getClassifier());
+            	            current = factory.create(grammarAccess.getParticipantRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        try {
+            	       		set(
+            	       			current, 
+            	       			"name",
+            	        		lv_name_0_0, 
+            	        		"ID", 
+            	        		lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
+            match(input,15,FOLLOW_15_in_ruleParticipant717); 
+
+                    createLeafNode(grammarAccess.getParticipantAccess().getEqualsSGnKeyword_1(), null); 
+                
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:446:1: ( (lv_keyword_2_0= 'Participant' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:447:1: (lv_keyword_2_0= 'Participant' )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:447:1: (lv_keyword_2_0= 'Participant' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:448:3: lv_keyword_2_0= 'Participant'
+            {
+            lv_keyword_2_0=(Token)input.LT(1);
+            match(input,17,FOLLOW_17_in_ruleParticipant735); 
+
+                    createLeafNode(grammarAccess.getParticipantAccess().getKeywordParticipantKeyword_2_0(), "keyword"); 
+                
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getParticipantRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        
+            	        try {
+            	       		set(current, "keyword", lv_keyword_2_0, "Participant", lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleParticipant
+
+
+    // $ANTLR start entryRuleCipher
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:475:1: entryRuleCipher returns [EObject current=null] : iv_ruleCipher= ruleCipher EOF ;
+    public final EObject entryRuleCipher() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleCipher = null;
+
+
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:476:2: (iv_ruleCipher= ruleCipher EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:477:2: iv_ruleCipher= ruleCipher EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getCipherRule(), currentNode); 
+            pushFollow(FOLLOW_ruleCipher_in_entryRuleCipher784);
+            iv_ruleCipher=ruleCipher();
+            _fsp--;
+
+             current =iv_ruleCipher; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCipher794); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleCipher
+
+
+    // $ANTLR start ruleCipher
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:484:1: ruleCipher returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) ) ;
+    public final EObject ruleCipher() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_name_0_0=null;
+        Token lv_keyword_2_0=null;
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:489:6: ( ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:490:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:490:1: ( ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:490:2: ( (lv_name_0_0= RULE_ID ) ) '=' ( (lv_keyword_2_0= RULE_ID ) )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:490:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:491:1: (lv_name_0_0= RULE_ID )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:491:1: (lv_name_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:492:3: lv_name_0_0= RULE_ID
+            {
+            lv_name_0_0=(Token)input.LT(1);
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCipher836); 
+
+            			createLeafNode(grammarAccess.getCipherAccess().getNameIDTerminalRuleCall_0_0(), "name"); 
+            		
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getCipherRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        try {
+            	       		set(
+            	       			current, 
+            	       			"name",
+            	        		lv_name_0_0, 
+            	        		"ID", 
+            	        		lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
+            match(input,15,FOLLOW_15_in_ruleCipher851); 
+
+                    createLeafNode(grammarAccess.getCipherAccess().getEqualsSGnKeyword_1(), null); 
+                
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:518:1: ( (lv_keyword_2_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:519:1: (lv_keyword_2_0= RULE_ID )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:519:1: (lv_keyword_2_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:520:3: lv_keyword_2_0= RULE_ID
+            {
+            lv_keyword_2_0=(Token)input.LT(1);
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCipher868); 
+
+            			createLeafNode(grammarAccess.getCipherAccess().getKeywordIDTerminalRuleCall_2_0(), "keyword"); 
+            		
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getCipherRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
             	        try {
@@ -573,11 +1055,11 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end ruleDefine
+    // $ANTLR end ruleCipher
 
 
     // $ANTLR start entryRuleTransactions
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:330:1: entryRuleTransactions returns [EObject current=null] : iv_ruleTransactions= ruleTransactions EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:550:1: entryRuleTransactions returns [EObject current=null] : iv_ruleTransactions= ruleTransactions EOF ;
     public final EObject entryRuleTransactions() throws RecognitionException {
         EObject current = null;
 
@@ -585,16 +1067,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:331:2: (iv_ruleTransactions= ruleTransactions EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:332:2: iv_ruleTransactions= ruleTransactions EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:551:2: (iv_ruleTransactions= ruleTransactions EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:552:2: iv_ruleTransactions= ruleTransactions EOF
             {
              currentNode = createCompositeNode(grammarAccess.getTransactionsRule(), currentNode); 
-            pushFollow(FOLLOW_ruleTransactions_in_entryRuleTransactions479);
+            pushFollow(FOLLOW_ruleTransactions_in_entryRuleTransactions909);
             iv_ruleTransactions=ruleTransactions();
             _fsp--;
 
              current =iv_ruleTransactions; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTransactions489); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTransactions919); 
 
             }
 
@@ -612,7 +1094,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTransactions
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:339:1: ruleTransactions returns [EObject current=null] : ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:559:1: ruleTransactions returns [EObject current=null] : ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' ) ;
     public final EObject ruleTransactions() throws RecognitionException {
         EObject current = null;
 
@@ -622,38 +1104,38 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:344:6: ( ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:345:1: ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:564:6: ( ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:565:1: ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:345:1: ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:345:3: '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:565:1: ( '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:565:3: '[TRANSACTIONS]' ( (lv_transactions_1_0= ruleTransaction ) )* '[END]'
             {
-            match(input,15,FOLLOW_15_in_ruleTransactions524); 
+            match(input,18,FOLLOW_18_in_ruleTransactions954); 
 
                     createLeafNode(grammarAccess.getTransactionsAccess().getTRANSACTIONSKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:349:1: ( (lv_transactions_1_0= ruleTransaction ) )*
-            loop2:
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:569:1: ( (lv_transactions_1_0= ruleTransaction ) )*
+            loop3:
             do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-                if ( (LA2_0==16) ) {
-                    alt2=1;
+                if ( (LA3_0==19) ) {
+                    alt3=1;
                 }
 
 
-                switch (alt2) {
+                switch (alt3) {
             	case 1 :
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:350:1: (lv_transactions_1_0= ruleTransaction )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:570:1: (lv_transactions_1_0= ruleTransaction )
             	    {
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:350:1: (lv_transactions_1_0= ruleTransaction )
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:351:3: lv_transactions_1_0= ruleTransaction
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:570:1: (lv_transactions_1_0= ruleTransaction )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:571:3: lv_transactions_1_0= ruleTransaction
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getTransactionsAccess().getTransactionsTransactionParserRuleCall_1_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleTransaction_in_ruleTransactions545);
+            	    pushFollow(FOLLOW_ruleTransaction_in_ruleTransactions975);
             	    lv_transactions_1_0=ruleTransaction();
             	    _fsp--;
 
@@ -682,11 +1164,11 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop2;
+            	    break loop3;
                 }
             } while (true);
 
-            match(input,13,FOLLOW_13_in_ruleTransactions556); 
+            match(input,13,FOLLOW_13_in_ruleTransactions986); 
 
                     createLeafNode(grammarAccess.getTransactionsAccess().getENDKeyword_2(), null); 
                 
@@ -713,7 +1195,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleTransaction
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:385:1: entryRuleTransaction returns [EObject current=null] : iv_ruleTransaction= ruleTransaction EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:605:1: entryRuleTransaction returns [EObject current=null] : iv_ruleTransaction= ruleTransaction EOF ;
     public final EObject entryRuleTransaction() throws RecognitionException {
         EObject current = null;
 
@@ -721,16 +1203,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:386:2: (iv_ruleTransaction= ruleTransaction EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:387:2: iv_ruleTransaction= ruleTransaction EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:606:2: (iv_ruleTransaction= ruleTransaction EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:607:2: iv_ruleTransaction= ruleTransaction EOF
             {
              currentNode = createCompositeNode(grammarAccess.getTransactionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleTransaction_in_entryRuleTransaction592);
+            pushFollow(FOLLOW_ruleTransaction_in_entryRuleTransaction1022);
             iv_ruleTransaction=ruleTransaction();
             _fsp--;
 
              current =iv_ruleTransaction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTransaction602); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTransaction1032); 
 
             }
 
@@ -748,7 +1230,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleTransaction
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:394:1: ruleTransaction returns [EObject current=null] : ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:614:1: ruleTransaction returns [EObject current=null] : ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' ) ;
     public final EObject ruleTransaction() throws RecognitionException {
         EObject current = null;
 
@@ -761,24 +1243,24 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:399:6: ( ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:400:1: ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:619:6: ( ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:620:1: ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:400:1: ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:400:3: 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:620:1: ( 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:620:3: 'TRANSACTION' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_arguments_3_0= ruleArgument ) )* ')' '[BEGIN]' ( (lv_operations_6_0= ruleOperation ) )* '[END]'
             {
-            match(input,16,FOLLOW_16_in_ruleTransaction637); 
+            match(input,19,FOLLOW_19_in_ruleTransaction1067); 
 
                     createLeafNode(grammarAccess.getTransactionAccess().getTRANSACTIONKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:404:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:405:1: (lv_name_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:624:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:625:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:405:1: (lv_name_1_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:406:3: lv_name_1_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:625:1: (lv_name_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:626:3: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransaction654); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTransaction1084); 
 
             			createLeafNode(grammarAccess.getTransactionAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
             		
@@ -804,32 +1286,32 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,17,FOLLOW_17_in_ruleTransaction669); 
+            match(input,20,FOLLOW_20_in_ruleTransaction1099); 
 
                     createLeafNode(grammarAccess.getTransactionAccess().getLeftParenthesSKeyword_2(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:432:1: ( (lv_arguments_3_0= ruleArgument ) )*
-            loop3:
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:652:1: ( (lv_arguments_3_0= ruleArgument ) )*
+            loop4:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA3_0==RULE_ID) ) {
-                    alt3=1;
+                if ( (LA4_0==RULE_ID) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt4) {
             	case 1 :
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:433:1: (lv_arguments_3_0= ruleArgument )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:653:1: (lv_arguments_3_0= ruleArgument )
             	    {
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:433:1: (lv_arguments_3_0= ruleArgument )
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:434:3: lv_arguments_3_0= ruleArgument
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:653:1: (lv_arguments_3_0= ruleArgument )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:654:3: lv_arguments_3_0= ruleArgument
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getTransactionAccess().getArgumentsArgumentParserRuleCall_3_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleArgument_in_ruleTransaction690);
+            	    pushFollow(FOLLOW_ruleArgument_in_ruleTransaction1120);
             	    lv_arguments_3_0=ruleArgument();
             	    _fsp--;
 
@@ -858,40 +1340,40 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop3;
+            	    break loop4;
                 }
             } while (true);
 
-            match(input,18,FOLLOW_18_in_ruleTransaction701); 
+            match(input,21,FOLLOW_21_in_ruleTransaction1131); 
 
                     createLeafNode(grammarAccess.getTransactionAccess().getRGhtParenthesSKeyword_4(), null); 
                 
-            match(input,19,FOLLOW_19_in_ruleTransaction711); 
+            match(input,22,FOLLOW_22_in_ruleTransaction1141); 
 
                     createLeafNode(grammarAccess.getTransactionAccess().getBEGINKeyword_5(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:464:1: ( (lv_operations_6_0= ruleOperation ) )*
-            loop4:
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:684:1: ( (lv_operations_6_0= ruleOperation ) )*
+            loop5:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA4_0==RULE_ID||LA4_0==20||LA4_0==22||(LA4_0>=25 && LA4_0<=26)) ) {
-                    alt4=1;
+                if ( (LA5_0==RULE_ID||LA5_0==23||LA5_0==25||(LA5_0>=28 && LA5_0<=29)) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt5) {
             	case 1 :
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:465:1: (lv_operations_6_0= ruleOperation )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:685:1: (lv_operations_6_0= ruleOperation )
             	    {
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:465:1: (lv_operations_6_0= ruleOperation )
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:466:3: lv_operations_6_0= ruleOperation
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:685:1: (lv_operations_6_0= ruleOperation )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:686:3: lv_operations_6_0= ruleOperation
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getTransactionAccess().getOperationsOperationParserRuleCall_6_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleOperation_in_ruleTransaction732);
+            	    pushFollow(FOLLOW_ruleOperation_in_ruleTransaction1162);
             	    lv_operations_6_0=ruleOperation();
             	    _fsp--;
 
@@ -920,11 +1402,11 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop5;
                 }
             } while (true);
 
-            match(input,13,FOLLOW_13_in_ruleTransaction743); 
+            match(input,13,FOLLOW_13_in_ruleTransaction1173); 
 
                     createLeafNode(grammarAccess.getTransactionAccess().getENDKeyword_7(), null); 
                 
@@ -951,7 +1433,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleArgument
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:500:1: entryRuleArgument returns [EObject current=null] : iv_ruleArgument= ruleArgument EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:720:1: entryRuleArgument returns [EObject current=null] : iv_ruleArgument= ruleArgument EOF ;
     public final EObject entryRuleArgument() throws RecognitionException {
         EObject current = null;
 
@@ -959,16 +1441,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:501:2: (iv_ruleArgument= ruleArgument EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:502:2: iv_ruleArgument= ruleArgument EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:721:2: (iv_ruleArgument= ruleArgument EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:722:2: iv_ruleArgument= ruleArgument EOF
             {
              currentNode = createCompositeNode(grammarAccess.getArgumentRule(), currentNode); 
-            pushFollow(FOLLOW_ruleArgument_in_entryRuleArgument779);
+            pushFollow(FOLLOW_ruleArgument_in_entryRuleArgument1209);
             iv_ruleArgument=ruleArgument();
             _fsp--;
 
              current =iv_ruleArgument; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleArgument789); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleArgument1219); 
 
             }
 
@@ -986,7 +1468,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleArgument
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:509:1: ruleArgument returns [EObject current=null] : ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:729:1: ruleArgument returns [EObject current=null] : ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleArgument() throws RecognitionException {
         EObject current = null;
 
@@ -996,20 +1478,20 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:514:6: ( ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:515:1: ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:734:6: ( ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:735:1: ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:515:1: ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:515:2: ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:735:1: ( ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:735:2: ( (lv_keyword_0_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:515:2: ( (lv_keyword_0_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:516:1: (lv_keyword_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:735:2: ( (lv_keyword_0_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:736:1: (lv_keyword_0_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:516:1: (lv_keyword_0_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:517:3: lv_keyword_0_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:736:1: (lv_keyword_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:737:3: lv_keyword_0_0= RULE_ID
             {
             lv_keyword_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArgument831); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArgument1261); 
 
             			createLeafNode(grammarAccess.getArgumentAccess().getKeywordIDTerminalRuleCall_0_0(), "keyword"); 
             		
@@ -1035,14 +1517,14 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:539:2: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:540:1: (lv_name_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:759:2: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:760:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:540:1: (lv_name_1_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:541:3: lv_name_1_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:760:1: (lv_name_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:761:3: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArgument853); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleArgument1283); 
 
             			createLeafNode(grammarAccess.getArgumentAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
             		
@@ -1091,7 +1573,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleOperation
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:571:1: entryRuleOperation returns [EObject current=null] : iv_ruleOperation= ruleOperation EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:791:1: entryRuleOperation returns [EObject current=null] : iv_ruleOperation= ruleOperation EOF ;
     public final EObject entryRuleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -1099,16 +1581,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:572:2: (iv_ruleOperation= ruleOperation EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:573:2: iv_ruleOperation= ruleOperation EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:792:2: (iv_ruleOperation= ruleOperation EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:793:2: iv_ruleOperation= ruleOperation EOF
             {
              currentNode = createCompositeNode(grammarAccess.getOperationRule(), currentNode); 
-            pushFollow(FOLLOW_ruleOperation_in_entryRuleOperation894);
+            pushFollow(FOLLOW_ruleOperation_in_entryRuleOperation1324);
             iv_ruleOperation=ruleOperation();
             _fsp--;
 
              current =iv_ruleOperation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOperation904); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOperation1334); 
 
             }
 
@@ -1126,7 +1608,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOperation
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:580:1: ruleOperation returns [EObject current=null] : (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:800:1: ruleOperation returns [EObject current=null] : (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall | this_Exchange_5= ruleExchange ) ;
     public final EObject ruleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -1140,56 +1622,71 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
         EObject this_Call_4 = null;
 
+        EObject this_Exchange_5 = null;
+
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:585:6: ( (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:586:1: (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:805:6: ( (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall | this_Exchange_5= ruleExchange ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:806:1: (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall | this_Exchange_5= ruleExchange )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:586:1: (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall )
-            int alt5=5;
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:806:1: (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall | this_Exchange_5= ruleExchange )
+            int alt6=6;
             switch ( input.LA(1) ) {
-            case 20:
+            case 23:
                 {
-                alt5=1;
-                }
-                break;
-            case 22:
-                {
-                alt5=2;
-                }
-                break;
-            case RULE_ID:
-                {
-                alt5=3;
+                alt6=1;
                 }
                 break;
             case 25:
                 {
-                alt5=4;
+                alt6=2;
                 }
                 break;
-            case 26:
+            case RULE_ID:
                 {
-                alt5=5;
+                int LA6_3 = input.LA(2);
+
+                if ( (LA6_3==26) ) {
+                    alt6=3;
+                }
+                else if ( (LA6_3==30) ) {
+                    alt6=6;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("806:1: (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall | this_Exchange_5= ruleExchange )", 6, 3, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case 28:
+                {
+                alt6=4;
+                }
+                break;
+            case 29:
+                {
+                alt6=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("586:1: (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall )", 5, 0, input);
+                    new NoViableAltException("806:1: (this_Decrypt_0= ruleDecrypt | this_Encrypt_1= ruleEncrypt | this_Send_2= ruleSend | this_Print_3= rulePrint | this_Call_4= ruleCall | this_Exchange_5= ruleExchange )", 6, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:587:5: this_Decrypt_0= ruleDecrypt
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:807:5: this_Decrypt_0= ruleDecrypt
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getOperationAccess().getDecryptParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleDecrypt_in_ruleOperation951);
+                    pushFollow(FOLLOW_ruleDecrypt_in_ruleOperation1381);
                     this_Decrypt_0=ruleDecrypt();
                     _fsp--;
 
@@ -1201,12 +1698,12 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:597:5: this_Encrypt_1= ruleEncrypt
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:817:5: this_Encrypt_1= ruleEncrypt
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getOperationAccess().getEncryptParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleEncrypt_in_ruleOperation978);
+                    pushFollow(FOLLOW_ruleEncrypt_in_ruleOperation1408);
                     this_Encrypt_1=ruleEncrypt();
                     _fsp--;
 
@@ -1218,12 +1715,12 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:607:5: this_Send_2= ruleSend
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:827:5: this_Send_2= ruleSend
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getOperationAccess().getSendParserRuleCall_2(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleSend_in_ruleOperation1005);
+                    pushFollow(FOLLOW_ruleSend_in_ruleOperation1435);
                     this_Send_2=ruleSend();
                     _fsp--;
 
@@ -1235,12 +1732,12 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:617:5: this_Print_3= rulePrint
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:837:5: this_Print_3= rulePrint
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getOperationAccess().getPrintParserRuleCall_3(), currentNode); 
                         
-                    pushFollow(FOLLOW_rulePrint_in_ruleOperation1032);
+                    pushFollow(FOLLOW_rulePrint_in_ruleOperation1462);
                     this_Print_3=rulePrint();
                     _fsp--;
 
@@ -1252,17 +1749,34 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:627:5: this_Call_4= ruleCall
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:847:5: this_Call_4= ruleCall
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getOperationAccess().getCallParserRuleCall_4(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleCall_in_ruleOperation1059);
+                    pushFollow(FOLLOW_ruleCall_in_ruleOperation1489);
                     this_Call_4=ruleCall();
                     _fsp--;
 
                      
                             current = this_Call_4; 
+                            currentNode = currentNode.getParent();
+                        
+
+                    }
+                    break;
+                case 6 :
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:857:5: this_Exchange_5= ruleExchange
+                    {
+                     
+                            currentNode=createCompositeNode(grammarAccess.getOperationAccess().getExchangeParserRuleCall_5(), currentNode); 
+                        
+                    pushFollow(FOLLOW_ruleExchange_in_ruleOperation1516);
+                    this_Exchange_5=ruleExchange();
+                    _fsp--;
+
+                     
+                            current = this_Exchange_5; 
                             currentNode = currentNode.getParent();
                         
 
@@ -1291,7 +1805,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleDecrypt
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:643:1: entryRuleDecrypt returns [EObject current=null] : iv_ruleDecrypt= ruleDecrypt EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:873:1: entryRuleDecrypt returns [EObject current=null] : iv_ruleDecrypt= ruleDecrypt EOF ;
     public final EObject entryRuleDecrypt() throws RecognitionException {
         EObject current = null;
 
@@ -1299,16 +1813,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:644:2: (iv_ruleDecrypt= ruleDecrypt EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:645:2: iv_ruleDecrypt= ruleDecrypt EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:874:2: (iv_ruleDecrypt= ruleDecrypt EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:875:2: iv_ruleDecrypt= ruleDecrypt EOF
             {
              currentNode = createCompositeNode(grammarAccess.getDecryptRule(), currentNode); 
-            pushFollow(FOLLOW_ruleDecrypt_in_entryRuleDecrypt1094);
+            pushFollow(FOLLOW_ruleDecrypt_in_entryRuleDecrypt1551);
             iv_ruleDecrypt=ruleDecrypt();
             _fsp--;
 
              current =iv_ruleDecrypt; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDecrypt1104); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDecrypt1561); 
 
             }
 
@@ -1326,34 +1840,33 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleDecrypt
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:652:1: ruleDecrypt returns [EObject current=null] : ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:882:1: ruleDecrypt returns [EObject current=null] : ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) ) ;
     public final EObject ruleDecrypt() throws RecognitionException {
         EObject current = null;
 
         Token lv_message_1_0=null;
-        Token lv_participant_3_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:657:6: ( ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:658:1: ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:887:6: ( ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:888:1: ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:658:1: ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:658:3: 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:888:1: ( 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:888:3: 'decrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) )
             {
-            match(input,20,FOLLOW_20_in_ruleDecrypt1139); 
+            match(input,23,FOLLOW_23_in_ruleDecrypt1596); 
 
                     createLeafNode(grammarAccess.getDecryptAccess().getDecryptKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:662:1: ( (lv_message_1_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:663:1: (lv_message_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:892:1: ( (lv_message_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:893:1: (lv_message_1_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:663:1: (lv_message_1_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:664:3: lv_message_1_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:893:1: (lv_message_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:894:3: lv_message_1_0= RULE_ID
             {
             lv_message_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDecrypt1156); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDecrypt1613); 
 
             			createLeafNode(grammarAccess.getDecryptAccess().getMessageIDTerminalRuleCall_1_0(), "message"); 
             		
@@ -1379,37 +1892,26 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleDecrypt1171); 
+            match(input,24,FOLLOW_24_in_ruleDecrypt1628); 
 
                     createLeafNode(grammarAccess.getDecryptAccess().getForKeyword_2(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:690:1: ( (lv_participant_3_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:691:1: (lv_participant_3_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:920:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:921:1: ( RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:691:1: (lv_participant_3_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:692:3: lv_participant_3_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:921:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:922:3: RULE_ID
             {
-            lv_participant_3_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDecrypt1188); 
 
-            			createLeafNode(grammarAccess.getDecryptAccess().getParticipantIDTerminalRuleCall_3_0(), "participant"); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = factory.create(grammarAccess.getDecryptRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"participant",
-            	        		lv_participant_3_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDecrypt1646); 
+
+            		createLeafNode(grammarAccess.getDecryptAccess().getParticipantParticipantCrossReference_3_0(), "participant"); 
+            	
 
             }
 
@@ -1439,7 +1941,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEncrypt
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:722:1: entryRuleEncrypt returns [EObject current=null] : iv_ruleEncrypt= ruleEncrypt EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:942:1: entryRuleEncrypt returns [EObject current=null] : iv_ruleEncrypt= ruleEncrypt EOF ;
     public final EObject entryRuleEncrypt() throws RecognitionException {
         EObject current = null;
 
@@ -1447,16 +1949,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:723:2: (iv_ruleEncrypt= ruleEncrypt EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:724:2: iv_ruleEncrypt= ruleEncrypt EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:943:2: (iv_ruleEncrypt= ruleEncrypt EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:944:2: iv_ruleEncrypt= ruleEncrypt EOF
             {
              currentNode = createCompositeNode(grammarAccess.getEncryptRule(), currentNode); 
-            pushFollow(FOLLOW_ruleEncrypt_in_entryRuleEncrypt1229);
+            pushFollow(FOLLOW_ruleEncrypt_in_entryRuleEncrypt1682);
             iv_ruleEncrypt=ruleEncrypt();
             _fsp--;
 
              current =iv_ruleEncrypt; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEncrypt1239); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEncrypt1692); 
 
             }
 
@@ -1474,34 +1976,33 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEncrypt
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:731:1: ruleEncrypt returns [EObject current=null] : ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:951:1: ruleEncrypt returns [EObject current=null] : ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) ) ;
     public final EObject ruleEncrypt() throws RecognitionException {
         EObject current = null;
 
         Token lv_message_1_0=null;
-        Token lv_participant_3_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:736:6: ( ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:737:1: ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:956:6: ( ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:957:1: ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:737:1: ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:737:3: 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( (lv_participant_3_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:957:1: ( 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:957:3: 'encrypt' ( (lv_message_1_0= RULE_ID ) ) 'for' ( ( RULE_ID ) )
             {
-            match(input,22,FOLLOW_22_in_ruleEncrypt1274); 
+            match(input,25,FOLLOW_25_in_ruleEncrypt1727); 
 
                     createLeafNode(grammarAccess.getEncryptAccess().getEncryptKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:741:1: ( (lv_message_1_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:742:1: (lv_message_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:961:1: ( (lv_message_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:962:1: (lv_message_1_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:742:1: (lv_message_1_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:743:3: lv_message_1_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:962:1: (lv_message_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:963:3: lv_message_1_0= RULE_ID
             {
             lv_message_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEncrypt1291); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEncrypt1744); 
 
             			createLeafNode(grammarAccess.getEncryptAccess().getMessageIDTerminalRuleCall_1_0(), "message"); 
             		
@@ -1527,37 +2028,26 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,21,FOLLOW_21_in_ruleEncrypt1306); 
+            match(input,24,FOLLOW_24_in_ruleEncrypt1759); 
 
                     createLeafNode(grammarAccess.getEncryptAccess().getForKeyword_2(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:769:1: ( (lv_participant_3_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:770:1: (lv_participant_3_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:989:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:990:1: ( RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:770:1: (lv_participant_3_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:771:3: lv_participant_3_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:990:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:991:3: RULE_ID
             {
-            lv_participant_3_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEncrypt1323); 
 
-            			createLeafNode(grammarAccess.getEncryptAccess().getParticipantIDTerminalRuleCall_3_0(), "participant"); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = factory.create(grammarAccess.getEncryptRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"participant",
-            	        		lv_participant_3_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleEncrypt1777); 
+
+            		createLeafNode(grammarAccess.getEncryptAccess().getParticipantParticipantCrossReference_3_0(), "participant"); 
+            	
 
             }
 
@@ -1587,7 +2077,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSend
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:801:1: entryRuleSend returns [EObject current=null] : iv_ruleSend= ruleSend EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1011:1: entryRuleSend returns [EObject current=null] : iv_ruleSend= ruleSend EOF ;
     public final EObject entryRuleSend() throws RecognitionException {
         EObject current = null;
 
@@ -1595,16 +2085,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:802:2: (iv_ruleSend= ruleSend EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:803:2: iv_ruleSend= ruleSend EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1012:2: (iv_ruleSend= ruleSend EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1013:2: iv_ruleSend= ruleSend EOF
             {
              currentNode = createCompositeNode(grammarAccess.getSendRule(), currentNode); 
-            pushFollow(FOLLOW_ruleSend_in_entryRuleSend1364);
+            pushFollow(FOLLOW_ruleSend_in_entryRuleSend1813);
             iv_ruleSend=ruleSend();
             _fsp--;
 
              current =iv_ruleSend; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSend1374); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSend1823); 
 
             }
 
@@ -1622,31 +2112,29 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSend
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:810:1: ruleSend returns [EObject current=null] : ( ( (lv_message_0_0= RULE_ID ) ) '::' ( (lv_source_2_0= RULE_ID ) ) '->' ( (lv_destination_4_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1020:1: ruleSend returns [EObject current=null] : ( ( (lv_message_0_0= RULE_ID ) ) '::' ( ( RULE_ID ) ) '->' ( ( RULE_ID ) ) ) ;
     public final EObject ruleSend() throws RecognitionException {
         EObject current = null;
 
         Token lv_message_0_0=null;
-        Token lv_source_2_0=null;
-        Token lv_destination_4_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:815:6: ( ( ( (lv_message_0_0= RULE_ID ) ) '::' ( (lv_source_2_0= RULE_ID ) ) '->' ( (lv_destination_4_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:816:1: ( ( (lv_message_0_0= RULE_ID ) ) '::' ( (lv_source_2_0= RULE_ID ) ) '->' ( (lv_destination_4_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1025:6: ( ( ( (lv_message_0_0= RULE_ID ) ) '::' ( ( RULE_ID ) ) '->' ( ( RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1026:1: ( ( (lv_message_0_0= RULE_ID ) ) '::' ( ( RULE_ID ) ) '->' ( ( RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:816:1: ( ( (lv_message_0_0= RULE_ID ) ) '::' ( (lv_source_2_0= RULE_ID ) ) '->' ( (lv_destination_4_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:816:2: ( (lv_message_0_0= RULE_ID ) ) '::' ( (lv_source_2_0= RULE_ID ) ) '->' ( (lv_destination_4_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1026:1: ( ( (lv_message_0_0= RULE_ID ) ) '::' ( ( RULE_ID ) ) '->' ( ( RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1026:2: ( (lv_message_0_0= RULE_ID ) ) '::' ( ( RULE_ID ) ) '->' ( ( RULE_ID ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:816:2: ( (lv_message_0_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:817:1: (lv_message_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1026:2: ( (lv_message_0_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1027:1: (lv_message_0_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:817:1: (lv_message_0_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:818:3: lv_message_0_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1027:1: (lv_message_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1028:3: lv_message_0_0= RULE_ID
             {
             lv_message_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSend1416); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSend1865); 
 
             			createLeafNode(grammarAccess.getSendAccess().getMessageIDTerminalRuleCall_0_0(), "message"); 
             		
@@ -1672,74 +2160,52 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,23,FOLLOW_23_in_ruleSend1431); 
+            match(input,26,FOLLOW_26_in_ruleSend1880); 
 
                     createLeafNode(grammarAccess.getSendAccess().getColonColonKeyword_1(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:844:1: ( (lv_source_2_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:845:1: (lv_source_2_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1054:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1055:1: ( RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:845:1: (lv_source_2_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:846:3: lv_source_2_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1055:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1056:3: RULE_ID
             {
-            lv_source_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSend1448); 
 
-            			createLeafNode(grammarAccess.getSendAccess().getSourceIDTerminalRuleCall_2_0(), "source"); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = factory.create(grammarAccess.getSendRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"source",
-            	        		lv_source_2_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSend1898); 
+
+            		createLeafNode(grammarAccess.getSendAccess().getSourceEventSourceCrossReference_2_0(), "source"); 
+            	
 
             }
 
 
             }
 
-            match(input,24,FOLLOW_24_in_ruleSend1463); 
+            match(input,27,FOLLOW_27_in_ruleSend1908); 
 
                     createLeafNode(grammarAccess.getSendAccess().getHyphenMNusGreaterThanSGnKeyword_3(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:872:1: ( (lv_destination_4_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:873:1: (lv_destination_4_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1072:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1073:1: ( RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:873:1: (lv_destination_4_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:874:3: lv_destination_4_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1073:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1074:3: RULE_ID
             {
-            lv_destination_4_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSend1480); 
 
-            			createLeafNode(grammarAccess.getSendAccess().getDestinationIDTerminalRuleCall_4_0(), "destination"); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = factory.create(grammarAccess.getSendRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"destination",
-            	        		lv_destination_4_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSend1926); 
+
+            		createLeafNode(grammarAccess.getSendAccess().getDestinationEventSourceCrossReference_4_0(), "destination"); 
+            	
 
             }
 
@@ -1769,7 +2235,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePrint
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:904:1: entryRulePrint returns [EObject current=null] : iv_rulePrint= rulePrint EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1094:1: entryRulePrint returns [EObject current=null] : iv_rulePrint= rulePrint EOF ;
     public final EObject entryRulePrint() throws RecognitionException {
         EObject current = null;
 
@@ -1777,16 +2243,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:905:2: (iv_rulePrint= rulePrint EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:906:2: iv_rulePrint= rulePrint EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1095:2: (iv_rulePrint= rulePrint EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1096:2: iv_rulePrint= rulePrint EOF
             {
              currentNode = createCompositeNode(grammarAccess.getPrintRule(), currentNode); 
-            pushFollow(FOLLOW_rulePrint_in_entryRulePrint1521);
+            pushFollow(FOLLOW_rulePrint_in_entryRulePrint1962);
             iv_rulePrint=rulePrint();
             _fsp--;
 
              current =iv_rulePrint; 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePrint1531); 
+            match(input,EOF,FOLLOW_EOF_in_entryRulePrint1972); 
 
             }
 
@@ -1804,7 +2270,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePrint
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:913:1: rulePrint returns [EObject current=null] : ( 'print' ( (lv_message_1_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1103:1: rulePrint returns [EObject current=null] : ( 'print' ( (lv_message_1_0= RULE_ID ) ) ) ;
     public final EObject rulePrint() throws RecognitionException {
         EObject current = null;
 
@@ -1813,24 +2279,24 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:918:6: ( ( 'print' ( (lv_message_1_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:919:1: ( 'print' ( (lv_message_1_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1108:6: ( ( 'print' ( (lv_message_1_0= RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1109:1: ( 'print' ( (lv_message_1_0= RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:919:1: ( 'print' ( (lv_message_1_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:919:3: 'print' ( (lv_message_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1109:1: ( 'print' ( (lv_message_1_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1109:3: 'print' ( (lv_message_1_0= RULE_ID ) )
             {
-            match(input,25,FOLLOW_25_in_rulePrint1566); 
+            match(input,28,FOLLOW_28_in_rulePrint2007); 
 
                     createLeafNode(grammarAccess.getPrintAccess().getPrintKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:923:1: ( (lv_message_1_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:924:1: (lv_message_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1113:1: ( (lv_message_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1114:1: (lv_message_1_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:924:1: (lv_message_1_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:925:3: lv_message_1_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1114:1: (lv_message_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1115:3: lv_message_1_0= RULE_ID
             {
             lv_message_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePrint1583); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePrint2024); 
 
             			createLeafNode(grammarAccess.getPrintAccess().getMessageIDTerminalRuleCall_1_0(), "message"); 
             		
@@ -1879,7 +2345,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCall
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:955:1: entryRuleCall returns [EObject current=null] : iv_ruleCall= ruleCall EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1145:1: entryRuleCall returns [EObject current=null] : iv_ruleCall= ruleCall EOF ;
     public final EObject entryRuleCall() throws RecognitionException {
         EObject current = null;
 
@@ -1887,16 +2353,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:956:2: (iv_ruleCall= ruleCall EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:957:2: iv_ruleCall= ruleCall EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1146:2: (iv_ruleCall= ruleCall EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1147:2: iv_ruleCall= ruleCall EOF
             {
              currentNode = createCompositeNode(grammarAccess.getCallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleCall_in_entryRuleCall1624);
+            pushFollow(FOLLOW_ruleCall_in_entryRuleCall2065);
             iv_ruleCall=ruleCall();
             _fsp--;
 
              current =iv_ruleCall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCall1634); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCall2075); 
 
             }
 
@@ -1914,52 +2380,39 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCall
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:964:1: ruleCall returns [EObject current=null] : ( 'CALL' ( (lv_transactionName_1_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1154:1: ruleCall returns [EObject current=null] : ( 'CALL' ( ( RULE_ID ) ) ) ;
     public final EObject ruleCall() throws RecognitionException {
         EObject current = null;
-
-        Token lv_transactionName_1_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:969:6: ( ( 'CALL' ( (lv_transactionName_1_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:970:1: ( 'CALL' ( (lv_transactionName_1_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1159:6: ( ( 'CALL' ( ( RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1160:1: ( 'CALL' ( ( RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:970:1: ( 'CALL' ( (lv_transactionName_1_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:970:3: 'CALL' ( (lv_transactionName_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1160:1: ( 'CALL' ( ( RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1160:3: 'CALL' ( ( RULE_ID ) )
             {
-            match(input,26,FOLLOW_26_in_ruleCall1669); 
+            match(input,29,FOLLOW_29_in_ruleCall2110); 
 
                     createLeafNode(grammarAccess.getCallAccess().getCALLKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:974:1: ( (lv_transactionName_1_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:975:1: (lv_transactionName_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1164:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1165:1: ( RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:975:1: (lv_transactionName_1_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:976:3: lv_transactionName_1_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1165:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1166:3: RULE_ID
             {
-            lv_transactionName_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCall1686); 
 
-            			createLeafNode(grammarAccess.getCallAccess().getTransactionNameIDTerminalRuleCall_1_0(), "transactionName"); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = factory.create(grammarAccess.getCallRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"transactionName",
-            	        		lv_transactionName_1_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCall2128); 
+
+            		createLeafNode(grammarAccess.getCallAccess().getTransactionNameTransactionCrossReference_1_0(), "transactionName"); 
+            	
 
             }
 
@@ -1988,8 +2441,127 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleCall
 
 
+    // $ANTLR start entryRuleExchange
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1186:1: entryRuleExchange returns [EObject current=null] : iv_ruleExchange= ruleExchange EOF ;
+    public final EObject entryRuleExchange() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExchange = null;
+
+
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1187:2: (iv_ruleExchange= ruleExchange EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1188:2: iv_ruleExchange= ruleExchange EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getExchangeRule(), currentNode); 
+            pushFollow(FOLLOW_ruleExchange_in_entryRuleExchange2164);
+            iv_ruleExchange=ruleExchange();
+            _fsp--;
+
+             current =iv_ruleExchange; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExchange2174); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleExchange
+
+
+    // $ANTLR start ruleExchange
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1195:1: ruleExchange returns [EObject current=null] : ( ( ( RULE_ID ) ) 'exchange' ( ( RULE_ID ) ) ) ;
+    public final EObject ruleExchange() throws RecognitionException {
+        EObject current = null;
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1200:6: ( ( ( ( RULE_ID ) ) 'exchange' ( ( RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1201:1: ( ( ( RULE_ID ) ) 'exchange' ( ( RULE_ID ) ) )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1201:1: ( ( ( RULE_ID ) ) 'exchange' ( ( RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1201:2: ( ( RULE_ID ) ) 'exchange' ( ( RULE_ID ) )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1201:2: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1202:1: ( RULE_ID )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1202:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1203:3: RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = factory.create(grammarAccess.getExchangeRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExchange2217); 
+
+            		createLeafNode(grammarAccess.getExchangeAccess().getSourceEventSourceCrossReference_0_0(), "source"); 
+            	
+
+            }
+
+
+            }
+
+            match(input,30,FOLLOW_30_in_ruleExchange2227); 
+
+                    createLeafNode(grammarAccess.getExchangeAccess().getExchangeKeyword_1(), null); 
+                
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1219:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1220:1: ( RULE_ID )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1220:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1221:3: RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = factory.create(grammarAccess.getExchangeRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleExchange2245); 
+
+            		createLeafNode(grammarAccess.getExchangeAccess().getDestinationEventSourceCrossReference_2_0(), "destination"); 
+            	
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleExchange
+
+
     // $ANTLR start entryRuleStates
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1006:1: entryRuleStates returns [EObject current=null] : iv_ruleStates= ruleStates EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1241:1: entryRuleStates returns [EObject current=null] : iv_ruleStates= ruleStates EOF ;
     public final EObject entryRuleStates() throws RecognitionException {
         EObject current = null;
 
@@ -1997,16 +2569,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1007:2: (iv_ruleStates= ruleStates EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1008:2: iv_ruleStates= ruleStates EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1242:2: (iv_ruleStates= ruleStates EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1243:2: iv_ruleStates= ruleStates EOF
             {
              currentNode = createCompositeNode(grammarAccess.getStatesRule(), currentNode); 
-            pushFollow(FOLLOW_ruleStates_in_entryRuleStates1727);
+            pushFollow(FOLLOW_ruleStates_in_entryRuleStates2281);
             iv_ruleStates=ruleStates();
             _fsp--;
 
              current =iv_ruleStates; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStates1737); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStates2291); 
 
             }
 
@@ -2024,7 +2596,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStates
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1015:1: ruleStates returns [EObject current=null] : ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1250:1: ruleStates returns [EObject current=null] : ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' ) ;
     public final EObject ruleStates() throws RecognitionException {
         EObject current = null;
 
@@ -2034,38 +2606,38 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1020:6: ( ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1021:1: ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1255:6: ( ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1256:1: ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1021:1: ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1021:3: '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1256:1: ( '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1256:3: '[STATES]' ( (lv_states_1_0= ruleState ) )* '[END]'
             {
-            match(input,27,FOLLOW_27_in_ruleStates1772); 
+            match(input,31,FOLLOW_31_in_ruleStates2326); 
 
                     createLeafNode(grammarAccess.getStatesAccess().getSTATESKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1025:1: ( (lv_states_1_0= ruleState ) )*
-            loop6:
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1260:1: ( (lv_states_1_0= ruleState ) )*
+            loop7:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( (LA6_0==28) ) {
-                    alt6=1;
+                if ( (LA7_0==32) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt7) {
             	case 1 :
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1026:1: (lv_states_1_0= ruleState )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1261:1: (lv_states_1_0= ruleState )
             	    {
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1026:1: (lv_states_1_0= ruleState )
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1027:3: lv_states_1_0= ruleState
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1261:1: (lv_states_1_0= ruleState )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1262:3: lv_states_1_0= ruleState
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getStatesAccess().getStatesStateParserRuleCall_1_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleState_in_ruleStates1793);
+            	    pushFollow(FOLLOW_ruleState_in_ruleStates2347);
             	    lv_states_1_0=ruleState();
             	    _fsp--;
 
@@ -2094,11 +2666,11 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop7;
                 }
             } while (true);
 
-            match(input,13,FOLLOW_13_in_ruleStates1804); 
+            match(input,13,FOLLOW_13_in_ruleStates2358); 
 
                     createLeafNode(grammarAccess.getStatesAccess().getENDKeyword_2(), null); 
                 
@@ -2125,7 +2697,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleState
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1061:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1296:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -2133,16 +2705,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1062:2: (iv_ruleState= ruleState EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1063:2: iv_ruleState= ruleState EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1297:2: (iv_ruleState= ruleState EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1298:2: iv_ruleState= ruleState EOF
             {
              currentNode = createCompositeNode(grammarAccess.getStateRule(), currentNode); 
-            pushFollow(FOLLOW_ruleState_in_entryRuleState1840);
+            pushFollow(FOLLOW_ruleState_in_entryRuleState2394);
             iv_ruleState=ruleState();
             _fsp--;
 
              current =iv_ruleState; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleState1850); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleState2404); 
 
             }
 
@@ -2160,7 +2732,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleState
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1070:1: ruleState returns [EObject current=null] : ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1305:1: ruleState returns [EObject current=null] : ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -2173,24 +2745,24 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1075:6: ( ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1076:1: ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1310:6: ( ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1311:1: ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1076:1: ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1076:3: 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1311:1: ( 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1311:3: 'STATE' ( (lv_name_1_0= RULE_ID ) ) '(' ( (lv_event_3_0= ruleEvent ) ) ')' '[BEGIN]' ( (lv_guards_6_0= ruleGuard ) )* '[END]'
             {
-            match(input,28,FOLLOW_28_in_ruleState1885); 
+            match(input,32,FOLLOW_32_in_ruleState2439); 
 
                     createLeafNode(grammarAccess.getStateAccess().getSTATEKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1080:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1081:1: (lv_name_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1315:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1316:1: (lv_name_1_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1081:1: (lv_name_1_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1082:3: lv_name_1_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1316:1: (lv_name_1_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1317:3: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState1902); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleState2456); 
 
             			createLeafNode(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
             		
@@ -2216,20 +2788,20 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,17,FOLLOW_17_in_ruleState1917); 
+            match(input,20,FOLLOW_20_in_ruleState2471); 
 
                     createLeafNode(grammarAccess.getStateAccess().getLeftParenthesSKeyword_2(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1108:1: ( (lv_event_3_0= ruleEvent ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1109:1: (lv_event_3_0= ruleEvent )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1343:1: ( (lv_event_3_0= ruleEvent ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1344:1: (lv_event_3_0= ruleEvent )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1109:1: (lv_event_3_0= ruleEvent )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1110:3: lv_event_3_0= ruleEvent
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1344:1: (lv_event_3_0= ruleEvent )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1345:3: lv_event_3_0= ruleEvent
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getStateAccess().getEventEventParserRuleCall_3_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleEvent_in_ruleState1938);
+            pushFollow(FOLLOW_ruleEvent_in_ruleState2492);
             lv_event_3_0=ruleEvent();
             _fsp--;
 
@@ -2256,36 +2828,36 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,18,FOLLOW_18_in_ruleState1948); 
+            match(input,21,FOLLOW_21_in_ruleState2502); 
 
                     createLeafNode(grammarAccess.getStateAccess().getRGhtParenthesSKeyword_4(), null); 
                 
-            match(input,19,FOLLOW_19_in_ruleState1958); 
+            match(input,22,FOLLOW_22_in_ruleState2512); 
 
                     createLeafNode(grammarAccess.getStateAccess().getBEGINKeyword_5(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1140:1: ( (lv_guards_6_0= ruleGuard ) )*
-            loop7:
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1375:1: ( (lv_guards_6_0= ruleGuard ) )*
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( (LA7_0==29) ) {
-                    alt7=1;
+                if ( (LA8_0==33) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1141:1: (lv_guards_6_0= ruleGuard )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1376:1: (lv_guards_6_0= ruleGuard )
             	    {
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1141:1: (lv_guards_6_0= ruleGuard )
-            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1142:3: lv_guards_6_0= ruleGuard
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1376:1: (lv_guards_6_0= ruleGuard )
+            	    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1377:3: lv_guards_6_0= ruleGuard
             	    {
             	     
             	    	        currentNode=createCompositeNode(grammarAccess.getStateAccess().getGuardsGuardParserRuleCall_6_0(), currentNode); 
             	    	    
-            	    pushFollow(FOLLOW_ruleGuard_in_ruleState1979);
+            	    pushFollow(FOLLOW_ruleGuard_in_ruleState2533);
             	    lv_guards_6_0=ruleGuard();
             	    _fsp--;
 
@@ -2314,11 +2886,11 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop8;
                 }
             } while (true);
 
-            match(input,13,FOLLOW_13_in_ruleState1990); 
+            match(input,13,FOLLOW_13_in_ruleState2544); 
 
                     createLeafNode(grammarAccess.getStateAccess().getENDKeyword_7(), null); 
                 
@@ -2345,7 +2917,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGuard
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1176:1: entryRuleGuard returns [EObject current=null] : iv_ruleGuard= ruleGuard EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1411:1: entryRuleGuard returns [EObject current=null] : iv_ruleGuard= ruleGuard EOF ;
     public final EObject entryRuleGuard() throws RecognitionException {
         EObject current = null;
 
@@ -2353,16 +2925,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1177:2: (iv_ruleGuard= ruleGuard EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1178:2: iv_ruleGuard= ruleGuard EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1412:2: (iv_ruleGuard= ruleGuard EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1413:2: iv_ruleGuard= ruleGuard EOF
             {
              currentNode = createCompositeNode(grammarAccess.getGuardRule(), currentNode); 
-            pushFollow(FOLLOW_ruleGuard_in_entryRuleGuard2026);
+            pushFollow(FOLLOW_ruleGuard_in_entryRuleGuard2580);
             iv_ruleGuard=ruleGuard();
             _fsp--;
 
              current =iv_ruleGuard; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGuard2036); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGuard2590); 
 
             }
 
@@ -2380,7 +2952,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGuard
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1185:1: ruleGuard returns [EObject current=null] : ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1420:1: ruleGuard returns [EObject current=null] : ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) ) ;
     public final EObject ruleGuard() throws RecognitionException {
         EObject current = null;
 
@@ -2392,26 +2964,26 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1190:6: ( ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1191:1: ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1425:6: ( ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1426:1: ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1191:1: ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1191:3: '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1426:1: ( '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1426:3: '|' ( (lv_casem_1_0= ruleCase ) ) '=>' ( (lv_operation_3_0= ruleOperation ) )
             {
-            match(input,29,FOLLOW_29_in_ruleGuard2071); 
+            match(input,33,FOLLOW_33_in_ruleGuard2625); 
 
                     createLeafNode(grammarAccess.getGuardAccess().getVertCalLNeKeyword_0(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1195:1: ( (lv_casem_1_0= ruleCase ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1196:1: (lv_casem_1_0= ruleCase )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1430:1: ( (lv_casem_1_0= ruleCase ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1431:1: (lv_casem_1_0= ruleCase )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1196:1: (lv_casem_1_0= ruleCase )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1197:3: lv_casem_1_0= ruleCase
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1431:1: (lv_casem_1_0= ruleCase )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1432:3: lv_casem_1_0= ruleCase
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getGuardAccess().getCasemCaseParserRuleCall_1_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleCase_in_ruleGuard2092);
+            pushFollow(FOLLOW_ruleCase_in_ruleGuard2646);
             lv_casem_1_0=ruleCase();
             _fsp--;
 
@@ -2438,20 +3010,20 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,30,FOLLOW_30_in_ruleGuard2102); 
+            match(input,34,FOLLOW_34_in_ruleGuard2656); 
 
                     createLeafNode(grammarAccess.getGuardAccess().getEqualsSGnGreaterThanSGnKeyword_2(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1223:1: ( (lv_operation_3_0= ruleOperation ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1224:1: (lv_operation_3_0= ruleOperation )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1458:1: ( (lv_operation_3_0= ruleOperation ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1459:1: (lv_operation_3_0= ruleOperation )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1224:1: (lv_operation_3_0= ruleOperation )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1225:3: lv_operation_3_0= ruleOperation
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1459:1: (lv_operation_3_0= ruleOperation )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1460:3: lv_operation_3_0= ruleOperation
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getGuardAccess().getOperationOperationParserRuleCall_3_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleOperation_in_ruleGuard2123);
+            pushFollow(FOLLOW_ruleOperation_in_ruleGuard2677);
             lv_operation_3_0=ruleOperation();
             _fsp--;
 
@@ -2501,7 +3073,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEvent
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1255:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1490:1: entryRuleEvent returns [EObject current=null] : iv_ruleEvent= ruleEvent EOF ;
     public final EObject entryRuleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -2509,16 +3081,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1256:2: (iv_ruleEvent= ruleEvent EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1257:2: iv_ruleEvent= ruleEvent EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1491:2: (iv_ruleEvent= ruleEvent EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1492:2: iv_ruleEvent= ruleEvent EOF
             {
              currentNode = createCompositeNode(grammarAccess.getEventRule(), currentNode); 
-            pushFollow(FOLLOW_ruleEvent_in_entryRuleEvent2159);
+            pushFollow(FOLLOW_ruleEvent_in_entryRuleEvent2713);
             iv_ruleEvent=ruleEvent();
             _fsp--;
 
              current =iv_ruleEvent; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEvent2169); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEvent2723); 
 
             }
 
@@ -2536,7 +3108,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEvent
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1264:1: ruleEvent returns [EObject current=null] : (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1499:1: ruleEvent returns [EObject current=null] : (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent | this_Init_2= ruleInit ) ;
     public final EObject ruleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -2544,47 +3116,52 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
         EObject this_IsSendEvent_1 = null;
 
+        EObject this_Init_2 = null;
+
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1269:6: ( (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1270:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1504:6: ( (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent | this_Init_2= ruleInit ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1505:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent | this_Init_2= ruleInit )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1270:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1505:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent | this_Init_2= ruleInit )
+            int alt9=3;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_ID) ) {
-                int LA8_1 = input.LA(2);
+            if ( (LA9_0==RULE_ID) ) {
+                int LA9_1 = input.LA(2);
 
-                if ( (LA8_1==32) ) {
-                    alt8=2;
+                if ( (LA9_1==36) ) {
+                    alt9=2;
                 }
-                else if ( (LA8_1==31) ) {
-                    alt8=1;
+                else if ( (LA9_1==35) ) {
+                    alt9=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1270:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent )", 8, 1, input);
+                        new NoViableAltException("1505:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent | this_Init_2= ruleInit )", 9, 1, input);
 
                     throw nvae;
                 }
             }
+            else if ( (LA9_0==37) ) {
+                alt9=3;
+            }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1270:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent )", 8, 0, input);
+                    new NoViableAltException("1505:1: (this_GetEvent_0= ruleGetEvent | this_IsSendEvent_1= ruleIsSendEvent | this_Init_2= ruleInit )", 9, 0, input);
 
                 throw nvae;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1271:5: this_GetEvent_0= ruleGetEvent
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1506:5: this_GetEvent_0= ruleGetEvent
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getEventAccess().getGetEventParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleGetEvent_in_ruleEvent2216);
+                    pushFollow(FOLLOW_ruleGetEvent_in_ruleEvent2770);
                     this_GetEvent_0=ruleGetEvent();
                     _fsp--;
 
@@ -2596,17 +3173,34 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1281:5: this_IsSendEvent_1= ruleIsSendEvent
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1516:5: this_IsSendEvent_1= ruleIsSendEvent
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getEventAccess().getIsSendEventParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleIsSendEvent_in_ruleEvent2243);
+                    pushFollow(FOLLOW_ruleIsSendEvent_in_ruleEvent2797);
                     this_IsSendEvent_1=ruleIsSendEvent();
                     _fsp--;
 
                      
                             current = this_IsSendEvent_1; 
+                            currentNode = currentNode.getParent();
+                        
+
+                    }
+                    break;
+                case 3 :
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1526:5: this_Init_2= ruleInit
+                    {
+                     
+                            currentNode=createCompositeNode(grammarAccess.getEventAccess().getInitParserRuleCall_2(), currentNode); 
+                        
+                    pushFollow(FOLLOW_ruleInit_in_ruleEvent2824);
+                    this_Init_2=ruleInit();
+                    _fsp--;
+
+                     
+                            current = this_Init_2; 
                             currentNode = currentNode.getParent();
                         
 
@@ -2635,7 +3229,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleGetEvent
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1297:1: entryRuleGetEvent returns [EObject current=null] : iv_ruleGetEvent= ruleGetEvent EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1542:1: entryRuleGetEvent returns [EObject current=null] : iv_ruleGetEvent= ruleGetEvent EOF ;
     public final EObject entryRuleGetEvent() throws RecognitionException {
         EObject current = null;
 
@@ -2643,16 +3237,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1298:2: (iv_ruleGetEvent= ruleGetEvent EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1299:2: iv_ruleGetEvent= ruleGetEvent EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1543:2: (iv_ruleGetEvent= ruleGetEvent EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1544:2: iv_ruleGetEvent= ruleGetEvent EOF
             {
              currentNode = createCompositeNode(grammarAccess.getGetEventRule(), currentNode); 
-            pushFollow(FOLLOW_ruleGetEvent_in_entryRuleGetEvent2278);
+            pushFollow(FOLLOW_ruleGetEvent_in_entryRuleGetEvent2859);
             iv_ruleGetEvent=ruleGetEvent();
             _fsp--;
 
              current =iv_ruleGetEvent; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGetEvent2288); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGetEvent2869); 
 
             }
 
@@ -2670,69 +3264,57 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleGetEvent
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1306:1: ruleGetEvent returns [EObject current=null] : ( ( (lv_who_0_0= RULE_ID ) ) 'GET' ( (lv_keyword_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1551:1: ruleGetEvent returns [EObject current=null] : ( ( ( RULE_ID ) ) 'GET' ( (lv_message_2_0= RULE_ID ) ) ) ;
     public final EObject ruleGetEvent() throws RecognitionException {
         EObject current = null;
 
-        Token lv_who_0_0=null;
-        Token lv_keyword_2_0=null;
+        Token lv_message_2_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1311:6: ( ( ( (lv_who_0_0= RULE_ID ) ) 'GET' ( (lv_keyword_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1312:1: ( ( (lv_who_0_0= RULE_ID ) ) 'GET' ( (lv_keyword_2_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1556:6: ( ( ( ( RULE_ID ) ) 'GET' ( (lv_message_2_0= RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1557:1: ( ( ( RULE_ID ) ) 'GET' ( (lv_message_2_0= RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1312:1: ( ( (lv_who_0_0= RULE_ID ) ) 'GET' ( (lv_keyword_2_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1312:2: ( (lv_who_0_0= RULE_ID ) ) 'GET' ( (lv_keyword_2_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1557:1: ( ( ( RULE_ID ) ) 'GET' ( (lv_message_2_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1557:2: ( ( RULE_ID ) ) 'GET' ( (lv_message_2_0= RULE_ID ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1312:2: ( (lv_who_0_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1313:1: (lv_who_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1557:2: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1558:1: ( RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1313:1: (lv_who_0_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1314:3: lv_who_0_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1558:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1559:3: RULE_ID
             {
-            lv_who_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGetEvent2330); 
 
-            			createLeafNode(grammarAccess.getGetEventAccess().getWhoIDTerminalRuleCall_0_0(), "who"); 
-            		
-
-            	        if (current==null) {
+            			if (current==null) {
             	            current = factory.create(grammarAccess.getGetEventRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
-            	        try {
-            	       		set(
-            	       			current, 
-            	       			"who",
-            	        		lv_who_0_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
-            	        } catch (ValueConverterException vce) {
-            				handleValueConverterException(vce);
-            	        }
-            	    
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGetEvent2912); 
+
+            		createLeafNode(grammarAccess.getGetEventAccess().getWhoDefineCrossReference_0_0(), "who"); 
+            	
 
             }
 
 
             }
 
-            match(input,31,FOLLOW_31_in_ruleGetEvent2345); 
+            match(input,35,FOLLOW_35_in_ruleGetEvent2922); 
 
                     createLeafNode(grammarAccess.getGetEventAccess().getGETKeyword_1(), null); 
                 
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1340:1: ( (lv_keyword_2_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1341:1: (lv_keyword_2_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1575:1: ( (lv_message_2_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1576:1: (lv_message_2_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1341:1: (lv_keyword_2_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1342:3: lv_keyword_2_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1576:1: (lv_message_2_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1577:3: lv_message_2_0= RULE_ID
             {
-            lv_keyword_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGetEvent2362); 
+            lv_message_2_0=(Token)input.LT(1);
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGetEvent2939); 
 
-            			createLeafNode(grammarAccess.getGetEventAccess().getKeywordIDTerminalRuleCall_2_0(), "keyword"); 
+            			createLeafNode(grammarAccess.getGetEventAccess().getMessageIDTerminalRuleCall_2_0(), "message"); 
             		
 
             	        if (current==null) {
@@ -2742,8 +3324,8 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	        try {
             	       		set(
             	       			current, 
-            	       			"keyword",
-            	        		lv_keyword_2_0, 
+            	       			"message",
+            	        		lv_message_2_0, 
             	        		"ID", 
             	        		lastConsumedNode);
             	        } catch (ValueConverterException vce) {
@@ -2779,7 +3361,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleIsSendEvent
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1372:1: entryRuleIsSendEvent returns [EObject current=null] : iv_ruleIsSendEvent= ruleIsSendEvent EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1607:1: entryRuleIsSendEvent returns [EObject current=null] : iv_ruleIsSendEvent= ruleIsSendEvent EOF ;
     public final EObject entryRuleIsSendEvent() throws RecognitionException {
         EObject current = null;
 
@@ -2787,16 +3369,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1373:2: (iv_ruleIsSendEvent= ruleIsSendEvent EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1374:2: iv_ruleIsSendEvent= ruleIsSendEvent EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1608:2: (iv_ruleIsSendEvent= ruleIsSendEvent EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1609:2: iv_ruleIsSendEvent= ruleIsSendEvent EOF
             {
              currentNode = createCompositeNode(grammarAccess.getIsSendEventRule(), currentNode); 
-            pushFollow(FOLLOW_ruleIsSendEvent_in_entryRuleIsSendEvent2403);
+            pushFollow(FOLLOW_ruleIsSendEvent_in_entryRuleIsSendEvent2980);
             iv_ruleIsSendEvent=ruleIsSendEvent();
             _fsp--;
 
              current =iv_ruleIsSendEvent; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIsSendEvent2413); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIsSendEvent2990); 
 
             }
 
@@ -2814,31 +3396,31 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleIsSendEvent
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1381:1: ruleIsSendEvent returns [EObject current=null] : ( ( (lv_keyword_0_0= RULE_ID ) ) 'IS_SEND' ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1616:1: ruleIsSendEvent returns [EObject current=null] : ( ( (lv_message_0_0= RULE_ID ) ) 'IS_SEND' ) ;
     public final EObject ruleIsSendEvent() throws RecognitionException {
         EObject current = null;
 
-        Token lv_keyword_0_0=null;
+        Token lv_message_0_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1386:6: ( ( ( (lv_keyword_0_0= RULE_ID ) ) 'IS_SEND' ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1387:1: ( ( (lv_keyword_0_0= RULE_ID ) ) 'IS_SEND' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1621:6: ( ( ( (lv_message_0_0= RULE_ID ) ) 'IS_SEND' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1622:1: ( ( (lv_message_0_0= RULE_ID ) ) 'IS_SEND' )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1387:1: ( ( (lv_keyword_0_0= RULE_ID ) ) 'IS_SEND' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1387:2: ( (lv_keyword_0_0= RULE_ID ) ) 'IS_SEND'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1622:1: ( ( (lv_message_0_0= RULE_ID ) ) 'IS_SEND' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1622:2: ( (lv_message_0_0= RULE_ID ) ) 'IS_SEND'
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1387:2: ( (lv_keyword_0_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1388:1: (lv_keyword_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1622:2: ( (lv_message_0_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1623:1: (lv_message_0_0= RULE_ID )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1388:1: (lv_keyword_0_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1389:3: lv_keyword_0_0= RULE_ID
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1623:1: (lv_message_0_0= RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1624:3: lv_message_0_0= RULE_ID
             {
-            lv_keyword_0_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleIsSendEvent2455); 
+            lv_message_0_0=(Token)input.LT(1);
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleIsSendEvent3032); 
 
-            			createLeafNode(grammarAccess.getIsSendEventAccess().getKeywordIDTerminalRuleCall_0_0(), "keyword"); 
+            			createLeafNode(grammarAccess.getIsSendEventAccess().getMessageIDTerminalRuleCall_0_0(), "message"); 
             		
 
             	        if (current==null) {
@@ -2848,8 +3430,8 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
             	        try {
             	       		set(
             	       			current, 
-            	       			"keyword",
-            	        		lv_keyword_0_0, 
+            	       			"message",
+            	        		lv_message_0_0, 
             	        		"ID", 
             	        		lastConsumedNode);
             	        } catch (ValueConverterException vce) {
@@ -2862,7 +3444,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,32,FOLLOW_32_in_ruleIsSendEvent2470); 
+            match(input,36,FOLLOW_36_in_ruleIsSendEvent3047); 
 
                     createLeafNode(grammarAccess.getIsSendEventAccess().getIS_SENDKeyword_1(), null); 
                 
@@ -2888,8 +3470,104 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleIsSendEvent
 
 
+    // $ANTLR start entryRuleInit
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1658:1: entryRuleInit returns [EObject current=null] : iv_ruleInit= ruleInit EOF ;
+    public final EObject entryRuleInit() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleInit = null;
+
+
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1659:2: (iv_ruleInit= ruleInit EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1660:2: iv_ruleInit= ruleInit EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getInitRule(), currentNode); 
+            pushFollow(FOLLOW_ruleInit_in_entryRuleInit3083);
+            iv_ruleInit=ruleInit();
+            _fsp--;
+
+             current =iv_ruleInit; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInit3093); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleInit
+
+
+    // $ANTLR start ruleInit
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1667:1: ruleInit returns [EObject current=null] : ( (lv_keyword_0_0= 'INIT' ) ) ;
+    public final EObject ruleInit() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_keyword_0_0=null;
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1672:6: ( ( (lv_keyword_0_0= 'INIT' ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1673:1: ( (lv_keyword_0_0= 'INIT' ) )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1673:1: ( (lv_keyword_0_0= 'INIT' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1674:1: (lv_keyword_0_0= 'INIT' )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1674:1: (lv_keyword_0_0= 'INIT' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1675:3: lv_keyword_0_0= 'INIT'
+            {
+            lv_keyword_0_0=(Token)input.LT(1);
+            match(input,37,FOLLOW_37_in_ruleInit3135); 
+
+                    createLeafNode(grammarAccess.getInitAccess().getKeywordINITKeyword_0(), "keyword"); 
+                
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getInitRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        
+            	        try {
+            	       		set(current, "keyword", lv_keyword_0_0, "INIT", lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleInit
+
+
     // $ANTLR start entryRuleCase
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1423:1: entryRuleCase returns [EObject current=null] : iv_ruleCase= ruleCase EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1702:1: entryRuleCase returns [EObject current=null] : iv_ruleCase= ruleCase EOF ;
     public final EObject entryRuleCase() throws RecognitionException {
         EObject current = null;
 
@@ -2897,16 +3575,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1424:2: (iv_ruleCase= ruleCase EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1425:2: iv_ruleCase= ruleCase EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1703:2: (iv_ruleCase= ruleCase EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1704:2: iv_ruleCase= ruleCase EOF
             {
              currentNode = createCompositeNode(grammarAccess.getCaseRule(), currentNode); 
-            pushFollow(FOLLOW_ruleCase_in_entryRuleCase2506);
+            pushFollow(FOLLOW_ruleCase_in_entryRuleCase3183);
             iv_ruleCase=ruleCase();
             _fsp--;
 
              current =iv_ruleCase; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCase2516); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCase3193); 
 
             }
 
@@ -2924,9 +3602,13 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCase
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1432:1: ruleCase returns [EObject current=null] : ( ruleAlways | ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1711:1: ruleCase returns [EObject current=null] : (this_Always_0= ruleAlways | this_Otherwise_1= ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom ) ;
     public final EObject ruleCase() throws RecognitionException {
         EObject current = null;
+
+        EObject this_Always_0 = null;
+
+        EObject this_Otherwise_1 = null;
 
         EObject this_Source_2 = null;
 
@@ -2936,79 +3618,81 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1437:6: ( ( ruleAlways | ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1438:1: ( ruleAlways | ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1716:6: ( (this_Always_0= ruleAlways | this_Otherwise_1= ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1717:1: (this_Always_0= ruleAlways | this_Otherwise_1= ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1438:1: ( ruleAlways | ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom )
-            int alt9=4;
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1717:1: (this_Always_0= ruleAlways | this_Otherwise_1= ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom )
+            int alt10=4;
             switch ( input.LA(1) ) {
-            case 33:
+            case 38:
                 {
-                alt9=1;
+                alt10=1;
                 }
                 break;
-            case 34:
+            case 39:
                 {
-                alt9=2;
+                alt10=2;
                 }
                 break;
-            case 35:
+            case 40:
                 {
-                alt9=3;
+                alt10=3;
                 }
                 break;
-            case 36:
+            case 41:
                 {
-                alt9=4;
+                alt10=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1438:1: ( ruleAlways | ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom )", 9, 0, input);
+                    new NoViableAltException("1717:1: (this_Always_0= ruleAlways | this_Otherwise_1= ruleOtherwise | this_Source_2= ruleSource | this_From_3= ruleFrom )", 10, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1439:5: ruleAlways
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1718:5: this_Always_0= ruleAlways
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getCaseAccess().getAlwaysParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleAlways_in_ruleCase2557);
-                    ruleAlways();
+                    pushFollow(FOLLOW_ruleAlways_in_ruleCase3240);
+                    this_Always_0=ruleAlways();
                     _fsp--;
 
                      
+                            current = this_Always_0; 
                             currentNode = currentNode.getParent();
                         
 
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1448:5: ruleOtherwise
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1728:5: this_Otherwise_1= ruleOtherwise
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getCaseAccess().getOtherwiseParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleOtherwise_in_ruleCase2578);
-                    ruleOtherwise();
+                    pushFollow(FOLLOW_ruleOtherwise_in_ruleCase3267);
+                    this_Otherwise_1=ruleOtherwise();
                     _fsp--;
 
                      
+                            current = this_Otherwise_1; 
                             currentNode = currentNode.getParent();
                         
 
                     }
                     break;
                 case 3 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1457:5: this_Source_2= ruleSource
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1738:5: this_Source_2= ruleSource
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getCaseAccess().getSourceParserRuleCall_2(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleSource_in_ruleCase2605);
+                    pushFollow(FOLLOW_ruleSource_in_ruleCase3294);
                     this_Source_2=ruleSource();
                     _fsp--;
 
@@ -3020,12 +3704,12 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1467:5: this_From_3= ruleFrom
+                    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1748:5: this_From_3= ruleFrom
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getCaseAccess().getFromParserRuleCall_3(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleFrom_in_ruleCase2632);
+                    pushFollow(FOLLOW_ruleFrom_in_ruleCase3321);
                     this_From_3=ruleFrom();
                     _fsp--;
 
@@ -3059,24 +3743,24 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAlways
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1483:1: entryRuleAlways returns [String current=null] : iv_ruleAlways= ruleAlways EOF ;
-    public final String entryRuleAlways() throws RecognitionException {
-        String current = null;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1764:1: entryRuleAlways returns [EObject current=null] : iv_ruleAlways= ruleAlways EOF ;
+    public final EObject entryRuleAlways() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleAlways = null;
+        EObject iv_ruleAlways = null;
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1484:2: (iv_ruleAlways= ruleAlways EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1485:2: iv_ruleAlways= ruleAlways EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1765:2: (iv_ruleAlways= ruleAlways EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1766:2: iv_ruleAlways= ruleAlways EOF
             {
              currentNode = createCompositeNode(grammarAccess.getAlwaysRule(), currentNode); 
-            pushFollow(FOLLOW_ruleAlways_in_entryRuleAlways2668);
+            pushFollow(FOLLOW_ruleAlways_in_entryRuleAlways3356);
             iv_ruleAlways=ruleAlways();
             _fsp--;
 
-             current =iv_ruleAlways.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAlways2679); 
+             current =iv_ruleAlways; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAlways3366); 
 
             }
 
@@ -3094,29 +3778,52 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAlways
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1492:1: ruleAlways returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'always' ;
-    public final AntlrDatatypeRuleToken ruleAlways() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1773:1: ruleAlways returns [EObject current=null] : ( (lv_keyword_0_0= 'always' ) ) ;
+    public final EObject ruleAlways() throws RecognitionException {
+        EObject current = null;
 
-        Token kw=null;
+        Token lv_keyword_0_0=null;
 
-         setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1497:6: (kw= 'always' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1499:2: kw= 'always'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1778:6: ( ( (lv_keyword_0_0= 'always' ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1779:1: ( (lv_keyword_0_0= 'always' ) )
             {
-            kw=(Token)input.LT(1);
-            match(input,33,FOLLOW_33_in_ruleAlways2716); 
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1779:1: ( (lv_keyword_0_0= 'always' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1780:1: (lv_keyword_0_0= 'always' )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1780:1: (lv_keyword_0_0= 'always' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1781:3: lv_keyword_0_0= 'always'
+            {
+            lv_keyword_0_0=(Token)input.LT(1);
+            match(input,38,FOLLOW_38_in_ruleAlways3408); 
 
-                    current.merge(kw);
-                    createLeafNode(grammarAccess.getAlwaysAccess().getAlwaysKeyword(), null); 
+                    createLeafNode(grammarAccess.getAlwaysAccess().getKeywordAlwaysKeyword_0(), "keyword"); 
                 
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getAlwaysRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        
+            	        try {
+            	       		set(current, "keyword", lv_keyword_0_0, "always", lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
 
             }
 
              resetLookahead(); 
-            	    lastConsumedNode = currentNode;
+                	lastConsumedNode = currentNode;
                 
         }
          
@@ -3132,24 +3839,24 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleOtherwise
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1512:1: entryRuleOtherwise returns [String current=null] : iv_ruleOtherwise= ruleOtherwise EOF ;
-    public final String entryRuleOtherwise() throws RecognitionException {
-        String current = null;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1808:1: entryRuleOtherwise returns [EObject current=null] : iv_ruleOtherwise= ruleOtherwise EOF ;
+    public final EObject entryRuleOtherwise() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleOtherwise = null;
+        EObject iv_ruleOtherwise = null;
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1513:2: (iv_ruleOtherwise= ruleOtherwise EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1514:2: iv_ruleOtherwise= ruleOtherwise EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1809:2: (iv_ruleOtherwise= ruleOtherwise EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1810:2: iv_ruleOtherwise= ruleOtherwise EOF
             {
              currentNode = createCompositeNode(grammarAccess.getOtherwiseRule(), currentNode); 
-            pushFollow(FOLLOW_ruleOtherwise_in_entryRuleOtherwise2756);
+            pushFollow(FOLLOW_ruleOtherwise_in_entryRuleOtherwise3456);
             iv_ruleOtherwise=ruleOtherwise();
             _fsp--;
 
-             current =iv_ruleOtherwise.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOtherwise2767); 
+             current =iv_ruleOtherwise; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOtherwise3466); 
 
             }
 
@@ -3167,29 +3874,52 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOtherwise
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1521:1: ruleOtherwise returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'otherwise' ;
-    public final AntlrDatatypeRuleToken ruleOtherwise() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1817:1: ruleOtherwise returns [EObject current=null] : ( (lv_keyword_0_0= 'otherwise' ) ) ;
+    public final EObject ruleOtherwise() throws RecognitionException {
+        EObject current = null;
 
-        Token kw=null;
+        Token lv_keyword_0_0=null;
 
-         setCurrentLookahead(); resetLookahead(); 
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1526:6: (kw= 'otherwise' )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1528:2: kw= 'otherwise'
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1822:6: ( ( (lv_keyword_0_0= 'otherwise' ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1823:1: ( (lv_keyword_0_0= 'otherwise' ) )
             {
-            kw=(Token)input.LT(1);
-            match(input,34,FOLLOW_34_in_ruleOtherwise2804); 
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1823:1: ( (lv_keyword_0_0= 'otherwise' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1824:1: (lv_keyword_0_0= 'otherwise' )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1824:1: (lv_keyword_0_0= 'otherwise' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1825:3: lv_keyword_0_0= 'otherwise'
+            {
+            lv_keyword_0_0=(Token)input.LT(1);
+            match(input,39,FOLLOW_39_in_ruleOtherwise3508); 
 
-                    current.merge(kw);
-                    createLeafNode(grammarAccess.getOtherwiseAccess().getOtherwiseKeyword(), null); 
+                    createLeafNode(grammarAccess.getOtherwiseAccess().getKeywordOtherwiseKeyword_0(), "keyword"); 
                 
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getOtherwiseRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        
+            	        try {
+            	       		set(current, "keyword", lv_keyword_0_0, "otherwise", lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
 
             }
 
              resetLookahead(); 
-            	    lastConsumedNode = currentNode;
+                	lastConsumedNode = currentNode;
                 
         }
          
@@ -3205,7 +3935,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSource
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1541:1: entryRuleSource returns [EObject current=null] : iv_ruleSource= ruleSource EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1852:1: entryRuleSource returns [EObject current=null] : iv_ruleSource= ruleSource EOF ;
     public final EObject entryRuleSource() throws RecognitionException {
         EObject current = null;
 
@@ -3213,16 +3943,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1542:2: (iv_ruleSource= ruleSource EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1543:2: iv_ruleSource= ruleSource EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1853:2: (iv_ruleSource= ruleSource EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1854:2: iv_ruleSource= ruleSource EOF
             {
              currentNode = createCompositeNode(grammarAccess.getSourceRule(), currentNode); 
-            pushFollow(FOLLOW_ruleSource_in_entryRuleSource2843);
+            pushFollow(FOLLOW_ruleSource_in_entryRuleSource3556);
             iv_ruleSource=ruleSource();
             _fsp--;
 
              current =iv_ruleSource; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSource2853); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSource3566); 
 
             }
 
@@ -3240,56 +3970,70 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSource
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1550:1: ruleSource returns [EObject current=null] : ( 'source' '=' ( (lv_defineName_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1861:1: ruleSource returns [EObject current=null] : ( ( (lv_keyword_0_0= 'source' ) ) '=' ( ( RULE_ID ) ) ) ;
     public final EObject ruleSource() throws RecognitionException {
         EObject current = null;
 
-        Token lv_defineName_2_0=null;
+        Token lv_keyword_0_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1555:6: ( ( 'source' '=' ( (lv_defineName_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1556:1: ( 'source' '=' ( (lv_defineName_2_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1866:6: ( ( ( (lv_keyword_0_0= 'source' ) ) '=' ( ( RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1867:1: ( ( (lv_keyword_0_0= 'source' ) ) '=' ( ( RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1556:1: ( 'source' '=' ( (lv_defineName_2_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1556:3: 'source' '=' ( (lv_defineName_2_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1867:1: ( ( (lv_keyword_0_0= 'source' ) ) '=' ( ( RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1867:2: ( (lv_keyword_0_0= 'source' ) ) '=' ( ( RULE_ID ) )
             {
-            match(input,35,FOLLOW_35_in_ruleSource2888); 
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1867:2: ( (lv_keyword_0_0= 'source' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1868:1: (lv_keyword_0_0= 'source' )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1868:1: (lv_keyword_0_0= 'source' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1869:3: lv_keyword_0_0= 'source'
+            {
+            lv_keyword_0_0=(Token)input.LT(1);
+            match(input,40,FOLLOW_40_in_ruleSource3609); 
 
-                    createLeafNode(grammarAccess.getSourceAccess().getSourceKeyword_0(), null); 
+                    createLeafNode(grammarAccess.getSourceAccess().getKeywordSourceKeyword_0_0(), "keyword"); 
                 
-            match(input,14,FOLLOW_14_in_ruleSource2898); 
-
-                    createLeafNode(grammarAccess.getSourceAccess().getEqualsSGnKeyword_1(), null); 
-                
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1564:1: ( (lv_defineName_2_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1565:1: (lv_defineName_2_0= RULE_ID )
-            {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1565:1: (lv_defineName_2_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1566:3: lv_defineName_2_0= RULE_ID
-            {
-            lv_defineName_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSource2915); 
-
-            			createLeafNode(grammarAccess.getSourceAccess().getDefineNameIDTerminalRuleCall_2_0(), "defineName"); 
-            		
 
             	        if (current==null) {
             	            current = factory.create(grammarAccess.getSourceRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
+            	        
             	        try {
-            	       		set(
-            	       			current, 
-            	       			"defineName",
-            	        		lv_defineName_2_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
+            	       		set(current, "keyword", lv_keyword_0_0, "source", lastConsumedNode);
             	        } catch (ValueConverterException vce) {
             				handleValueConverterException(vce);
             	        }
             	    
+
+            }
+
+
+            }
+
+            match(input,15,FOLLOW_15_in_ruleSource3632); 
+
+                    createLeafNode(grammarAccess.getSourceAccess().getEqualsSGnKeyword_1(), null); 
+                
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1892:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1893:1: ( RULE_ID )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1893:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1894:3: RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = factory.create(grammarAccess.getSourceRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSource3650); 
+
+            		createLeafNode(grammarAccess.getSourceAccess().getEventSourceEventSourceCrossReference_2_0(), "eventSource"); 
+            	
 
             }
 
@@ -3319,7 +4063,7 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleFrom
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1596:1: entryRuleFrom returns [EObject current=null] : iv_ruleFrom= ruleFrom EOF ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1914:1: entryRuleFrom returns [EObject current=null] : iv_ruleFrom= ruleFrom EOF ;
     public final EObject entryRuleFrom() throws RecognitionException {
         EObject current = null;
 
@@ -3327,16 +4071,16 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1597:2: (iv_ruleFrom= ruleFrom EOF )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1598:2: iv_ruleFrom= ruleFrom EOF
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1915:2: (iv_ruleFrom= ruleFrom EOF )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1916:2: iv_ruleFrom= ruleFrom EOF
             {
              currentNode = createCompositeNode(grammarAccess.getFromRule(), currentNode); 
-            pushFollow(FOLLOW_ruleFrom_in_entryRuleFrom2956);
+            pushFollow(FOLLOW_ruleFrom_in_entryRuleFrom3686);
             iv_ruleFrom=ruleFrom();
             _fsp--;
 
              current =iv_ruleFrom; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFrom2966); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFrom3696); 
 
             }
 
@@ -3354,56 +4098,70 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleFrom
-    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1605:1: ruleFrom returns [EObject current=null] : ( 'from' '=' ( (lv_defineName_2_0= RULE_ID ) ) ) ;
+    // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1923:1: ruleFrom returns [EObject current=null] : ( ( (lv_keyword_0_0= 'from' ) ) '=' ( ( RULE_ID ) ) ) ;
     public final EObject ruleFrom() throws RecognitionException {
         EObject current = null;
 
-        Token lv_defineName_2_0=null;
+        Token lv_keyword_0_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1610:6: ( ( 'from' '=' ( (lv_defineName_2_0= RULE_ID ) ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1611:1: ( 'from' '=' ( (lv_defineName_2_0= RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1928:6: ( ( ( (lv_keyword_0_0= 'from' ) ) '=' ( ( RULE_ID ) ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1929:1: ( ( (lv_keyword_0_0= 'from' ) ) '=' ( ( RULE_ID ) ) )
             {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1611:1: ( 'from' '=' ( (lv_defineName_2_0= RULE_ID ) ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1611:3: 'from' '=' ( (lv_defineName_2_0= RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1929:1: ( ( (lv_keyword_0_0= 'from' ) ) '=' ( ( RULE_ID ) ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1929:2: ( (lv_keyword_0_0= 'from' ) ) '=' ( ( RULE_ID ) )
             {
-            match(input,36,FOLLOW_36_in_ruleFrom3001); 
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1929:2: ( (lv_keyword_0_0= 'from' ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1930:1: (lv_keyword_0_0= 'from' )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1930:1: (lv_keyword_0_0= 'from' )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1931:3: lv_keyword_0_0= 'from'
+            {
+            lv_keyword_0_0=(Token)input.LT(1);
+            match(input,41,FOLLOW_41_in_ruleFrom3739); 
 
-                    createLeafNode(grammarAccess.getFromAccess().getFromKeyword_0(), null); 
+                    createLeafNode(grammarAccess.getFromAccess().getKeywordFromKeyword_0_0(), "keyword"); 
                 
-            match(input,14,FOLLOW_14_in_ruleFrom3011); 
-
-                    createLeafNode(grammarAccess.getFromAccess().getEqualsSGnKeyword_1(), null); 
-                
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1619:1: ( (lv_defineName_2_0= RULE_ID ) )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1620:1: (lv_defineName_2_0= RULE_ID )
-            {
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1620:1: (lv_defineName_2_0= RULE_ID )
-            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1621:3: lv_defineName_2_0= RULE_ID
-            {
-            lv_defineName_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFrom3028); 
-
-            			createLeafNode(grammarAccess.getFromAccess().getDefineNameIDTerminalRuleCall_2_0(), "defineName"); 
-            		
 
             	        if (current==null) {
             	            current = factory.create(grammarAccess.getFromRule().getType().getClassifier());
             	            associateNodeWithAstElement(currentNode, current);
             	        }
+            	        
             	        try {
-            	       		set(
-            	       			current, 
-            	       			"defineName",
-            	        		lv_defineName_2_0, 
-            	        		"ID", 
-            	        		lastConsumedNode);
+            	       		set(current, "keyword", lv_keyword_0_0, "from", lastConsumedNode);
             	        } catch (ValueConverterException vce) {
             				handleValueConverterException(vce);
             	        }
             	    
+
+            }
+
+
+            }
+
+            match(input,15,FOLLOW_15_in_ruleFrom3762); 
+
+                    createLeafNode(grammarAccess.getFromAccess().getEqualsSGnKeyword_1(), null); 
+                
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1954:1: ( ( RULE_ID ) )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1955:1: ( RULE_ID )
+            {
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1955:1: ( RULE_ID )
+            // ../org.xtext.senior.project/src-gen/org/xtext/senior/project/parser/antlr/internal/InternalProtocol.g:1956:3: RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = factory.create(grammarAccess.getFromRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+                    
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFrom3780); 
+
+            		createLeafNode(grammarAccess.getFromAccess().getEventSourceEventSourceCrossReference_2_0(), "eventSource"); 
+            	
 
             }
 
@@ -3438,127 +4196,154 @@ public class InternalProtocolParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRulePDLFile85 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_rulePDLFile120 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePDLFile137 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleDefinitions_in_rulePDLFile163 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_ruleTransactions_in_rulePDLFile184 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_ruleStates_in_rulePDLFile205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefinitions_in_entryRuleDefinitions241 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefinitions251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_ruleDefinitions286 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_ruleDefine_in_ruleDefinitions307 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_13_in_ruleDefinitions318 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefine_in_entryRuleDefine354 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefine364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDefine406 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleDefine421 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDefine438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTransactions_in_entryRuleTransactions479 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTransactions489 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_ruleTransactions524 = new BitSet(new long[]{0x0000000000012000L});
-    public static final BitSet FOLLOW_ruleTransaction_in_ruleTransactions545 = new BitSet(new long[]{0x0000000000012000L});
-    public static final BitSet FOLLOW_13_in_ruleTransactions556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTransaction_in_entryRuleTransaction592 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTransaction602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleTransaction637 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTransaction654 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleTransaction669 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_ruleArgument_in_ruleTransaction690 = new BitSet(new long[]{0x0000000000040010L});
-    public static final BitSet FOLLOW_18_in_ruleTransaction701 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleTransaction711 = new BitSet(new long[]{0x0000000006502010L});
-    public static final BitSet FOLLOW_ruleOperation_in_ruleTransaction732 = new BitSet(new long[]{0x0000000006502010L});
-    public static final BitSet FOLLOW_13_in_ruleTransaction743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleArgument_in_entryRuleArgument779 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleArgument789 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleArgument831 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleArgument853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOperation_in_entryRuleOperation894 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOperation904 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecrypt_in_ruleOperation951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEncrypt_in_ruleOperation978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSend_in_ruleOperation1005 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrint_in_ruleOperation1032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCall_in_ruleOperation1059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecrypt_in_entryRuleDecrypt1094 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDecrypt1104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleDecrypt1139 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDecrypt1156 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleDecrypt1171 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDecrypt1188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEncrypt_in_entryRuleEncrypt1229 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEncrypt1239 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleEncrypt1274 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEncrypt1291 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleEncrypt1306 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleEncrypt1323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSend_in_entryRuleSend1364 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSend1374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSend1416 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleSend1431 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSend1448 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleSend1463 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSend1480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePrint_in_entryRulePrint1521 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePrint1531 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rulePrint1566 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePrint1583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCall_in_entryRuleCall1624 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCall1634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleCall1669 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCall1686 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStates_in_entryRuleStates1727 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStates1737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleStates1772 = new BitSet(new long[]{0x0000000010002000L});
-    public static final BitSet FOLLOW_ruleState_in_ruleStates1793 = new BitSet(new long[]{0x0000000010002000L});
-    public static final BitSet FOLLOW_13_in_ruleStates1804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleState_in_entryRuleState1840 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleState1850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleState1885 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleState1902 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleState1917 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleEvent_in_ruleState1938 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleState1948 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleState1958 = new BitSet(new long[]{0x0000000020002000L});
-    public static final BitSet FOLLOW_ruleGuard_in_ruleState1979 = new BitSet(new long[]{0x0000000020002000L});
-    public static final BitSet FOLLOW_13_in_ruleState1990 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGuard_in_entryRuleGuard2026 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGuard2036 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleGuard2071 = new BitSet(new long[]{0x0000001E00000000L});
-    public static final BitSet FOLLOW_ruleCase_in_ruleGuard2092 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleGuard2102 = new BitSet(new long[]{0x0000000006500010L});
-    public static final BitSet FOLLOW_ruleOperation_in_ruleGuard2123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEvent_in_entryRuleEvent2159 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEvent2169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGetEvent_in_ruleEvent2216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIsSendEvent_in_ruleEvent2243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGetEvent_in_entryRuleGetEvent2278 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGetEvent2288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleGetEvent2330 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleGetEvent2345 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleGetEvent2362 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIsSendEvent_in_entryRuleIsSendEvent2403 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIsSendEvent2413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleIsSendEvent2455 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleIsSendEvent2470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCase_in_entryRuleCase2506 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCase2516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlways_in_ruleCase2557 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOtherwise_in_ruleCase2578 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSource_in_ruleCase2605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFrom_in_ruleCase2632 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlways_in_entryRuleAlways2668 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAlways2679 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleAlways2716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOtherwise_in_entryRuleOtherwise2756 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOtherwise2767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleOtherwise2804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSource_in_entryRuleSource2843 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSource2853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleSource2888 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleSource2898 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSource2915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFrom_in_entryRuleFrom2956 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFrom2966 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleFrom3001 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleFrom3011 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleFrom3028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_rulePDLFile152 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_ruleDefinitions_in_rulePDLFile173 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_ruleTransactions_in_rulePDLFile194 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_ruleStates_in_rulePDLFile215 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_rulePDLFile225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefinitions_in_entryRuleDefinitions261 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDefinitions271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_ruleDefinitions306 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleEventSource_in_ruleDefinitions327 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleCipher_in_ruleDefinitions349 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleDefinitions359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEventSource_in_entryRuleEventSource397 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEventSource407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleArbitrator_in_ruleEventSource454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParticipant_in_ruleEventSource481 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleArbitrator_in_entryRuleArbitrator516 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleArbitrator526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleArbitrator568 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleArbitrator583 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleArbitrator601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParticipant_in_entryRuleParticipant650 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParticipant660 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParticipant702 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleParticipant717 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleParticipant735 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCipher_in_entryRuleCipher784 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCipher794 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCipher836 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleCipher851 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCipher868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTransactions_in_entryRuleTransactions909 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTransactions919 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleTransactions954 = new BitSet(new long[]{0x0000000000082000L});
+    public static final BitSet FOLLOW_ruleTransaction_in_ruleTransactions975 = new BitSet(new long[]{0x0000000000082000L});
+    public static final BitSet FOLLOW_13_in_ruleTransactions986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTransaction_in_entryRuleTransaction1022 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTransaction1032 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleTransaction1067 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTransaction1084 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleTransaction1099 = new BitSet(new long[]{0x0000000000200010L});
+    public static final BitSet FOLLOW_ruleArgument_in_ruleTransaction1120 = new BitSet(new long[]{0x0000000000200010L});
+    public static final BitSet FOLLOW_21_in_ruleTransaction1131 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleTransaction1141 = new BitSet(new long[]{0x0000000032802010L});
+    public static final BitSet FOLLOW_ruleOperation_in_ruleTransaction1162 = new BitSet(new long[]{0x0000000032802010L});
+    public static final BitSet FOLLOW_13_in_ruleTransaction1173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleArgument_in_entryRuleArgument1209 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleArgument1219 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleArgument1261 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleArgument1283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOperation_in_entryRuleOperation1324 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOperation1334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDecrypt_in_ruleOperation1381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEncrypt_in_ruleOperation1408 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSend_in_ruleOperation1435 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrint_in_ruleOperation1462 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCall_in_ruleOperation1489 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExchange_in_ruleOperation1516 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDecrypt_in_entryRuleDecrypt1551 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDecrypt1561 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleDecrypt1596 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDecrypt1613 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleDecrypt1628 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDecrypt1646 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEncrypt_in_entryRuleEncrypt1682 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEncrypt1692 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleEncrypt1727 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEncrypt1744 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleEncrypt1759 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleEncrypt1777 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSend_in_entryRuleSend1813 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSend1823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSend1865 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleSend1880 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSend1898 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_ruleSend1908 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSend1926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePrint_in_entryRulePrint1962 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePrint1972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rulePrint2007 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_rulePrint2024 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCall_in_entryRuleCall2065 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCall2075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleCall2110 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCall2128 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExchange_in_entryRuleExchange2164 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExchange2174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExchange2217 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleExchange2227 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleExchange2245 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStates_in_entryRuleStates2281 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStates2291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleStates2326 = new BitSet(new long[]{0x0000000100002000L});
+    public static final BitSet FOLLOW_ruleState_in_ruleStates2347 = new BitSet(new long[]{0x0000000100002000L});
+    public static final BitSet FOLLOW_13_in_ruleStates2358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleState_in_entryRuleState2394 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleState2404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleState2439 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleState2456 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleState2471 = new BitSet(new long[]{0x0000002000000010L});
+    public static final BitSet FOLLOW_ruleEvent_in_ruleState2492 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleState2502 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleState2512 = new BitSet(new long[]{0x0000000200002000L});
+    public static final BitSet FOLLOW_ruleGuard_in_ruleState2533 = new BitSet(new long[]{0x0000000200002000L});
+    public static final BitSet FOLLOW_13_in_ruleState2544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGuard_in_entryRuleGuard2580 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGuard2590 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleGuard2625 = new BitSet(new long[]{0x000003C000000000L});
+    public static final BitSet FOLLOW_ruleCase_in_ruleGuard2646 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleGuard2656 = new BitSet(new long[]{0x0000000032800010L});
+    public static final BitSet FOLLOW_ruleOperation_in_ruleGuard2677 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEvent_in_entryRuleEvent2713 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEvent2723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGetEvent_in_ruleEvent2770 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIsSendEvent_in_ruleEvent2797 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInit_in_ruleEvent2824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGetEvent_in_entryRuleGetEvent2859 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGetEvent2869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleGetEvent2912 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_ruleGetEvent2922 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleGetEvent2939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIsSendEvent_in_entryRuleIsSendEvent2980 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIsSendEvent2990 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleIsSendEvent3032 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_ruleIsSendEvent3047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInit_in_entryRuleInit3083 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInit3093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleInit3135 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCase_in_entryRuleCase3183 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCase3193 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAlways_in_ruleCase3240 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOtherwise_in_ruleCase3267 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSource_in_ruleCase3294 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFrom_in_ruleCase3321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAlways_in_entryRuleAlways3356 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAlways3366 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleAlways3408 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOtherwise_in_entryRuleOtherwise3456 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOtherwise3466 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleOtherwise3508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSource_in_entryRuleSource3556 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSource3566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleSource3609 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleSource3632 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSource3650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFrom_in_entryRuleFrom3686 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFrom3696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleFrom3739 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleFrom3762 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFrom3780 = new BitSet(new long[]{0x0000000000000002L});
 
 }

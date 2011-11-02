@@ -94,6 +94,26 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
         return createDefineAdapter();
       }
       @Override
+      public Adapter caseEventSource(EventSource object)
+      {
+        return createEventSourceAdapter();
+      }
+      @Override
+      public Adapter caseArbitrator(Arbitrator object)
+      {
+        return createArbitratorAdapter();
+      }
+      @Override
+      public Adapter caseParticipant(Participant object)
+      {
+        return createParticipantAdapter();
+      }
+      @Override
+      public Adapter caseCipher(Cipher object)
+      {
+        return createCipherAdapter();
+      }
+      @Override
       public Adapter caseTransactions(Transactions object)
       {
         return createTransactionsAdapter();
@@ -139,6 +159,11 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
         return createCallAdapter();
       }
       @Override
+      public Adapter caseExchange(Exchange object)
+      {
+        return createExchangeAdapter();
+      }
+      @Override
       public Adapter caseStates(States object)
       {
         return createStatesAdapter();
@@ -169,9 +194,24 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
         return createIsSendEventAdapter();
       }
       @Override
+      public Adapter caseInit(Init object)
+      {
+        return createInitAdapter();
+      }
+      @Override
       public Adapter caseCase(Case object)
       {
         return createCaseAdapter();
+      }
+      @Override
+      public Adapter caseAlways(Always object)
+      {
+        return createAlwaysAdapter();
+      }
+      @Override
+      public Adapter caseOtherwise(Otherwise object)
+      {
+        return createOtherwiseAdapter();
       }
       @Override
       public Adapter caseSource(Source object)
@@ -246,6 +286,66 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDefineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.EventSource <em>Event Source</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.EventSource
+   * @generated
+   */
+  public Adapter createEventSourceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Arbitrator <em>Arbitrator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.Arbitrator
+   * @generated
+   */
+  public Adapter createArbitratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Participant <em>Participant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.Participant
+   * @generated
+   */
+  public Adapter createParticipantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Cipher <em>Cipher</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.Cipher
+   * @generated
+   */
+  public Adapter createCipherAdapter()
   {
     return null;
   }
@@ -386,6 +486,21 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Exchange <em>Exchange</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.Exchange
+   * @generated
+   */
+  public Adapter createExchangeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.States <em>States</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -476,6 +591,21 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Init <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.Init
+   * @generated
+   */
+  public Adapter createInitAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Case <em>Case</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -486,6 +616,36 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCaseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Always <em>Always</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.Always
+   * @generated
+   */
+  public Adapter createAlwaysAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.senior.project.protocol.Otherwise <em>Otherwise</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.senior.project.protocol.Otherwise
+   * @generated
+   */
+  public Adapter createOtherwiseAdapter()
   {
     return null;
   }

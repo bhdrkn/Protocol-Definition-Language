@@ -23,7 +23,7 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.senior.project.protocol.impl.CaseImpl#getDefineName <em>Define Name</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.impl.CaseImpl#getKeyword <em>Keyword</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +32,24 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
 public class CaseImpl extends MinimalEObjectImpl.Container implements Case
 {
   /**
-   * The default value of the '{@link #getDefineName() <em>Define Name</em>}' attribute.
+   * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDefineName()
+   * @see #getKeyword()
    * @generated
    * @ordered
    */
-  protected static final String DEFÝNE_NAME_EDEFAULT = null;
+  protected static final String KEYWORD_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDefineName() <em>Define Name</em>}' attribute.
+   * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDefineName()
+   * @see #getKeyword()
    * @generated
    * @ordered
    */
-  protected String defineName = DEFÝNE_NAME_EDEFAULT;
+  protected String keyword = KEYWORD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,9 +77,9 @@ public class CaseImpl extends MinimalEObjectImpl.Container implements Case
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDefineName()
+  public String getKeyword()
   {
-    return defineName;
+    return keyword;
   }
 
   /**
@@ -87,12 +87,12 @@ public class CaseImpl extends MinimalEObjectImpl.Container implements Case
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDefineName(String newDefineName)
+  public void setKeyword(String newKeyword)
   {
-    String oldDefineName = defineName;
-    defineName = newDefineName;
+    String oldKeyword = keyword;
+    keyword = newKeyword;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.CASE__DEFÝNE_NAME, oldDefineName, defineName));
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.CASE__KEYWORD, oldKeyword, keyword));
   }
 
   /**
@@ -105,8 +105,8 @@ public class CaseImpl extends MinimalEObjectImpl.Container implements Case
   {
     switch (featureID)
     {
-      case ProtocolPackage.CASE__DEFÝNE_NAME:
-        return getDefineName();
+      case ProtocolPackage.CASE__KEYWORD:
+        return getKeyword();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class CaseImpl extends MinimalEObjectImpl.Container implements Case
   {
     switch (featureID)
     {
-      case ProtocolPackage.CASE__DEFÝNE_NAME:
-        setDefineName((String)newValue);
+      case ProtocolPackage.CASE__KEYWORD:
+        setKeyword((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class CaseImpl extends MinimalEObjectImpl.Container implements Case
   {
     switch (featureID)
     {
-      case ProtocolPackage.CASE__DEFÝNE_NAME:
-        setDefineName(DEFÝNE_NAME_EDEFAULT);
+      case ProtocolPackage.CASE__KEYWORD:
+        setKeyword(KEYWORD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class CaseImpl extends MinimalEObjectImpl.Container implements Case
   {
     switch (featureID)
     {
-      case ProtocolPackage.CASE__DEFÝNE_NAME:
-        return DEFÝNE_NAME_EDEFAULT == null ? defineName != null : !DEFÝNE_NAME_EDEFAULT.equals(defineName);
+      case ProtocolPackage.CASE__KEYWORD:
+        return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +172,8 @@ public class CaseImpl extends MinimalEObjectImpl.Container implements Case
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (defineName: ");
-    result.append(defineName);
+    result.append(" (keyword: ");
+    result.append(keyword);
     result.append(')');
     return result.toString();
   }

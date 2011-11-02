@@ -1,4 +1,4 @@
-pdlfile MyBigProtocol
+[MyBigProtocol]
 [DEFINITIONS]
     Alice = Participant
     Bob = Participant
@@ -33,16 +33,15 @@ pdlfile MyBigProtocol
     [END]
 [END]
 [STATES]
-    STATE State1 (Message IS_SEND)
+    STATE State1 (INIT)
     [BEGIN]
-        |source = Trent => Message :: Trent -> MessageTo
-        |otherwise => Message :: MessageFrom -> Trent
+        |always => Alice exchange Trent
+        |always => Bob exchange Trent
     [END]
-    
     STATE State2 (Trent GET Message)
     [BEGIN]
         |from = Alice => CALL trentFromAliceAction
-        |from = bob => CALL trentFromBobAction
+        |from = Bob => CALL trentFromBobAction
     [END]
     
     STATE State3 (Alice GET Message)
@@ -54,5 +53,5 @@ pdlfile MyBigProtocol
     [BEGIN]
         |always => CALL BobAction
     [END]
-    
+[END]
 [END]

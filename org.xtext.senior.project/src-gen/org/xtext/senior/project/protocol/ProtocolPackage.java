@@ -126,13 +126,22 @@ public interface ProtocolPackage extends EPackage
   int DEFÝNÝTÝONS = 1;
 
   /**
-   * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Sources</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFÝNÝTÝONS__DEFÝNÝTÝONS = 0;
+  int DEFÝNÝTÝONS__SOURCES = 0;
+
+  /**
+   * The feature id for the '<em><b>Cipher</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFÝNÝTÝONS__CÝPHER = 1;
 
   /**
    * The number of structural features of the '<em>Definitions</em>' class.
@@ -141,7 +150,7 @@ public interface ProtocolPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFÝNÝTÝONS_FEATURE_COUNT = 1;
+  int DEFÝNÝTÝONS_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.DefineImpl <em>Define</em>}' class.
@@ -181,6 +190,154 @@ public interface ProtocolPackage extends EPackage
   int DEFÝNE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.EventSourceImpl <em>Event Source</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.EventSourceImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getEventSource()
+   * @generated
+   */
+  int EVENT_SOURCE = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT_SOURCE__NAME = DEFÝNE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT_SOURCE__KEYWORD = DEFÝNE__KEYWORD;
+
+  /**
+   * The number of structural features of the '<em>Event Source</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT_SOURCE_FEATURE_COUNT = DEFÝNE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.ArbitratorImpl <em>Arbitrator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.ArbitratorImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getArbitrator()
+   * @generated
+   */
+  int ARBÝTRATOR = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARBÝTRATOR__NAME = EVENT_SOURCE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARBÝTRATOR__KEYWORD = EVENT_SOURCE__KEYWORD;
+
+  /**
+   * The number of structural features of the '<em>Arbitrator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARBÝTRATOR_FEATURE_COUNT = EVENT_SOURCE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.ParticipantImpl <em>Participant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.ParticipantImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getParticipant()
+   * @generated
+   */
+  int PARTÝCÝPANT = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTÝCÝPANT__NAME = EVENT_SOURCE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTÝCÝPANT__KEYWORD = EVENT_SOURCE__KEYWORD;
+
+  /**
+   * The number of structural features of the '<em>Participant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTÝCÝPANT_FEATURE_COUNT = EVENT_SOURCE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.CipherImpl <em>Cipher</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.CipherImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getCipher()
+   * @generated
+   */
+  int CÝPHER = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CÝPHER__NAME = DEFÝNE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CÝPHER__KEYWORD = DEFÝNE__KEYWORD;
+
+  /**
+   * The number of structural features of the '<em>Cipher</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CÝPHER_FEATURE_COUNT = DEFÝNE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.TransactionsImpl <em>Transactions</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -188,7 +345,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getTransactions()
    * @generated
    */
-  int TRANSACTÝONS = 3;
+  int TRANSACTÝONS = 7;
 
   /**
    * The feature id for the '<em><b>Transactions</b></em>' containment reference list.
@@ -216,7 +373,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getTransaction()
    * @generated
    */
-  int TRANSACTÝON = 4;
+  int TRANSACTÝON = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -262,7 +419,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getArgument()
    * @generated
    */
-  int ARGUMENT = 5;
+  int ARGUMENT = 9;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -299,7 +456,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getOperation()
    * @generated
    */
-  int OPERATÝON = 6;
+  int OPERATÝON = 10;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -318,7 +475,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getDecrypt()
    * @generated
    */
-  int DECRYPT = 7;
+  int DECRYPT = 11;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -330,7 +487,7 @@ public interface ProtocolPackage extends EPackage
   int DECRYPT__MESSAGE = OPERATÝON_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Participant</b></em>' attribute.
+   * The feature id for the '<em><b>Participant</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -355,7 +512,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getEncrypt()
    * @generated
    */
-  int ENCRYPT = 8;
+  int ENCRYPT = 12;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -367,7 +524,7 @@ public interface ProtocolPackage extends EPackage
   int ENCRYPT__MESSAGE = OPERATÝON_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Participant</b></em>' attribute.
+   * The feature id for the '<em><b>Participant</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -392,7 +549,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getSend()
    * @generated
    */
-  int SEND = 9;
+  int SEND = 13;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -404,7 +561,7 @@ public interface ProtocolPackage extends EPackage
   int SEND__MESSAGE = OPERATÝON_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Source</b></em>' attribute.
+   * The feature id for the '<em><b>Source</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -413,7 +570,7 @@ public interface ProtocolPackage extends EPackage
   int SEND__SOURCE = OPERATÝON_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Destination</b></em>' attribute.
+   * The feature id for the '<em><b>Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -438,7 +595,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getPrint()
    * @generated
    */
-  int PRÝNT = 10;
+  int PRÝNT = 14;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -466,10 +623,10 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getCall()
    * @generated
    */
-  int CALL = 11;
+  int CALL = 15;
 
   /**
-   * The feature id for the '<em><b>Transaction Name</b></em>' attribute.
+   * The feature id for the '<em><b>Transaction Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -487,6 +644,43 @@ public interface ProtocolPackage extends EPackage
   int CALL_FEATURE_COUNT = OPERATÝON_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.ExchangeImpl <em>Exchange</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.ExchangeImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getExchange()
+   * @generated
+   */
+  int EXCHANGE = 16;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCHANGE__SOURCE = OPERATÝON_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Destination</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCHANGE__DESTÝNATÝON = OPERATÝON_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Exchange</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCHANGE_FEATURE_COUNT = OPERATÝON_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.StatesImpl <em>States</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -494,7 +688,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getStates()
    * @generated
    */
-  int STATES = 12;
+  int STATES = 17;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -522,7 +716,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getState()
    * @generated
    */
-  int STATE = 13;
+  int STATE = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -568,7 +762,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getGuard()
    * @generated
    */
-  int GUARD = 14;
+  int GUARD = 19;
 
   /**
    * The feature id for the '<em><b>Casem</b></em>' containment reference.
@@ -605,16 +799,7 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 15;
-
-  /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT__KEYWORD = 0;
+  int EVENT = 20;
 
   /**
    * The number of structural features of the '<em>Event</em>' class.
@@ -623,7 +808,7 @@ public interface ProtocolPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_FEATURE_COUNT = 1;
+  int EVENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.GetEventImpl <em>Get Event</em>}' class.
@@ -633,19 +818,10 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getGetEvent()
    * @generated
    */
-  int GET_EVENT = 16;
+  int GET_EVENT = 21;
 
   /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GET_EVENT__KEYWORD = EVENT__KEYWORD;
-
-  /**
-   * The feature id for the '<em><b>Who</b></em>' attribute.
+   * The feature id for the '<em><b>Who</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -654,13 +830,22 @@ public interface ProtocolPackage extends EPackage
   int GET_EVENT__WHO = EVENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Message</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_EVENT__MESSAGE = EVENT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Get Event</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GET_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 1;
+  int GET_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.IsSendEventImpl <em>Is Send Event</em>}' class.
@@ -670,16 +855,16 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getIsSendEvent()
    * @generated
    */
-  int IS_SEND_EVENT = 17;
+  int IS_SEND_EVENT = 22;
 
   /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * The feature id for the '<em><b>Message</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IS_SEND_EVENT__KEYWORD = EVENT__KEYWORD;
+  int IS_SEND_EVENT__MESSAGE = EVENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Is Send Event</em>' class.
@@ -688,7 +873,35 @@ public interface ProtocolPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IS_SEND_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
+  int IS_SEND_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.InitImpl <em>Init</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.InitImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getInit()
+   * @generated
+   */
+  int INÝT = 23;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INÝT__KEYWORD = EVENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Init</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INÝT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.CaseImpl <em>Case</em>}' class.
@@ -698,16 +911,16 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getCase()
    * @generated
    */
-  int CASE = 18;
+  int CASE = 24;
 
   /**
-   * The feature id for the '<em><b>Define Name</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CASE__DEFÝNE_NAME = 0;
+  int CASE__KEYWORD = 0;
 
   /**
    * The number of structural features of the '<em>Case</em>' class.
@@ -719,6 +932,62 @@ public interface ProtocolPackage extends EPackage
   int CASE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.AlwaysImpl <em>Always</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.AlwaysImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getAlways()
+   * @generated
+   */
+  int ALWAYS = 25;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALWAYS__KEYWORD = CASE__KEYWORD;
+
+  /**
+   * The number of structural features of the '<em>Always</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALWAYS_FEATURE_COUNT = CASE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.OtherwiseImpl <em>Otherwise</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.senior.project.protocol.impl.OtherwiseImpl
+   * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getOtherwise()
+   * @generated
+   */
+  int OTHERWÝSE = 26;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHERWÝSE__KEYWORD = CASE__KEYWORD;
+
+  /**
+   * The number of structural features of the '<em>Otherwise</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OTHERWÝSE_FEATURE_COUNT = CASE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.SourceImpl <em>Source</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -726,16 +995,25 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getSource()
    * @generated
    */
-  int SOURCE = 19;
+  int SOURCE = 27;
 
   /**
-   * The feature id for the '<em><b>Define Name</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOURCE__DEFÝNE_NAME = CASE__DEFÝNE_NAME;
+  int SOURCE__KEYWORD = CASE__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Event Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE__EVENT_SOURCE = CASE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Source</em>' class.
@@ -744,7 +1022,7 @@ public interface ProtocolPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SOURCE_FEATURE_COUNT = CASE_FEATURE_COUNT + 0;
+  int SOURCE_FEATURE_COUNT = CASE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.senior.project.protocol.impl.FromImpl <em>From</em>}' class.
@@ -754,16 +1032,25 @@ public interface ProtocolPackage extends EPackage
    * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getFrom()
    * @generated
    */
-  int FROM = 20;
+  int FROM = 28;
 
   /**
-   * The feature id for the '<em><b>Define Name</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FROM__DEFÝNE_NAME = CASE__DEFÝNE_NAME;
+  int FROM__KEYWORD = CASE__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Event Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FROM__EVENT_SOURCE = CASE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>From</em>' class.
@@ -772,7 +1059,7 @@ public interface ProtocolPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FROM_FEATURE_COUNT = CASE_FEATURE_COUNT + 0;
+  int FROM_FEATURE_COUNT = CASE_FEATURE_COUNT + 1;
 
 
   /**
@@ -840,15 +1127,26 @@ public interface ProtocolPackage extends EPackage
   EClass getDefinitions();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.senior.project.protocol.Definitions#getDefinitions <em>Definitions</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.senior.project.protocol.Definitions#getSources <em>Sources</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Definitions</em>'.
-   * @see org.xtext.senior.project.protocol.Definitions#getDefinitions()
+   * @return the meta object for the containment reference list '<em>Sources</em>'.
+   * @see org.xtext.senior.project.protocol.Definitions#getSources()
    * @see #getDefinitions()
    * @generated
    */
-  EReference getDefinitions_Definitions();
+  EReference getDefinitions_Sources();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.senior.project.protocol.Definitions#getCipher <em>Cipher</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Cipher</em>'.
+   * @see org.xtext.senior.project.protocol.Definitions#getCipher()
+   * @see #getDefinitions()
+   * @generated
+   */
+  EReference getDefinitions_Cipher();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Define <em>Define</em>}'.
@@ -881,6 +1179,46 @@ public interface ProtocolPackage extends EPackage
    * @generated
    */
   EAttribute getDefine_Keyword();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.EventSource <em>Event Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Event Source</em>'.
+   * @see org.xtext.senior.project.protocol.EventSource
+   * @generated
+   */
+  EClass getEventSource();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Arbitrator <em>Arbitrator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Arbitrator</em>'.
+   * @see org.xtext.senior.project.protocol.Arbitrator
+   * @generated
+   */
+  EClass getArbitrator();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Participant <em>Participant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Participant</em>'.
+   * @see org.xtext.senior.project.protocol.Participant
+   * @generated
+   */
+  EClass getParticipant();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Cipher <em>Cipher</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Cipher</em>'.
+   * @see org.xtext.senior.project.protocol.Cipher
+   * @generated
+   */
+  EClass getCipher();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Transactions <em>Transactions</em>}'.
@@ -1010,15 +1348,15 @@ public interface ProtocolPackage extends EPackage
   EAttribute getDecrypt_Message();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Decrypt#getParticipant <em>Participant</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Decrypt#getParticipant <em>Participant</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Participant</em>'.
+   * @return the meta object for the reference '<em>Participant</em>'.
    * @see org.xtext.senior.project.protocol.Decrypt#getParticipant()
    * @see #getDecrypt()
    * @generated
    */
-  EAttribute getDecrypt_Participant();
+  EReference getDecrypt_Participant();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Encrypt <em>Encrypt</em>}'.
@@ -1042,15 +1380,15 @@ public interface ProtocolPackage extends EPackage
   EAttribute getEncrypt_Message();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Encrypt#getParticipant <em>Participant</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Encrypt#getParticipant <em>Participant</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Participant</em>'.
+   * @return the meta object for the reference '<em>Participant</em>'.
    * @see org.xtext.senior.project.protocol.Encrypt#getParticipant()
    * @see #getEncrypt()
    * @generated
    */
-  EAttribute getEncrypt_Participant();
+  EReference getEncrypt_Participant();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Send <em>Send</em>}'.
@@ -1074,26 +1412,26 @@ public interface ProtocolPackage extends EPackage
   EAttribute getSend_Message();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Send#getSource <em>Source</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Send#getSource <em>Source</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Source</em>'.
+   * @return the meta object for the reference '<em>Source</em>'.
    * @see org.xtext.senior.project.protocol.Send#getSource()
    * @see #getSend()
    * @generated
    */
-  EAttribute getSend_Source();
+  EReference getSend_Source();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Send#getDestination <em>Destination</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Send#getDestination <em>Destination</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Destination</em>'.
+   * @return the meta object for the reference '<em>Destination</em>'.
    * @see org.xtext.senior.project.protocol.Send#getDestination()
    * @see #getSend()
    * @generated
    */
-  EAttribute getSend_Destination();
+  EReference getSend_Destination();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Print <em>Print</em>}'.
@@ -1127,15 +1465,47 @@ public interface ProtocolPackage extends EPackage
   EClass getCall();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Call#getTransactionName <em>Transaction Name</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Call#getTransactionName <em>Transaction Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Transaction Name</em>'.
+   * @return the meta object for the reference '<em>Transaction Name</em>'.
    * @see org.xtext.senior.project.protocol.Call#getTransactionName()
    * @see #getCall()
    * @generated
    */
-  EAttribute getCall_TransactionName();
+  EReference getCall_TransactionName();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Exchange <em>Exchange</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Exchange</em>'.
+   * @see org.xtext.senior.project.protocol.Exchange
+   * @generated
+   */
+  EClass getExchange();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Exchange#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Source</em>'.
+   * @see org.xtext.senior.project.protocol.Exchange#getSource()
+   * @see #getExchange()
+   * @generated
+   */
+  EReference getExchange_Source();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Exchange#getDestination <em>Destination</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Destination</em>'.
+   * @see org.xtext.senior.project.protocol.Exchange#getDestination()
+   * @see #getExchange()
+   * @generated
+   */
+  EReference getExchange_Destination();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.States <em>States</em>}'.
@@ -1244,17 +1614,6 @@ public interface ProtocolPackage extends EPackage
   EClass getEvent();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Event#getKeyword <em>Keyword</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Keyword</em>'.
-   * @see org.xtext.senior.project.protocol.Event#getKeyword()
-   * @see #getEvent()
-   * @generated
-   */
-  EAttribute getEvent_Keyword();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.GetEvent <em>Get Event</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1265,15 +1624,26 @@ public interface ProtocolPackage extends EPackage
   EClass getGetEvent();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.GetEvent#getWho <em>Who</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.GetEvent#getWho <em>Who</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Who</em>'.
+   * @return the meta object for the reference '<em>Who</em>'.
    * @see org.xtext.senior.project.protocol.GetEvent#getWho()
    * @see #getGetEvent()
    * @generated
    */
-  EAttribute getGetEvent_Who();
+  EReference getGetEvent_Who();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.GetEvent#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Message</em>'.
+   * @see org.xtext.senior.project.protocol.GetEvent#getMessage()
+   * @see #getGetEvent()
+   * @generated
+   */
+  EAttribute getGetEvent_Message();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.IsSendEvent <em>Is Send Event</em>}'.
@@ -1286,6 +1656,38 @@ public interface ProtocolPackage extends EPackage
   EClass getIsSendEvent();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.IsSendEvent#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Message</em>'.
+   * @see org.xtext.senior.project.protocol.IsSendEvent#getMessage()
+   * @see #getIsSendEvent()
+   * @generated
+   */
+  EAttribute getIsSendEvent_Message();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Init <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Init</em>'.
+   * @see org.xtext.senior.project.protocol.Init
+   * @generated
+   */
+  EClass getInit();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Init#getKeyword <em>Keyword</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Keyword</em>'.
+   * @see org.xtext.senior.project.protocol.Init#getKeyword()
+   * @see #getInit()
+   * @generated
+   */
+  EAttribute getInit_Keyword();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Case <em>Case</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1296,15 +1698,35 @@ public interface ProtocolPackage extends EPackage
   EClass getCase();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Case#getDefineName <em>Define Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.senior.project.protocol.Case#getKeyword <em>Keyword</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Define Name</em>'.
-   * @see org.xtext.senior.project.protocol.Case#getDefineName()
+   * @return the meta object for the attribute '<em>Keyword</em>'.
+   * @see org.xtext.senior.project.protocol.Case#getKeyword()
    * @see #getCase()
    * @generated
    */
-  EAttribute getCase_DefineName();
+  EAttribute getCase_Keyword();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Always <em>Always</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Always</em>'.
+   * @see org.xtext.senior.project.protocol.Always
+   * @generated
+   */
+  EClass getAlways();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Otherwise <em>Otherwise</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Otherwise</em>'.
+   * @see org.xtext.senior.project.protocol.Otherwise
+   * @generated
+   */
+  EClass getOtherwise();
 
   /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.Source <em>Source</em>}'.
@@ -1317,6 +1739,17 @@ public interface ProtocolPackage extends EPackage
   EClass getSource();
 
   /**
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.Source#getEventSource <em>Event Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Event Source</em>'.
+   * @see org.xtext.senior.project.protocol.Source#getEventSource()
+   * @see #getSource()
+   * @generated
+   */
+  EReference getSource_EventSource();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.senior.project.protocol.From <em>From</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1325,6 +1758,17 @@ public interface ProtocolPackage extends EPackage
    * @generated
    */
   EClass getFrom();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.senior.project.protocol.From#getEventSource <em>Event Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Event Source</em>'.
+   * @see org.xtext.senior.project.protocol.From#getEventSource()
+   * @see #getFrom()
+   * @generated
+   */
+  EReference getFrom_EventSource();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1402,12 +1846,20 @@ public interface ProtocolPackage extends EPackage
     EClass DEFÝNÝTÝONS = eINSTANCE.getDefinitions();
 
     /**
-     * The meta object literal for the '<em><b>Definitions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Sources</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEFÝNÝTÝONS__DEFÝNÝTÝONS = eINSTANCE.getDefinitions_Definitions();
+    EReference DEFÝNÝTÝONS__SOURCES = eINSTANCE.getDefinitions_Sources();
+
+    /**
+     * The meta object literal for the '<em><b>Cipher</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFÝNÝTÝONS__CÝPHER = eINSTANCE.getDefinitions_Cipher();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.DefineImpl <em>Define</em>}' class.
@@ -1434,6 +1886,46 @@ public interface ProtocolPackage extends EPackage
      * @generated
      */
     EAttribute DEFÝNE__KEYWORD = eINSTANCE.getDefine_Keyword();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.EventSourceImpl <em>Event Source</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.EventSourceImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getEventSource()
+     * @generated
+     */
+    EClass EVENT_SOURCE = eINSTANCE.getEventSource();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.ArbitratorImpl <em>Arbitrator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.ArbitratorImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getArbitrator()
+     * @generated
+     */
+    EClass ARBÝTRATOR = eINSTANCE.getArbitrator();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.ParticipantImpl <em>Participant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.ParticipantImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getParticipant()
+     * @generated
+     */
+    EClass PARTÝCÝPANT = eINSTANCE.getParticipant();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.CipherImpl <em>Cipher</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.CipherImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getCipher()
+     * @generated
+     */
+    EClass CÝPHER = eINSTANCE.getCipher();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.TransactionsImpl <em>Transactions</em>}' class.
@@ -1542,12 +2034,12 @@ public interface ProtocolPackage extends EPackage
     EAttribute DECRYPT__MESSAGE = eINSTANCE.getDecrypt_Message();
 
     /**
-     * The meta object literal for the '<em><b>Participant</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Participant</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DECRYPT__PARTÝCÝPANT = eINSTANCE.getDecrypt_Participant();
+    EReference DECRYPT__PARTÝCÝPANT = eINSTANCE.getDecrypt_Participant();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.EncryptImpl <em>Encrypt</em>}' class.
@@ -1568,12 +2060,12 @@ public interface ProtocolPackage extends EPackage
     EAttribute ENCRYPT__MESSAGE = eINSTANCE.getEncrypt_Message();
 
     /**
-     * The meta object literal for the '<em><b>Participant</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Participant</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENCRYPT__PARTÝCÝPANT = eINSTANCE.getEncrypt_Participant();
+    EReference ENCRYPT__PARTÝCÝPANT = eINSTANCE.getEncrypt_Participant();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.SendImpl <em>Send</em>}' class.
@@ -1594,20 +2086,20 @@ public interface ProtocolPackage extends EPackage
     EAttribute SEND__MESSAGE = eINSTANCE.getSend_Message();
 
     /**
-     * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SEND__SOURCE = eINSTANCE.getSend_Source();
+    EReference SEND__SOURCE = eINSTANCE.getSend_Source();
 
     /**
-     * The meta object literal for the '<em><b>Destination</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Destination</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SEND__DESTÝNATÝON = eINSTANCE.getSend_Destination();
+    EReference SEND__DESTÝNATÝON = eINSTANCE.getSend_Destination();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.PrintImpl <em>Print</em>}' class.
@@ -1638,12 +2130,38 @@ public interface ProtocolPackage extends EPackage
     EClass CALL = eINSTANCE.getCall();
 
     /**
-     * The meta object literal for the '<em><b>Transaction Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Transaction Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CALL__TRANSACTÝON_NAME = eINSTANCE.getCall_TransactionName();
+    EReference CALL__TRANSACTÝON_NAME = eINSTANCE.getCall_TransactionName();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.ExchangeImpl <em>Exchange</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.ExchangeImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getExchange()
+     * @generated
+     */
+    EClass EXCHANGE = eINSTANCE.getExchange();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXCHANGE__SOURCE = eINSTANCE.getExchange_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Destination</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXCHANGE__DESTÝNATÝON = eINSTANCE.getExchange_Destination();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.StatesImpl <em>States</em>}' class.
@@ -1734,14 +2252,6 @@ public interface ProtocolPackage extends EPackage
     EClass EVENT = eINSTANCE.getEvent();
 
     /**
-     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EVENT__KEYWORD = eINSTANCE.getEvent_Keyword();
-
-    /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.GetEventImpl <em>Get Event</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1752,12 +2262,20 @@ public interface ProtocolPackage extends EPackage
     EClass GET_EVENT = eINSTANCE.getGetEvent();
 
     /**
-     * The meta object literal for the '<em><b>Who</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Who</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GET_EVENT__WHO = eINSTANCE.getGetEvent_Who();
+    EReference GET_EVENT__WHO = eINSTANCE.getGetEvent_Who();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GET_EVENT__MESSAGE = eINSTANCE.getGetEvent_Message();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.IsSendEventImpl <em>Is Send Event</em>}' class.
@@ -1770,6 +2288,32 @@ public interface ProtocolPackage extends EPackage
     EClass IS_SEND_EVENT = eINSTANCE.getIsSendEvent();
 
     /**
+     * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IS_SEND_EVENT__MESSAGE = eINSTANCE.getIsSendEvent_Message();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.InitImpl <em>Init</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.InitImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getInit()
+     * @generated
+     */
+    EClass INÝT = eINSTANCE.getInit();
+
+    /**
+     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INÝT__KEYWORD = eINSTANCE.getInit_Keyword();
+
+    /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.CaseImpl <em>Case</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1780,12 +2324,32 @@ public interface ProtocolPackage extends EPackage
     EClass CASE = eINSTANCE.getCase();
 
     /**
-     * The meta object literal for the '<em><b>Define Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CASE__DEFÝNE_NAME = eINSTANCE.getCase_DefineName();
+    EAttribute CASE__KEYWORD = eINSTANCE.getCase_Keyword();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.AlwaysImpl <em>Always</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.AlwaysImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getAlways()
+     * @generated
+     */
+    EClass ALWAYS = eINSTANCE.getAlways();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.OtherwiseImpl <em>Otherwise</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.senior.project.protocol.impl.OtherwiseImpl
+     * @see org.xtext.senior.project.protocol.impl.ProtocolPackageImpl#getOtherwise()
+     * @generated
+     */
+    EClass OTHERWÝSE = eINSTANCE.getOtherwise();
 
     /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.SourceImpl <em>Source</em>}' class.
@@ -1798,6 +2362,14 @@ public interface ProtocolPackage extends EPackage
     EClass SOURCE = eINSTANCE.getSource();
 
     /**
+     * The meta object literal for the '<em><b>Event Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOURCE__EVENT_SOURCE = eINSTANCE.getSource_EventSource();
+
+    /**
      * The meta object literal for the '{@link org.xtext.senior.project.protocol.impl.FromImpl <em>From</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1806,6 +2378,14 @@ public interface ProtocolPackage extends EPackage
      * @generated
      */
     EClass FROM = eINSTANCE.getFrom();
+
+    /**
+     * The meta object literal for the '<em><b>Event Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FROM__EVENT_SOURCE = eINSTANCE.getFrom_EventSource();
 
   }
 

@@ -4,7 +4,7 @@ package com.generated.java.source;
 import java.util.Hashtable;
 
 import protocol.cipher.BaseCipher;
-import example.message.Message;
+import example.protocol.message.Message;
 import source.Arbitrator;
 
 public class Trent<Cipher extends BaseCipher> extends

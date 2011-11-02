@@ -117,6 +117,40 @@ public class ProtocolSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ProtocolPackage.EVENT_SOURCE:
+      {
+        EventSource eventSource = (EventSource)theEObject;
+        T result = caseEventSource(eventSource);
+        if (result == null) result = caseDefine(eventSource);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtocolPackage.ARBÝTRATOR:
+      {
+        Arbitrator arbitrator = (Arbitrator)theEObject;
+        T result = caseArbitrator(arbitrator);
+        if (result == null) result = caseEventSource(arbitrator);
+        if (result == null) result = caseDefine(arbitrator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtocolPackage.PARTÝCÝPANT:
+      {
+        Participant participant = (Participant)theEObject;
+        T result = caseParticipant(participant);
+        if (result == null) result = caseEventSource(participant);
+        if (result == null) result = caseDefine(participant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtocolPackage.CÝPHER:
+      {
+        Cipher cipher = (Cipher)theEObject;
+        T result = caseCipher(cipher);
+        if (result == null) result = caseDefine(cipher);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ProtocolPackage.TRANSACTÝONS:
       {
         Transactions transactions = (Transactions)theEObject;
@@ -185,6 +219,14 @@ public class ProtocolSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ProtocolPackage.EXCHANGE:
+      {
+        Exchange exchange = (Exchange)theEObject;
+        T result = caseExchange(exchange);
+        if (result == null) result = caseOperation(exchange);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ProtocolPackage.STATES:
       {
         States states = (States)theEObject;
@@ -229,10 +271,34 @@ public class ProtocolSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ProtocolPackage.INÝT:
+      {
+        Init ýnit = (Init)theEObject;
+        T result = caseInit(ýnit);
+        if (result == null) result = caseEvent(ýnit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ProtocolPackage.CASE:
       {
         Case case_ = (Case)theEObject;
         T result = caseCase(case_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtocolPackage.ALWAYS:
+      {
+        Always always = (Always)theEObject;
+        T result = caseAlways(always);
+        if (result == null) result = caseCase(always);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtocolPackage.OTHERWÝSE:
+      {
+        Otherwise otherwise = (Otherwise)theEObject;
+        T result = caseOtherwise(otherwise);
+        if (result == null) result = caseCase(otherwise);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -300,6 +366,70 @@ public class ProtocolSwitch<T>
    * @generated
    */
   public T caseDefine(Define object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Event Source</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Event Source</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEventSource(EventSource object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Arbitrator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Arbitrator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArbitrator(Arbitrator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Participant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Participant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParticipant(Participant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Cipher</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cipher</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCipher(Cipher object)
   {
     return null;
   }
@@ -449,6 +579,22 @@ public class ProtocolSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Exchange</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exchange</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExchange(Exchange object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>States</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -545,6 +691,22 @@ public class ProtocolSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Init</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Init</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInit(Init object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Case</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -556,6 +718,38 @@ public class ProtocolSwitch<T>
    * @generated
    */
   public T caseCase(Case object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Always</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Always</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAlways(Always object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Otherwise</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Otherwise</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOtherwise(Otherwise object)
   {
     return null;
   }

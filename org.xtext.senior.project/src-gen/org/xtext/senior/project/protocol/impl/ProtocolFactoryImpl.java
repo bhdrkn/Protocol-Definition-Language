@@ -71,6 +71,10 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
       case ProtocolPackage.PDL_FÝLE: return createPDLFile();
       case ProtocolPackage.DEFÝNÝTÝONS: return createDefinitions();
       case ProtocolPackage.DEFÝNE: return createDefine();
+      case ProtocolPackage.EVENT_SOURCE: return createEventSource();
+      case ProtocolPackage.ARBÝTRATOR: return createArbitrator();
+      case ProtocolPackage.PARTÝCÝPANT: return createParticipant();
+      case ProtocolPackage.CÝPHER: return createCipher();
       case ProtocolPackage.TRANSACTÝONS: return createTransactions();
       case ProtocolPackage.TRANSACTÝON: return createTransaction();
       case ProtocolPackage.ARGUMENT: return createArgument();
@@ -80,13 +84,17 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
       case ProtocolPackage.SEND: return createSend();
       case ProtocolPackage.PRÝNT: return createPrint();
       case ProtocolPackage.CALL: return createCall();
+      case ProtocolPackage.EXCHANGE: return createExchange();
       case ProtocolPackage.STATES: return createStates();
       case ProtocolPackage.STATE: return createState();
       case ProtocolPackage.GUARD: return createGuard();
       case ProtocolPackage.EVENT: return createEvent();
       case ProtocolPackage.GET_EVENT: return createGetEvent();
       case ProtocolPackage.IS_SEND_EVENT: return createIsSendEvent();
+      case ProtocolPackage.INÝT: return createInit();
       case ProtocolPackage.CASE: return createCase();
+      case ProtocolPackage.ALWAYS: return createAlways();
+      case ProtocolPackage.OTHERWÝSE: return createOtherwise();
       case ProtocolPackage.SOURCE: return createSource();
       case ProtocolPackage.FROM: return createFrom();
       default:
@@ -125,6 +133,50 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
   {
     DefineImpl define = new DefineImpl();
     return define;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EventSource createEventSource()
+  {
+    EventSourceImpl eventSource = new EventSourceImpl();
+    return eventSource;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Arbitrator createArbitrator()
+  {
+    ArbitratorImpl arbitrator = new ArbitratorImpl();
+    return arbitrator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Participant createParticipant()
+  {
+    ParticipantImpl participant = new ParticipantImpl();
+    return participant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Cipher createCipher()
+  {
+    CipherImpl cipher = new CipherImpl();
+    return cipher;
   }
 
   /**
@@ -231,6 +283,17 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Exchange createExchange()
+  {
+    ExchangeImpl exchange = new ExchangeImpl();
+    return exchange;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public States createStates()
   {
     StatesImpl states = new StatesImpl();
@@ -297,10 +360,43 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Init createInit()
+  {
+    InitImpl ýnit = new InitImpl();
+    return ýnit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Case createCase()
   {
     CaseImpl case_ = new CaseImpl();
     return case_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Always createAlways()
+  {
+    AlwaysImpl always = new AlwaysImpl();
+    return always;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Otherwise createOtherwise()
+  {
+    OtherwiseImpl otherwise = new OtherwiseImpl();
+    return otherwise;
   }
 
   /**

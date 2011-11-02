@@ -9,9 +9,11 @@ package org.xtext.senior.project.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.senior.project.protocol.EventSource;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 import org.xtext.senior.project.protocol.Send;
 
@@ -53,44 +55,24 @@ public class SendImpl extends OperationImpl implements Send
   protected String message = MESSAGE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSource()
    * @generated
    * @ordered
    */
-  protected static final String SOURCE_EDEFAULT = null;
+  protected EventSource source;
 
   /**
-   * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSource()
-   * @generated
-   * @ordered
-   */
-  protected String source = SOURCE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDestination() <em>Destination</em>}' attribute.
+   * The cached value of the '{@link #getDestination() <em>Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDestination()
    * @generated
    * @ordered
    */
-  protected static final String DESTÝNATÝON_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDestination() <em>Destination</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDestination()
-   * @generated
-   * @ordered
-   */
-  protected String destination = DESTÝNATÝON_EDEFAULT;
+  protected EventSource destination;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,7 +123,27 @@ public class SendImpl extends OperationImpl implements Send
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSource()
+  public EventSource getSource()
+  {
+    if (source != null && source.eIsProxy())
+    {
+      InternalEObject oldSource = (InternalEObject)source;
+      source = (EventSource)eResolveProxy(oldSource);
+      if (source != oldSource)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtocolPackage.SEND__SOURCE, oldSource, source));
+      }
+    }
+    return source;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EventSource basicGetSource()
   {
     return source;
   }
@@ -151,9 +153,9 @@ public class SendImpl extends OperationImpl implements Send
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSource(String newSource)
+  public void setSource(EventSource newSource)
   {
-    String oldSource = source;
+    EventSource oldSource = source;
     source = newSource;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.SEND__SOURCE, oldSource, source));
@@ -164,7 +166,27 @@ public class SendImpl extends OperationImpl implements Send
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDestination()
+  public EventSource getDestination()
+  {
+    if (destination != null && destination.eIsProxy())
+    {
+      InternalEObject oldDestination = (InternalEObject)destination;
+      destination = (EventSource)eResolveProxy(oldDestination);
+      if (destination != oldDestination)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtocolPackage.SEND__DESTÝNATÝON, oldDestination, destination));
+      }
+    }
+    return destination;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EventSource basicGetDestination()
   {
     return destination;
   }
@@ -174,9 +196,9 @@ public class SendImpl extends OperationImpl implements Send
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDestination(String newDestination)
+  public void setDestination(EventSource newDestination)
   {
-    String oldDestination = destination;
+    EventSource oldDestination = destination;
     destination = newDestination;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.SEND__DESTÝNATÝON, oldDestination, destination));
@@ -195,9 +217,11 @@ public class SendImpl extends OperationImpl implements Send
       case ProtocolPackage.SEND__MESSAGE:
         return getMessage();
       case ProtocolPackage.SEND__SOURCE:
-        return getSource();
+        if (resolve) return getSource();
+        return basicGetSource();
       case ProtocolPackage.SEND__DESTÝNATÝON:
-        return getDestination();
+        if (resolve) return getDestination();
+        return basicGetDestination();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,10 +240,10 @@ public class SendImpl extends OperationImpl implements Send
         setMessage((String)newValue);
         return;
       case ProtocolPackage.SEND__SOURCE:
-        setSource((String)newValue);
+        setSource((EventSource)newValue);
         return;
       case ProtocolPackage.SEND__DESTÝNATÝON:
-        setDestination((String)newValue);
+        setDestination((EventSource)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -239,10 +263,10 @@ public class SendImpl extends OperationImpl implements Send
         setMessage(MESSAGE_EDEFAULT);
         return;
       case ProtocolPackage.SEND__SOURCE:
-        setSource(SOURCE_EDEFAULT);
+        setSource((EventSource)null);
         return;
       case ProtocolPackage.SEND__DESTÝNATÝON:
-        setDestination(DESTÝNATÝON_EDEFAULT);
+        setDestination((EventSource)null);
         return;
     }
     super.eUnset(featureID);
@@ -261,9 +285,9 @@ public class SendImpl extends OperationImpl implements Send
       case ProtocolPackage.SEND__MESSAGE:
         return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
       case ProtocolPackage.SEND__SOURCE:
-        return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
+        return source != null;
       case ProtocolPackage.SEND__DESTÝNATÝON:
-        return DESTÝNATÝON_EDEFAULT == null ? destination != null : !DESTÝNATÝON_EDEFAULT.equals(destination);
+        return destination != null;
     }
     return super.eIsSet(featureID);
   }
@@ -281,10 +305,6 @@ public class SendImpl extends OperationImpl implements Send
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (message: ");
     result.append(message);
-    result.append(", source: ");
-    result.append(source);
-    result.append(", destination: ");
-    result.append(destination);
     result.append(')');
     return result.toString();
   }

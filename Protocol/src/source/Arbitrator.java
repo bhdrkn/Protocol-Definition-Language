@@ -51,8 +51,6 @@ public abstract class Arbitrator<Message extends AbstractMessage, Cipher extends
 		this.cipherTable = cipherTable;
 	}
 
-	public abstract void sendMessage(Message msg);
-
 	public Cipher getCipher(String className) {
 		return cipherTable.get(className);
 	}
@@ -65,4 +63,6 @@ public abstract class Arbitrator<Message extends AbstractMessage, Cipher extends
 	public void addCipher(String className, Cipher cipher) {
 		this.cipherTable.put(className, cipher);
 	}
+	
+	public abstract void sendMessage(Message msg);
 }

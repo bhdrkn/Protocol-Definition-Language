@@ -9,11 +9,13 @@ package org.xtext.senior.project.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.senior.project.protocol.Call;
 import org.xtext.senior.project.protocol.ProtocolPackage;
+import org.xtext.senior.project.protocol.Transaction;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,24 +33,14 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
 public class CallImpl extends OperationImpl implements Call
 {
   /**
-   * The default value of the '{@link #getTransactionName() <em>Transaction Name</em>}' attribute.
+   * The cached value of the '{@link #getTransactionName() <em>Transaction Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTransactionName()
    * @generated
    * @ordered
    */
-  protected static final String TRANSACTÝON_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTransactionName() <em>Transaction Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTransactionName()
-   * @generated
-   * @ordered
-   */
-  protected String transactionName = TRANSACTÝON_NAME_EDEFAULT;
+  protected Transaction transactionName;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,7 +68,27 @@ public class CallImpl extends OperationImpl implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTransactionName()
+  public Transaction getTransactionName()
+  {
+    if (transactionName != null && transactionName.eIsProxy())
+    {
+      InternalEObject oldTransactionName = (InternalEObject)transactionName;
+      transactionName = (Transaction)eResolveProxy(oldTransactionName);
+      if (transactionName != oldTransactionName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtocolPackage.CALL__TRANSACTÝON_NAME, oldTransactionName, transactionName));
+      }
+    }
+    return transactionName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Transaction basicGetTransactionName()
   {
     return transactionName;
   }
@@ -86,9 +98,9 @@ public class CallImpl extends OperationImpl implements Call
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTransactionName(String newTransactionName)
+  public void setTransactionName(Transaction newTransactionName)
   {
-    String oldTransactionName = transactionName;
+    Transaction oldTransactionName = transactionName;
     transactionName = newTransactionName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.CALL__TRANSACTÝON_NAME, oldTransactionName, transactionName));
@@ -105,7 +117,8 @@ public class CallImpl extends OperationImpl implements Call
     switch (featureID)
     {
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
-        return getTransactionName();
+        if (resolve) return getTransactionName();
+        return basicGetTransactionName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,7 +134,7 @@ public class CallImpl extends OperationImpl implements Call
     switch (featureID)
     {
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
-        setTransactionName((String)newValue);
+        setTransactionName((Transaction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,7 +151,7 @@ public class CallImpl extends OperationImpl implements Call
     switch (featureID)
     {
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
-        setTransactionName(TRANSACTÝON_NAME_EDEFAULT);
+        setTransactionName((Transaction)null);
         return;
     }
     super.eUnset(featureID);
@@ -155,26 +168,9 @@ public class CallImpl extends OperationImpl implements Call
     switch (featureID)
     {
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
-        return TRANSACTÝON_NAME_EDEFAULT == null ? transactionName != null : !TRANSACTÝON_NAME_EDEFAULT.equals(transactionName);
+        return transactionName != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (transactionName: ");
-    result.append(transactionName);
-    result.append(')');
-    return result.toString();
   }
 
 } //CallImpl

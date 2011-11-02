@@ -26,7 +26,7 @@ public class TestMain {
 		try {
 			String fileName = "bhdrkn.pdl";
 			PDLFile pdlFile = PDLFileFactory.getPDLFile(fileName);
-			System.out.println(pdlFile.getDefinition().getDefinitions().size());
+			System.out.println(pdlFile.getDefinition().getSources().size());
 			System.out.println(pdlFile.getTransaction().getTransactions()
 					.size());
 			System.out.println(pdlFile.getState().getStates().size());

@@ -13,23 +13,8 @@
 *   See the License for the specific language governing permissions and
 *   limitations under the License.
 */
-package example.cipher;
+package example.protocol.message;
 
-import protocol.cipher.AsynchronousCipher;
-import protocol.cipher.HexConverter;
-
-public class AsynchronousCipherTest {
-	public static void main(String[] args) throws Exception {
-		String key = "12345678";
-		String msg = "Alice says: Hi!";
-		
-		AsynchronousCipher cipher = new AsynchronousCipher(key);
-		byte[] encrypt = cipher.encrypt(msg.getBytes());
-
-		System.out.println(HexConverter.bytesToHex(encrypt));
-		
-		byte[] decrypt = cipher.decrypt(encrypt);
-		System.out.println(decrypt);
-		System.out.println(new String(decrypt));
-	}
+public enum ProtocolType {
+	MyProtocol, None
 }
