@@ -19,6 +19,7 @@ import org.xtext.senior.project.protocol.Definitions;
 import org.xtext.senior.project.protocol.PDLFile;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 import org.xtext.senior.project.protocol.States;
+import org.xtext.senior.project.protocol.Test;
 import org.xtext.senior.project.protocol.Transactions;
 
 /**
@@ -32,6 +33,7 @@ import org.xtext.senior.project.protocol.Transactions;
  *   <li>{@link org.xtext.senior.project.protocol.impl.PDLFileImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.xtext.senior.project.protocol.impl.PDLFileImpl#getTransaction <em>Transaction</em>}</li>
  *   <li>{@link org.xtext.senior.project.protocol.impl.PDLFileImpl#getState <em>State</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.impl.PDLFileImpl#getTest <em>Test</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +90,16 @@ public class PDLFileImpl extends MinimalEObjectImpl.Container implements PDLFile
    * @ordered
    */
   protected States state;
+
+  /**
+   * The cached value of the '{@link #getTest() <em>Test</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTest()
+   * @generated
+   * @ordered
+   */
+  protected Test test;
 
   /**
    * <!-- begin-user-doc -->
@@ -282,6 +294,54 @@ public class PDLFileImpl extends MinimalEObjectImpl.Container implements PDLFile
    * <!-- end-user-doc -->
    * @generated
    */
+  public Test getTest()
+  {
+    return test;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTest(Test newTest, NotificationChain msgs)
+  {
+    Test oldTest = test;
+    test = newTest;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtocolPackage.PDL_FÝLE__TEST, oldTest, newTest);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTest(Test newTest)
+  {
+    if (newTest != test)
+    {
+      NotificationChain msgs = null;
+      if (test != null)
+        msgs = ((InternalEObject)test).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtocolPackage.PDL_FÝLE__TEST, null, msgs);
+      if (newTest != null)
+        msgs = ((InternalEObject)newTest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtocolPackage.PDL_FÝLE__TEST, null, msgs);
+      msgs = basicSetTest(newTest, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.PDL_FÝLE__TEST, newTest, newTest));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -293,6 +353,8 @@ public class PDLFileImpl extends MinimalEObjectImpl.Container implements PDLFile
         return basicSetTransaction(null, msgs);
       case ProtocolPackage.PDL_FÝLE__STATE:
         return basicSetState(null, msgs);
+      case ProtocolPackage.PDL_FÝLE__TEST:
+        return basicSetTest(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -315,6 +377,8 @@ public class PDLFileImpl extends MinimalEObjectImpl.Container implements PDLFile
         return getTransaction();
       case ProtocolPackage.PDL_FÝLE__STATE:
         return getState();
+      case ProtocolPackage.PDL_FÝLE__TEST:
+        return getTest();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -340,6 +404,9 @@ public class PDLFileImpl extends MinimalEObjectImpl.Container implements PDLFile
         return;
       case ProtocolPackage.PDL_FÝLE__STATE:
         setState((States)newValue);
+        return;
+      case ProtocolPackage.PDL_FÝLE__TEST:
+        setTest((Test)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -367,6 +434,9 @@ public class PDLFileImpl extends MinimalEObjectImpl.Container implements PDLFile
       case ProtocolPackage.PDL_FÝLE__STATE:
         setState((States)null);
         return;
+      case ProtocolPackage.PDL_FÝLE__TEST:
+        setTest((Test)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -389,6 +459,8 @@ public class PDLFileImpl extends MinimalEObjectImpl.Container implements PDLFile
         return transaction != null;
       case ProtocolPackage.PDL_FÝLE__STATE:
         return state != null;
+      case ProtocolPackage.PDL_FÝLE__TEST:
+        return test != null;
     }
     return super.eIsSet(featureID);
   }

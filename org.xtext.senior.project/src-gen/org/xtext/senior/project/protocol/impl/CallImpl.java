@@ -6,14 +6,21 @@
  */
 package org.xtext.senior.project.protocol.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import org.xtext.senior.project.protocol.Call;
+import org.xtext.senior.project.protocol.Define;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 import org.xtext.senior.project.protocol.Transaction;
 
@@ -25,6 +32,7 @@ import org.xtext.senior.project.protocol.Transaction;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.senior.project.protocol.impl.CallImpl#getTransactionName <em>Transaction Name</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.impl.CallImpl#getArgs <em>Args</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +49,16 @@ public class CallImpl extends OperationImpl implements Call
    * @ordered
    */
   protected Transaction transactionName;
+
+  /**
+   * The cached value of the '{@link #getArgs() <em>Args</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArgs()
+   * @generated
+   * @ordered
+   */
+  protected EList<Define> args;
 
   /**
    * <!-- begin-user-doc -->
@@ -111,6 +129,20 @@ public class CallImpl extends OperationImpl implements Call
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Define> getArgs()
+  {
+    if (args == null)
+    {
+      args = new EObjectResolvingEList<Define>(Define.class, this, ProtocolPackage.CALL__ARGS);
+    }
+    return args;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -119,6 +151,8 @@ public class CallImpl extends OperationImpl implements Call
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
         if (resolve) return getTransactionName();
         return basicGetTransactionName();
+      case ProtocolPackage.CALL__ARGS:
+        return getArgs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -128,6 +162,7 @@ public class CallImpl extends OperationImpl implements Call
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -135,6 +170,10 @@ public class CallImpl extends OperationImpl implements Call
     {
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
         setTransactionName((Transaction)newValue);
+        return;
+      case ProtocolPackage.CALL__ARGS:
+        getArgs().clear();
+        getArgs().addAll((Collection<? extends Define>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -153,6 +192,9 @@ public class CallImpl extends OperationImpl implements Call
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
         setTransactionName((Transaction)null);
         return;
+      case ProtocolPackage.CALL__ARGS:
+        getArgs().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -169,6 +211,8 @@ public class CallImpl extends OperationImpl implements Call
     {
       case ProtocolPackage.CALL__TRANSACTÝON_NAME:
         return transactionName != null;
+      case ProtocolPackage.CALL__ARGS:
+        return args != null && !args.isEmpty();
     }
     return super.eIsSet(featureID);
   }

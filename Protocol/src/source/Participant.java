@@ -15,6 +15,11 @@
 */
 package source;
 
+import protocol.cipher.BaseCipher;
+import protocol.message.AbstractMessage;
+import example.protocol.message.Message;
+import example.protocol.message.ProtocolType;
+
 /**
  * The Source and the destination part of the protocols communication. It holds
  * Cipher and Message information of the {@link Participant}. If you want to
@@ -33,21 +38,21 @@ package source;
  *            Every protocol has its own Cipher so does Arbitrator and
  *            {@link Participant}.
  */
-public abstract class Participant<Message, Cipher> extends EventSource<Message> {
-	private Message message = null;
+public abstract class Participant<M extends AbstractMessage,Cipher extends BaseCipher> extends EventSource<Message> {
+	private AbstractMessage message = null;
 	private Cipher cipher = null;
 
 	public Participant(Cipher cipher) {
 		this.cipher = cipher;
 	}
 
-	public abstract void sendMessage(Message message);
+	//public abstract void sendMessage(Message message);
 
-	public void setMessage(Message msg) {
+	public void setMessage(AbstractMessage msg) {
 		this.message = msg;
 	}
 
-	public Message getMessage() {
+	public AbstractMessage getMessage() {
 		return this.message;
 	}
 
@@ -57,6 +62,22 @@ public abstract class Participant<Message, Cipher> extends EventSource<Message> 
 
 	public Cipher getCipher() {
 		return this.cipher;
+	}
+	
+	public void sendMessage(M msg){
+		msg.setFrom(this.getClass().getSimpleName());
+		if (msg.getFrom().compareTo(msg.getTo()) != 0) {
+			try {
+				byte[] crypt = getCipher().encrypt(msg.getMessage());
+				msg.setMessage(crypt);
+				this.setMessage(new Message(ProtocolType.MyProtocol));
+				this.getMessage().setMessage(msg.getMessage());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			setChanged();
+			notifyObservers(msg);
+		}
 	}
 
 	@Override

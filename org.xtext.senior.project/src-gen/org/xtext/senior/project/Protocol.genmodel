@@ -14,10 +14,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//PDLFile/definition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//PDLFile/transaction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//PDLFile/state"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//PDLFile/test"/>
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//Definitions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//Definitions/sources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//Definitions/cipher"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//Definitions/message"/>
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//Define">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protocol.ecore#//Define/name"/>
@@ -27,6 +29,7 @@
     <genClasses ecoreClass="Protocol.ecore#//Arbitrator"/>
     <genClasses ecoreClass="Protocol.ecore#//Participant"/>
     <genClasses ecoreClass="Protocol.ecore#//Cipher"/>
+    <genClasses ecoreClass="Protocol.ecore#//Message"/>
     <genClasses ecoreClass="Protocol.ecore#//Transactions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//Transactions/transactions"/>
     </genClasses>
@@ -58,10 +61,15 @@
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//Call">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//Call/transactionName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//Call/args"/>
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//Exchange">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//Exchange/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//Exchange/destination"/>
+    </genClasses>
+    <genClasses ecoreClass="Protocol.ecore#//Redirect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protocol.ecore#//Redirect/message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//Redirect/destination"/>
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//States">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//States/states"/>
@@ -78,10 +86,14 @@
     <genClasses ecoreClass="Protocol.ecore#//Event"/>
     <genClasses ecoreClass="Protocol.ecore#//GetEvent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//GetEvent/who"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protocol.ecore#//GetEvent/message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//GetEvent/message"/>
+    </genClasses>
+    <genClasses ecoreClass="Protocol.ecore#//SendsEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//SendsEvent/who"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//SendsEvent/message"/>
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//IsSendEvent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protocol.ecore#//IsSendEvent/message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//IsSendEvent/message"/>
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//Init">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Protocol.ecore#//Init/keyword"/>
@@ -91,11 +103,14 @@
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//Always"/>
     <genClasses ecoreClass="Protocol.ecore#//Otherwise"/>
-    <genClasses ecoreClass="Protocol.ecore#//Source">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//Source/eventSource"/>
+    <genClasses ecoreClass="Protocol.ecore#//To">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//To/eventSource"/>
     </genClasses>
     <genClasses ecoreClass="Protocol.ecore#//From">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Protocol.ecore#//From/eventSource"/>
+    </genClasses>
+    <genClasses ecoreClass="Protocol.ecore#//Test">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Protocol.ecore#//Test/operations"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

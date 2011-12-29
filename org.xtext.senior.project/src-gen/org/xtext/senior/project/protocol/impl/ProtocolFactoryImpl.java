@@ -75,6 +75,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
       case ProtocolPackage.ARBÝTRATOR: return createArbitrator();
       case ProtocolPackage.PARTÝCÝPANT: return createParticipant();
       case ProtocolPackage.CÝPHER: return createCipher();
+      case ProtocolPackage.MESSAGE: return createMessage();
       case ProtocolPackage.TRANSACTÝONS: return createTransactions();
       case ProtocolPackage.TRANSACTÝON: return createTransaction();
       case ProtocolPackage.ARGUMENT: return createArgument();
@@ -85,18 +86,21 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
       case ProtocolPackage.PRÝNT: return createPrint();
       case ProtocolPackage.CALL: return createCall();
       case ProtocolPackage.EXCHANGE: return createExchange();
+      case ProtocolPackage.REDÝRECT: return createRedirect();
       case ProtocolPackage.STATES: return createStates();
       case ProtocolPackage.STATE: return createState();
       case ProtocolPackage.GUARD: return createGuard();
       case ProtocolPackage.EVENT: return createEvent();
       case ProtocolPackage.GET_EVENT: return createGetEvent();
+      case ProtocolPackage.SENDS_EVENT: return createSendsEvent();
       case ProtocolPackage.IS_SEND_EVENT: return createIsSendEvent();
       case ProtocolPackage.INÝT: return createInit();
       case ProtocolPackage.CASE: return createCase();
       case ProtocolPackage.ALWAYS: return createAlways();
       case ProtocolPackage.OTHERWÝSE: return createOtherwise();
-      case ProtocolPackage.SOURCE: return createSource();
+      case ProtocolPackage.TO: return createTo();
       case ProtocolPackage.FROM: return createFrom();
+      case ProtocolPackage.TEST: return createTest();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -177,6 +181,17 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
   {
     CipherImpl cipher = new CipherImpl();
     return cipher;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Message createMessage()
+  {
+    MessageImpl message = new MessageImpl();
+    return message;
   }
 
   /**
@@ -294,6 +309,17 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Redirect createRedirect()
+  {
+    RedirectImpl redirect = new RedirectImpl();
+    return redirect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public States createStates()
   {
     StatesImpl states = new StatesImpl();
@@ -342,6 +368,17 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
   {
     GetEventImpl getEvent = new GetEventImpl();
     return getEvent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SendsEvent createSendsEvent()
+  {
+    SendsEventImpl sendsEvent = new SendsEventImpl();
+    return sendsEvent;
   }
 
   /**
@@ -404,10 +441,10 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Source createSource()
+  public To createTo()
   {
-    SourceImpl source = new SourceImpl();
-    return source;
+    ToImpl to = new ToImpl();
+    return to;
   }
 
   /**
@@ -419,6 +456,17 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
   {
     FromImpl from = new FromImpl();
     return from;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Test createTest()
+  {
+    TestImpl test = new TestImpl();
+    return test;
   }
 
   /**

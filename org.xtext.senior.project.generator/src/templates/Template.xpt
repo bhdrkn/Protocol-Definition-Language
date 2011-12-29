@@ -22,6 +22,7 @@
 «DEFINE main FOR PDLFile»
     «EXPAND definitionsPath FOR this.definition»
     «EXPAND buildProtocolClass FOR this»
+    «EXPAND buildProtocolTestClass FOR this»
 «ENDDEFINE»
 
 «REM»Classes from definitions are generating below here«ENDREM»
@@ -62,12 +63,13 @@ public class «this.name»<Cipher extends BaseCipher> extends «this.keyword»<Messa
     public «this.name»(Cipher cipher) {
         super(cipher);
     }
-
+    /*
     @Override
     public void sendMessage(Message msg) {
         setChanged();
         notifyObservers(msg);
     }
+    */
 
 }
     «ENDFILE»
@@ -96,6 +98,10 @@ public class «this.name»<Cipher extends BaseCipher> extends
 
     public «this.name»(Hashtable<String, Cipher> cipherTable) {
         super(cipherTable);
+    }
+    
+    public Trent(){
+        super(new Hashtable<String, Cipher>());
     }
 
     @Override
@@ -152,15 +158,17 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
     «EXPAND buildProtocolConstructor(this.name) FOR this.definition»
     
     public void init(){
-    «EXPAND buildInitMethod FOREACH this.state.states»
+    «EXPAND buildInitMethod(this.definition.message) FOREACH this.state.states»
     }
     «REM»We need an update method in order to implement Observer interface«ENDREM»    
     @Override
     public void update(Observable o, Object arg) {
-       //TODO - This part must be generated from States
-       Message msg = (Message) arg;
+       «EXPAND createMessage FOR this.definition.message»
        «REM»updateMethod builds by using State area, But state area using Transactions. So transactions building as private methods«ENDREM»
-       «EXPAND buildUpdateMethod FOREACH this.state.states»
+       «REM»First SendsEvents Generating«ENDREM»
+       «EXPAND buildSendsEvents(this.definition.message, this.state.getStatesWithSendsEvent()) FOREACH this.state.getStatesWithSendsEvent()»
+       «REM»Second GetEvents Generating«ENDREM»
+       «EXPAND buildGetEvents(this.definition.message, this.state.getStatesWithGetEvent()) FOREACH this.state.getStatesWithGetEvent()»
     }
     
     «REM»Private methods generating from transactions in order to serve update method«ENDREM»
@@ -200,6 +208,7 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
 «REM»Building Private Methods for Protocol with using Transactions«ENDREM»
 «DEFINE buildPrivateMethodsFromTransactions FOR Transaction»
     private void «this.name» («EXPAND buildMethodArguments(this.arguments) FOREACH this.arguments»){
+        System.out.println("TRANSACION: «this.name»");
         «EXPAND buildMethodOperation FOREACH this.operations»
     }
 «ENDDEFINE»
@@ -213,19 +222,35 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
 «ENDDEFINE»
 
 «REM»Building INIT method using InýtState«ENDREM»
-«DEFINE buildInitMethod FOR State»
+«DEFINE buildInitMethod(Message message) FOR State»
     «IF Init.isInstance(this.event)»
-        «EXPAND buildGuards FOREACH this.guards»
+        «EXPAND buildGuards(message) FOREACH this.guards»
     «ENDIF»
 «ENDDEFINE»
 
+«DEFINE createMessage FOR Message»
+    «this.keyword» «this.name.toLowerCase()» = («this.keyword») arg;
+«ENDDEFINE»
+
 «REM»Building Protocols updateMethod Using States And Events Except INIT state«ENDREM»
-«DEFINE buildUpdateMethod FOR State»
-    «IF GetEvent.isInstance(this.event)»
-        if( o instanceof «((GetEvent)this.event).who.name» ){
-        «EXPAND buildGuards FOREACH this.guards»
-    }
-    «ENDIF»
+«DEFINE buildSendsEvents(Message message, List[State] states) FOR State»
+    // SENDS EVENT
+    if( o instanceof «((SendsEvent)this.event).who.name» ){
+        «EXPAND buildGuards(message) FOREACH this.guards»
+    } 
+    «IF (states.indexOf(this)+1) < states.size »
+    else 
+    «ENDIF»  
+«ENDDEFINE»
+
+«DEFINE buildGetEvents(Message message, List[State] states) FOR State»
+    // GET EVENT
+    if( «message.name.toLowerCase()».getTo().compareTo("«((GetEvent)this.event).who.name»") == 0){
+        «EXPAND buildGuards(message) FOREACH this.guards»
+    } 
+    «IF (states.indexOf(this)+1) < states.size »
+    else 
+    «ENDIF»  
 «ENDDEFINE»
 
 «REM»BUILDING OPERATIONS ... REFERENCE TO ALL OPERATIONS«ENDREM»
@@ -242,6 +267,8 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
         «EXPAND callOperation FOR ((Call)this)»
     «ELSEIF Exchange.isInstance(this)»
         «EXPAND exchangeOperation FOR ((Exchange)this)»
+    «ELSEIF Redirect.isInstance(this)»
+        «EXPAND redirectOperation FOR ((Redirect)this)»
     «ENDIF»
 «ENDDEFINE»
 
@@ -267,44 +294,118 @@ try{
     }
 «ENDDEFINE»
 
+«REM»DEFINING SEND operation«ENDREM»
 «DEFINE sendOperation FOR Send»
     // SEND
-    «this.message».setFrom(«this.source.name.toLowerCase()».getClass().getSimpleName());
-    «this.message».setTo(«this.destination.name.toLowerCase()».getClass().getSimpleName());
-    «this.source.name.toLowerCase()».sendMessage(«this.message»);
+    «this.message.toLowerCase()».setFrom(«this.source.name.toLowerCase()».getClass().getSimpleName());
+    «this.message.toLowerCase()».setTo(«this.destination.name.toLowerCase()».getClass().getSimpleName());
+    «this.source.name.toLowerCase()».sendMessage(«this.message.toLowerCase()»);
 «ENDDEFINE»
 
+«REM»Defining PRINT operation«ENDREM»
 «DEFINE printOperation FOR Print»
     // PRINT
     System.out.println(«this.message».toString());
 «ENDDEFINE»
 
+«REM»Translation from CALL to java methodcall«ENDREM»
 «DEFINE callOperation FOR Call»
     // CALL    
-    «this.transactionName.name»(msg);
+    «this.transactionName.name»(«EXPAND passArguments FOREACH this.args»);
 «ENDDEFINE»
 
+«REM»Passing arguments From CALL operation to a TRANSACTION«ENDREM»
+«DEFINE passArguments FOR Define»
+    «this.name.toLowerCase()»
+«ENDDEFINE»
+
+«REM»Definition of a EXCHANGE operation which is going to be changed«ENDREM»
 «DEFINE exchangeOperation FOR Exchange»
-// exchangeOperation
+    // EXCHANGE
     «this.destination.name.toLowerCase()».addCipher(«this.source.name.toLowerCase()».getClass().getSimpleName(),«this.source.name.toLowerCase()».getCipher());
+«ENDDEFINE»
+
+«DEFINE redirectOperation FOR Redirect»
+    // REDIRECT
+    «this.message.toLowerCase()».setTo(«this.destination.name.toLowerCase()».getClass().getSimpleName());
 «ENDDEFINE»
 
 
 «REM»GUARDS BUILDING ... REFERANCE TO ALL GUARD«ENDREM»
-«DEFINE buildGuards FOR Guard»    
-    if( «EXPAND buildCase FOR this.casem»){
-        // Expand to Operation what about arg....
+«DEFINE buildGuards(Message message) FOR Guard»   
+    «IF Always.isInstance(this.casem)»
         «EXPAND buildMethodOperation FOR this.operation»
+    «ELSE»
+     if( «EXPAND buildCase(message) FOR this.casem»){
+       «EXPAND buildMethodOperation FOR this.operation»
      }
+    «ENDIF» 
 «ENDDEFINE»
 
 «REM»OTHERWISE case not defined yet«ENDREM»
-«DEFINE buildCase FOR Case»
-    «IF Source.isInstance(this)»
-       msg.getTo().compareTo("«((Source)this).eventSource.name.toLowerCase()»") == 0
+«DEFINE buildCase(Message message) FOR Case»
+    «IF To.isInstance(this)»
+       «message.name.toLowerCase()».getTo().compareTo("«((To)this).eventSource.name»") == 0
     «ELSEIF From.isInstance(this)»
-        msg.getFrom().compareTo("«((From)this).eventSource.name.toLowerCase()»") == 0
-    «ELSEIF Always.isInstance(this)»
-        true
+        «message.name.toLowerCase()».getFrom().compareTo("«((From)this).eventSource.name»") == 0
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE buildProtocolTestClass FOR PDLFile»
+    «FILE "com/generated/java/source/protocol/test/"+this.name+"Test.java"»
+    package com.generated.java.source.protocol.test;
+
+    import com.generated.java.source.Alice;
+    import com.generated.java.source.Bob;
+    import com.generated.java.source.Trent;
+    import com.generated.java.source.protocol.MyBigProtocol;
+
+    import protocol.cipher.*;
+
+    import example.protocol.message.Message;
+    import example.protocol.message.ProtocolType;
+
+    public class «this.name»Test implements Runnable{
+        «EXPAND buildProtocolTestAttributes(this.definition.cipher) FOREACH this.definition.sources»
+        «EXPAND buildProtocolSelfAttribute FOR this»
+        
+        public «this.name»Test(){
+        
+        }
+        
+    @Override
+    public void run() {
+        Message msg = new Message(ProtocolType.None);
+        msg.setMessage("Bahadir Akin ITU");
+        «EXPAND buildMethodOperation FOREACH this.test.operations»
+        
+    }
+    
+    public static void main(String[] args) {
+        Thread thread = new Thread(new «this.name»Test());
+        thread.start();
+    }
+}
+    «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE buildProtocolTestAttributes(Cipher cipher) FOR EventSource»
+    «IF Participant.isInstance(this)»
+    private «this.name»<«cipher.keyword»> «this.name.toLowerCase()» = new «this.name»<«cipher.keyword»>(new «cipher.keyword»("KeyOf«this.name»"));
+    «ELSEIF Arbitrator.isInstance(this)»
+    private «this.name»<«cipher.keyword»> «this.name.toLowerCase()» = new «this.name»<«cipher.keyword»>();
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE buildProtocolSelfAttribute FOR PDLFile»
+    private «this.name»<«this.definition.cipher.keyword»> myBigProtocol = new «this.name»<«this.definition.cipher.keyword»>(«EXPAND getEventSourceNames(this.definition.sources) FOREACH this.definition.sources»);
+«ENDDEFINE»
+
+
+«DEFINE getEventSourceNames(List[EventSource] sources) FOR EventSource»
+    «IF sources.indexOf(this) + 1 == sources.size»
+        «this.name.toLowerCase()»
+    «ELSE»
+        «this.name.toLowerCase()»,
     «ENDIF»
 «ENDDEFINE»

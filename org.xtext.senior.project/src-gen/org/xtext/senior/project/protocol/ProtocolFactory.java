@@ -90,6 +90,15 @@ public interface ProtocolFactory extends EFactory
   Cipher createCipher();
 
   /**
+   * Returns a new object of class '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Message</em>'.
+   * @generated
+   */
+  Message createMessage();
+
+  /**
    * Returns a new object of class '<em>Transactions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -180,6 +189,15 @@ public interface ProtocolFactory extends EFactory
   Exchange createExchange();
 
   /**
+   * Returns a new object of class '<em>Redirect</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Redirect</em>'.
+   * @generated
+   */
+  Redirect createRedirect();
+
+  /**
    * Returns a new object of class '<em>States</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -223,6 +241,15 @@ public interface ProtocolFactory extends EFactory
    * @generated
    */
   GetEvent createGetEvent();
+
+  /**
+   * Returns a new object of class '<em>Sends Event</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sends Event</em>'.
+   * @generated
+   */
+  SendsEvent createSendsEvent();
 
   /**
    * Returns a new object of class '<em>Is Send Event</em>'.
@@ -270,13 +297,13 @@ public interface ProtocolFactory extends EFactory
   Otherwise createOtherwise();
 
   /**
-   * Returns a new object of class '<em>Source</em>'.
+   * Returns a new object of class '<em>To</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Source</em>'.
+   * @return a new object of class '<em>To</em>'.
    * @generated
    */
-  Source createSource();
+  To createTo();
 
   /**
    * Returns a new object of class '<em>From</em>'.
@@ -286,6 +313,15 @@ public interface ProtocolFactory extends EFactory
    * @generated
    */
   From createFrom();
+
+  /**
+   * Returns a new object of class '<em>Test</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Test</em>'.
+   * @generated
+   */
+  Test createTest();
 
   /**
    * Returns the package supported by this factory.

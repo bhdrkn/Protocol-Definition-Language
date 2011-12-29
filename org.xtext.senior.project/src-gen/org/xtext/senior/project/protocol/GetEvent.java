@@ -53,29 +53,29 @@ public interface GetEvent extends Event
   void setWho(Define value);
 
   /**
-   * Returns the value of the '<em><b>Message</b></em>' attribute.
+   * Returns the value of the '<em><b>Message</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Message</em>' attribute isn't clear,
+   * If the meaning of the '<em>Message</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Message</em>' attribute.
-   * @see #setMessage(String)
+   * @return the value of the '<em>Message</em>' reference.
+   * @see #setMessage(Message)
    * @see org.xtext.senior.project.protocol.ProtocolPackage#getGetEvent_Message()
    * @model
    * @generated
    */
-  String getMessage();
+  Message getMessage();
 
   /**
-   * Sets the value of the '{@link org.xtext.senior.project.protocol.GetEvent#getMessage <em>Message</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.senior.project.protocol.GetEvent#getMessage <em>Message</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Message</em>' attribute.
+   * @param value the new value of the '<em>Message</em>' reference.
    * @see #getMessage()
    * @generated
    */
-  void setMessage(String value);
+  void setMessage(Message value);
 
 } // GetEvent

@@ -1,14 +1,12 @@
-
 package com.generated.java.source.message;
-    
-public enum MyMessageSource{
-    
-    Alice,
 
-    Bob,
+public enum MyMessageSource {
 
-    Trent,
+	Alice,
 
-    None   
+	Bob,
+
+	Trent,
+
+	None
 }
-    

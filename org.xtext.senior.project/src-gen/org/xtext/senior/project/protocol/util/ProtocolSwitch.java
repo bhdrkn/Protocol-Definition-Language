@@ -151,6 +151,14 @@ public class ProtocolSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ProtocolPackage.MESSAGE:
+      {
+        Message message = (Message)theEObject;
+        T result = caseMessage(message);
+        if (result == null) result = caseDefine(message);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ProtocolPackage.TRANSACTÝONS:
       {
         Transactions transactions = (Transactions)theEObject;
@@ -227,6 +235,14 @@ public class ProtocolSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ProtocolPackage.REDÝRECT:
+      {
+        Redirect redirect = (Redirect)theEObject;
+        T result = caseRedirect(redirect);
+        if (result == null) result = caseOperation(redirect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ProtocolPackage.STATES:
       {
         States states = (States)theEObject;
@@ -260,6 +276,14 @@ public class ProtocolSwitch<T>
         GetEvent getEvent = (GetEvent)theEObject;
         T result = caseGetEvent(getEvent);
         if (result == null) result = caseEvent(getEvent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtocolPackage.SENDS_EVENT:
+      {
+        SendsEvent sendsEvent = (SendsEvent)theEObject;
+        T result = caseSendsEvent(sendsEvent);
+        if (result == null) result = caseEvent(sendsEvent);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -302,11 +326,11 @@ public class ProtocolSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ProtocolPackage.SOURCE:
+      case ProtocolPackage.TO:
       {
-        Source source = (Source)theEObject;
-        T result = caseSource(source);
-        if (result == null) result = caseCase(source);
+        To to = (To)theEObject;
+        T result = caseTo(to);
+        if (result == null) result = caseCase(to);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -315,6 +339,13 @@ public class ProtocolSwitch<T>
         From from = (From)theEObject;
         T result = caseFrom(from);
         if (result == null) result = caseCase(from);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ProtocolPackage.TEST:
+      {
+        Test test = (Test)theEObject;
+        T result = caseTest(test);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -430,6 +461,22 @@ public class ProtocolSwitch<T>
    * @generated
    */
   public T caseCipher(Cipher object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Message</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Message</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMessage(Message object)
   {
     return null;
   }
@@ -595,6 +642,22 @@ public class ProtocolSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Redirect</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Redirect</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRedirect(Redirect object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>States</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -670,6 +733,22 @@ public class ProtocolSwitch<T>
    * @generated
    */
   public T caseGetEvent(GetEvent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sends Event</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sends Event</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSendsEvent(SendsEvent object)
   {
     return null;
   }
@@ -755,17 +834,17 @@ public class ProtocolSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Source</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>To</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Source</em>'.
+   * @return the result of interpreting the object as an instance of '<em>To</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSource(Source object)
+  public T caseTo(To object)
   {
     return null;
   }
@@ -782,6 +861,22 @@ public class ProtocolSwitch<T>
    * @generated
    */
   public T caseFrom(From object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Test</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Test</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTest(Test object)
   {
     return null;
   }

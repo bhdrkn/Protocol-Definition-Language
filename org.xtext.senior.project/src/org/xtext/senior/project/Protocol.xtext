@@ -23,18 +23,20 @@ PDLFile:
     definition = Definitions
     transaction = Transactions
     state = States
+    test = Test
     '[END]';
 
 Definitions:
     '[DEFINITIONS]' 
      (sources+=EventSource)*
      cipher=Cipher
+     message=Message
     '[END]';
     
     
 // Works Like Interface
 Define:
-    EventSource | Cipher;
+    EventSource | Cipher | Message;
     
 EventSource:
     Arbitrator | Participant;
@@ -46,7 +48,14 @@ Participant:
     name=ID '=' keyword='Participant';
     
 Cipher:
-    name=ID '=' keyword=ID;
+    name=ID '=' keyword= ('AsynchronousCipher' | 'SynchronousCipher');
+
+Message:
+    name=ID '=' keyword='Message';
+    
+Keyword:
+    'Arbitrator' | 'Participant' | 'Message' | 'AsynchronousCipher' | 'SynchronousCipher';
+
 
 Transactions:
      '[TRANSACTIONS]' 
@@ -60,10 +69,10 @@ Transaction:
      '[END]' ;
 
 Argument:
-    keyword=ID name=ID;
+    keyword=Keyword name=ID;
 
 Operation:
-    Decrypt | Encrypt | Send | Print | Call | Exchange;
+    Decrypt | Encrypt | Send | Print | Call | Exchange | Redirect;
 
 Decrypt:
     'decrypt' message=ID 'for' participant=[Participant];
@@ -78,10 +87,13 @@ Print:
     'print' message=ID;
     
 Call:
-    'CALL' transactionName=[Transaction];
+    'CALL' transactionName=[Transaction] '(' args +=[Define]*')';
     
 Exchange:
     source=[EventSource] 'exchange' destination=[EventSource];
+    
+Redirect:
+    message=ID 'redirect' destination=[EventSource];
 
 States:
      '[STATES]' 
@@ -98,19 +110,22 @@ Guard:
      '|' casem=Case '=>' operation=Operation;
 
 Event:
-    GetEvent | IsSendEvent | Init;
+    GetEvent | IsSendEvent | Init | SendsEvent;
 
 GetEvent:
-    who=[Define] 'GET' message=ID;
+    who=[Define] 'GET' message=[Message];
+    
+SendsEvent:
+    who=[Define] 'SENDS' message=[Message];
     
 IsSendEvent:
-    message=ID 'IS_SEND';     
+    message=[Message] 'IS_SEND';     
     
 Init:
     keyword="INIT";
 
 Case:
-    Always | Otherwise | Source | From;
+    Always | Otherwise | To | From;
    
 Always:
     keyword='always';
@@ -118,9 +133,14 @@ Always:
 Otherwise:
     keyword='otherwise';
     
-Source:
-     keyword='source' '=' eventSource=[EventSource];
+To:
+     keyword='to' '=' eventSource=[EventSource];
 
 From:
      keyword='from' '=' eventSource=[EventSource];
+     
+Test:
+    '[TEST]'
+        (operations+=Operation)*
+    '[END]';
     

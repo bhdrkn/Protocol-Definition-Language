@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.senior.project.protocol.Define;
 import org.xtext.senior.project.protocol.GetEvent;
+import org.xtext.senior.project.protocol.Message;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 
 /**
@@ -44,24 +45,14 @@ public class GetEventImpl extends EventImpl implements GetEvent
   protected Define who;
 
   /**
-   * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
+   * The cached value of the '{@link #getMessage() <em>Message</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMessage()
    * @generated
    * @ordered
    */
-  protected static final String MESSAGE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMessage()
-   * @generated
-   * @ordered
-   */
-  protected String message = MESSAGE_EDEFAULT;
+  protected Message message;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,7 +123,27 @@ public class GetEventImpl extends EventImpl implements GetEvent
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMessage()
+  public Message getMessage()
+  {
+    if (message != null && message.eIsProxy())
+    {
+      InternalEObject oldMessage = (InternalEObject)message;
+      message = (Message)eResolveProxy(oldMessage);
+      if (message != oldMessage)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtocolPackage.GET_EVENT__MESSAGE, oldMessage, message));
+      }
+    }
+    return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Message basicGetMessage()
   {
     return message;
   }
@@ -142,9 +153,9 @@ public class GetEventImpl extends EventImpl implements GetEvent
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMessage(String newMessage)
+  public void setMessage(Message newMessage)
   {
-    String oldMessage = message;
+    Message oldMessage = message;
     message = newMessage;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.GET_EVENT__MESSAGE, oldMessage, message));
@@ -164,7 +175,8 @@ public class GetEventImpl extends EventImpl implements GetEvent
         if (resolve) return getWho();
         return basicGetWho();
       case ProtocolPackage.GET_EVENT__MESSAGE:
-        return getMessage();
+        if (resolve) return getMessage();
+        return basicGetMessage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -183,7 +195,7 @@ public class GetEventImpl extends EventImpl implements GetEvent
         setWho((Define)newValue);
         return;
       case ProtocolPackage.GET_EVENT__MESSAGE:
-        setMessage((String)newValue);
+        setMessage((Message)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -203,7 +215,7 @@ public class GetEventImpl extends EventImpl implements GetEvent
         setWho((Define)null);
         return;
       case ProtocolPackage.GET_EVENT__MESSAGE:
-        setMessage(MESSAGE_EDEFAULT);
+        setMessage((Message)null);
         return;
     }
     super.eUnset(featureID);
@@ -222,26 +234,9 @@ public class GetEventImpl extends EventImpl implements GetEvent
       case ProtocolPackage.GET_EVENT__WHO:
         return who != null;
       case ProtocolPackage.GET_EVENT__MESSAGE:
-        return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+        return message != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (message: ");
-    result.append(message);
-    result.append(')');
-    return result.toString();
   }
 
 } //GetEventImpl

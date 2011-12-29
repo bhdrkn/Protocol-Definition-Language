@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.senior.project.protocol.Cipher;
 import org.xtext.senior.project.protocol.Definitions;
 import org.xtext.senior.project.protocol.EventSource;
+import org.xtext.senior.project.protocol.Message;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 
 /**
@@ -36,6 +37,7 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
  * <ul>
  *   <li>{@link org.xtext.senior.project.protocol.impl.DefinitionsImpl#getSources <em>Sources</em>}</li>
  *   <li>{@link org.xtext.senior.project.protocol.impl.DefinitionsImpl#getCipher <em>Cipher</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.impl.DefinitionsImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +64,16 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
    * @ordered
    */
   protected Cipher cipher;
+
+  /**
+   * The cached value of the '{@link #getMessage() <em>Message</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMessage()
+   * @generated
+   * @ordered
+   */
+  protected Message message;
 
   /**
    * <!-- begin-user-doc -->
@@ -151,6 +163,54 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
    * <!-- end-user-doc -->
    * @generated
    */
+  public Message getMessage()
+  {
+    return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMessage(Message newMessage, NotificationChain msgs)
+  {
+    Message oldMessage = message;
+    message = newMessage;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProtocolPackage.DEFÝNÝTÝONS__MESSAGE, oldMessage, newMessage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMessage(Message newMessage)
+  {
+    if (newMessage != message)
+    {
+      NotificationChain msgs = null;
+      if (message != null)
+        msgs = ((InternalEObject)message).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProtocolPackage.DEFÝNÝTÝONS__MESSAGE, null, msgs);
+      if (newMessage != null)
+        msgs = ((InternalEObject)newMessage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProtocolPackage.DEFÝNÝTÝONS__MESSAGE, null, msgs);
+      msgs = basicSetMessage(newMessage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.DEFÝNÝTÝONS__MESSAGE, newMessage, newMessage));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -160,6 +220,8 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
         return ((InternalEList<?>)getSources()).basicRemove(otherEnd, msgs);
       case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
         return basicSetCipher(null, msgs);
+      case ProtocolPackage.DEFÝNÝTÝONS__MESSAGE:
+        return basicSetMessage(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -178,6 +240,8 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
         return getSources();
       case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
         return getCipher();
+      case ProtocolPackage.DEFÝNÝTÝONS__MESSAGE:
+        return getMessage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -200,6 +264,9 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
       case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
         setCipher((Cipher)newValue);
         return;
+      case ProtocolPackage.DEFÝNÝTÝONS__MESSAGE:
+        setMessage((Message)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -220,6 +287,9 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
       case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
         setCipher((Cipher)null);
         return;
+      case ProtocolPackage.DEFÝNÝTÝONS__MESSAGE:
+        setMessage((Message)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -238,6 +308,8 @@ public class DefinitionsImpl extends MinimalEObjectImpl.Container implements Def
         return sources != null && !sources.isEmpty();
       case ProtocolPackage.DEFÝNÝTÝONS__CÝPHER:
         return cipher != null;
+      case ProtocolPackage.DEFÝNÝTÝONS__MESSAGE:
+        return message != null;
     }
     return super.eIsSet(featureID);
   }

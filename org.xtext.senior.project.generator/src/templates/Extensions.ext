@@ -1,2 +1,7 @@
 import org::xtext::senior::project::protocol;
 
+List[State] getStatesWithGetEvent(States inputStates):
+    inputStates.states.select(e|GetEvent.isInstance(e.event));
+    
+List[State] getStatesWithSendsEvent(States inputStates):
+    inputStates.states.select(e|SendsEvent.isInstance(e.event));

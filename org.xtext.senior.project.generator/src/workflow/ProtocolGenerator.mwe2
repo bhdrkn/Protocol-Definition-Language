@@ -19,6 +19,10 @@ import org.eclipse.emf.mwe.utils.*
 
 import org.eclipse.xpand2.output.JavaBeautifier
 
+import org.eclipse.jdt.core.*
+import org.eclipse.text.*
+import org.eclipse.core.resources.*
+
 var targetDir = "src-gen"
 var fileEncoding = "UTF-8"
 var modelPath = "src/model"
@@ -45,6 +49,7 @@ Workflow {
 		outlet = {
 			path = targetDir
 			// postprocessor = JavaBeautifier{}
+			postprocessor = JavaBeautifier{}
 			// http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.xpand.doc%2Fhelp%2Fxpand_reference_introduction.html
 	    }
 		fileEncoding = fileEncoding

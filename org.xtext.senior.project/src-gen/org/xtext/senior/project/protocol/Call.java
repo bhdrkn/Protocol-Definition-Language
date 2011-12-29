@@ -6,6 +6,7 @@
  */
 package org.xtext.senior.project.protocol;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +17,7 @@ package org.xtext.senior.project.protocol;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.senior.project.protocol.Call#getTransactionName <em>Transaction Name</em>}</li>
+ *   <li>{@link org.xtext.senior.project.protocol.Call#getArgs <em>Args</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +52,21 @@ public interface Call extends Operation
    * @generated
    */
   void setTransactionName(Transaction value);
+
+  /**
+   * Returns the value of the '<em><b>Args</b></em>' reference list.
+   * The list contents are of type {@link org.xtext.senior.project.protocol.Define}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Args</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Args</em>' reference list.
+   * @see org.xtext.senior.project.protocol.ProtocolPackage#getCall_Args()
+   * @model
+   * @generated
+   */
+  EList<Define> getArgs();
 
 } // Call

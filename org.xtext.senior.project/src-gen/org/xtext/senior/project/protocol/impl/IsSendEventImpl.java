@@ -9,10 +9,12 @@ package org.xtext.senior.project.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.senior.project.protocol.IsSendEvent;
+import org.xtext.senior.project.protocol.Message;
 import org.xtext.senior.project.protocol.ProtocolPackage;
 
 /**
@@ -31,24 +33,14 @@ import org.xtext.senior.project.protocol.ProtocolPackage;
 public class IsSendEventImpl extends EventImpl implements IsSendEvent
 {
   /**
-   * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
+   * The cached value of the '{@link #getMessage() <em>Message</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMessage()
    * @generated
    * @ordered
    */
-  protected static final String MESSAGE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMessage()
-   * @generated
-   * @ordered
-   */
-  protected String message = MESSAGE_EDEFAULT;
+  protected Message message;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,7 +68,27 @@ public class IsSendEventImpl extends EventImpl implements IsSendEvent
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMessage()
+  public Message getMessage()
+  {
+    if (message != null && message.eIsProxy())
+    {
+      InternalEObject oldMessage = (InternalEObject)message;
+      message = (Message)eResolveProxy(oldMessage);
+      if (message != oldMessage)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProtocolPackage.IS_SEND_EVENT__MESSAGE, oldMessage, message));
+      }
+    }
+    return message;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Message basicGetMessage()
   {
     return message;
   }
@@ -86,9 +98,9 @@ public class IsSendEventImpl extends EventImpl implements IsSendEvent
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMessage(String newMessage)
+  public void setMessage(Message newMessage)
   {
-    String oldMessage = message;
+    Message oldMessage = message;
     message = newMessage;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.IS_SEND_EVENT__MESSAGE, oldMessage, message));
@@ -105,7 +117,8 @@ public class IsSendEventImpl extends EventImpl implements IsSendEvent
     switch (featureID)
     {
       case ProtocolPackage.IS_SEND_EVENT__MESSAGE:
-        return getMessage();
+        if (resolve) return getMessage();
+        return basicGetMessage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,7 +134,7 @@ public class IsSendEventImpl extends EventImpl implements IsSendEvent
     switch (featureID)
     {
       case ProtocolPackage.IS_SEND_EVENT__MESSAGE:
-        setMessage((String)newValue);
+        setMessage((Message)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,7 +151,7 @@ public class IsSendEventImpl extends EventImpl implements IsSendEvent
     switch (featureID)
     {
       case ProtocolPackage.IS_SEND_EVENT__MESSAGE:
-        setMessage(MESSAGE_EDEFAULT);
+        setMessage((Message)null);
         return;
     }
     super.eUnset(featureID);
@@ -155,26 +168,9 @@ public class IsSendEventImpl extends EventImpl implements IsSendEvent
     switch (featureID)
     {
       case ProtocolPackage.IS_SEND_EVENT__MESSAGE:
-        return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+        return message != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (message: ");
-    result.append(message);
-    result.append(')');
-    return result.toString();
   }
 
 } //IsSendEventImpl

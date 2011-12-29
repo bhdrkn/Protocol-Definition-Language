@@ -31,6 +31,7 @@ import org.xtext.senior.project.protocol.GetEvent;
 import org.xtext.senior.project.protocol.Guard;
 import org.xtext.senior.project.protocol.Init;
 import org.xtext.senior.project.protocol.IsSendEvent;
+import org.xtext.senior.project.protocol.Message;
 import org.xtext.senior.project.protocol.Operation;
 import org.xtext.senior.project.protocol.Otherwise;
 import org.xtext.senior.project.protocol.PDLFile;
@@ -38,10 +39,13 @@ import org.xtext.senior.project.protocol.Participant;
 import org.xtext.senior.project.protocol.Print;
 import org.xtext.senior.project.protocol.ProtocolFactory;
 import org.xtext.senior.project.protocol.ProtocolPackage;
+import org.xtext.senior.project.protocol.Redirect;
 import org.xtext.senior.project.protocol.Send;
-import org.xtext.senior.project.protocol.Source;
+import org.xtext.senior.project.protocol.SendsEvent;
 import org.xtext.senior.project.protocol.State;
 import org.xtext.senior.project.protocol.States;
+import org.xtext.senior.project.protocol.Test;
+import org.xtext.senior.project.protocol.To;
 import org.xtext.senior.project.protocol.Transaction;
 import org.xtext.senior.project.protocol.Transactions;
 
@@ -101,6 +105,13 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * @generated
    */
   private EClass cipherEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass messageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -177,6 +188,13 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass redirectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass statesEClass = null;
 
   /**
@@ -206,6 +224,13 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * @generated
    */
   private EClass getEventEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sendsEventEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -247,7 +272,7 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sourceEClass = null;
+  private EClass toEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -255,6 +280,13 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * @generated
    */
   private EClass fromEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass testEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -374,6 +406,16 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPDLFile_Test()
+  {
+    return (EReference)pdlFileEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDefinitions()
   {
     return definitionsEClass;
@@ -397,6 +439,16 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
   public EReference getDefinitions_Cipher()
   {
     return (EReference)definitionsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDefinitions_Message()
+  {
+    return (EReference)definitionsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -467,6 +519,16 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
   public EClass getCipher()
   {
     return cipherEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMessage()
+  {
+    return messageEClass;
   }
 
   /**
@@ -714,6 +776,16 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCall_Args()
+  {
+    return (EReference)callEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExchange()
   {
     return exchangeEClass;
@@ -737,6 +809,36 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
   public EReference getExchange_Destination()
   {
     return (EReference)exchangeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRedirect()
+  {
+    return redirectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRedirect_Message()
+  {
+    return (EAttribute)redirectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRedirect_Destination()
+  {
+    return (EReference)redirectEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -864,9 +966,39 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGetEvent_Message()
+  public EReference getGetEvent_Message()
   {
-    return (EAttribute)getEventEClass.getEStructuralFeatures().get(1);
+    return (EReference)getEventEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSendsEvent()
+  {
+    return sendsEventEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSendsEvent_Who()
+  {
+    return (EReference)sendsEventEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSendsEvent_Message()
+  {
+    return (EReference)sendsEventEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -884,9 +1016,9 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIsSendEvent_Message()
+  public EReference getIsSendEvent_Message()
   {
-    return (EAttribute)ýsSendEventEClass.getEStructuralFeatures().get(0);
+    return (EReference)ýsSendEventEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -954,9 +1086,9 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSource()
+  public EClass getTo()
   {
-    return sourceEClass;
+    return toEClass;
   }
 
   /**
@@ -964,9 +1096,9 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSource_EventSource()
+  public EReference getTo_EventSource()
   {
-    return (EReference)sourceEClass.getEStructuralFeatures().get(0);
+    return (EReference)toEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -987,6 +1119,26 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
   public EReference getFrom_EventSource()
   {
     return (EReference)fromEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTest()
+  {
+    return testEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTest_Operations()
+  {
+    return (EReference)testEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1024,10 +1176,12 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     createEReference(pdlFileEClass, PDL_FÝLE__DEFÝNÝTÝON);
     createEReference(pdlFileEClass, PDL_FÝLE__TRANSACTÝON);
     createEReference(pdlFileEClass, PDL_FÝLE__STATE);
+    createEReference(pdlFileEClass, PDL_FÝLE__TEST);
 
     definitionsEClass = createEClass(DEFÝNÝTÝONS);
     createEReference(definitionsEClass, DEFÝNÝTÝONS__SOURCES);
     createEReference(definitionsEClass, DEFÝNÝTÝONS__CÝPHER);
+    createEReference(definitionsEClass, DEFÝNÝTÝONS__MESSAGE);
 
     defineEClass = createEClass(DEFÝNE);
     createEAttribute(defineEClass, DEFÝNE__NAME);
@@ -1040,6 +1194,8 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     participantEClass = createEClass(PARTÝCÝPANT);
 
     cipherEClass = createEClass(CÝPHER);
+
+    messageEClass = createEClass(MESSAGE);
 
     transactionsEClass = createEClass(TRANSACTÝONS);
     createEReference(transactionsEClass, TRANSACTÝONS__TRANSACTÝONS);
@@ -1073,10 +1229,15 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
     callEClass = createEClass(CALL);
     createEReference(callEClass, CALL__TRANSACTÝON_NAME);
+    createEReference(callEClass, CALL__ARGS);
 
     exchangeEClass = createEClass(EXCHANGE);
     createEReference(exchangeEClass, EXCHANGE__SOURCE);
     createEReference(exchangeEClass, EXCHANGE__DESTÝNATÝON);
+
+    redirectEClass = createEClass(REDÝRECT);
+    createEAttribute(redirectEClass, REDÝRECT__MESSAGE);
+    createEReference(redirectEClass, REDÝRECT__DESTÝNATÝON);
 
     statesEClass = createEClass(STATES);
     createEReference(statesEClass, STATES__STATES);
@@ -1094,10 +1255,14 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
     getEventEClass = createEClass(GET_EVENT);
     createEReference(getEventEClass, GET_EVENT__WHO);
-    createEAttribute(getEventEClass, GET_EVENT__MESSAGE);
+    createEReference(getEventEClass, GET_EVENT__MESSAGE);
+
+    sendsEventEClass = createEClass(SENDS_EVENT);
+    createEReference(sendsEventEClass, SENDS_EVENT__WHO);
+    createEReference(sendsEventEClass, SENDS_EVENT__MESSAGE);
 
     ýsSendEventEClass = createEClass(IS_SEND_EVENT);
-    createEAttribute(ýsSendEventEClass, IS_SEND_EVENT__MESSAGE);
+    createEReference(ýsSendEventEClass, IS_SEND_EVENT__MESSAGE);
 
     ýnitEClass = createEClass(INÝT);
     createEAttribute(ýnitEClass, INÝT__KEYWORD);
@@ -1109,11 +1274,14 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
     otherwiseEClass = createEClass(OTHERWÝSE);
 
-    sourceEClass = createEClass(SOURCE);
-    createEReference(sourceEClass, SOURCE__EVENT_SOURCE);
+    toEClass = createEClass(TO);
+    createEReference(toEClass, TO__EVENT_SOURCE);
 
     fromEClass = createEClass(FROM);
     createEReference(fromEClass, FROM__EVENT_SOURCE);
+
+    testEClass = createEClass(TEST);
+    createEReference(testEClass, TEST__OPERATÝONS);
   }
 
   /**
@@ -1149,18 +1317,21 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     arbitratorEClass.getESuperTypes().add(this.getEventSource());
     participantEClass.getESuperTypes().add(this.getEventSource());
     cipherEClass.getESuperTypes().add(this.getDefine());
+    messageEClass.getESuperTypes().add(this.getDefine());
     decryptEClass.getESuperTypes().add(this.getOperation());
     encryptEClass.getESuperTypes().add(this.getOperation());
     sendEClass.getESuperTypes().add(this.getOperation());
     printEClass.getESuperTypes().add(this.getOperation());
     callEClass.getESuperTypes().add(this.getOperation());
     exchangeEClass.getESuperTypes().add(this.getOperation());
+    redirectEClass.getESuperTypes().add(this.getOperation());
     getEventEClass.getESuperTypes().add(this.getEvent());
+    sendsEventEClass.getESuperTypes().add(this.getEvent());
     ýsSendEventEClass.getESuperTypes().add(this.getEvent());
     ýnitEClass.getESuperTypes().add(this.getEvent());
     alwaysEClass.getESuperTypes().add(this.getCase());
     otherwiseEClass.getESuperTypes().add(this.getCase());
-    sourceEClass.getESuperTypes().add(this.getCase());
+    toEClass.getESuperTypes().add(this.getCase());
     fromEClass.getESuperTypes().add(this.getCase());
 
     // Initialize classes and features; add operations and parameters
@@ -1169,10 +1340,12 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     initEReference(getPDLFile_Definition(), this.getDefinitions(), null, "definition", null, 0, 1, PDLFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPDLFile_Transaction(), this.getTransactions(), null, "transaction", null, 0, 1, PDLFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPDLFile_State(), this.getStates(), null, "state", null, 0, 1, PDLFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPDLFile_Test(), this.getTest(), null, "test", null, 0, 1, PDLFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionsEClass, Definitions.class, "Definitions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDefinitions_Sources(), this.getEventSource(), null, "sources", null, 0, -1, Definitions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDefinitions_Cipher(), this.getCipher(), null, "cipher", null, 0, 1, Definitions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitions_Message(), this.getMessage(), null, "message", null, 0, 1, Definitions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(defineEClass, Define.class, "Define", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDefine_Name(), ecorePackage.getEString(), "name", null, 0, 1, Define.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1185,6 +1358,8 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     initEClass(participantEClass, Participant.class, "Participant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(cipherEClass, Cipher.class, "Cipher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(transactionsEClass, Transactions.class, "Transactions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTransactions_Transactions(), this.getTransaction(), null, "transactions", null, 0, -1, Transactions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1218,10 +1393,15 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
     initEClass(callEClass, Call.class, "Call", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCall_TransactionName(), this.getTransaction(), null, "transactionName", null, 0, 1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCall_Args(), this.getDefine(), null, "args", null, 0, -1, Call.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exchangeEClass, Exchange.class, "Exchange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExchange_Source(), this.getEventSource(), null, "source", null, 0, 1, Exchange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExchange_Destination(), this.getEventSource(), null, "destination", null, 0, 1, Exchange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(redirectEClass, Redirect.class, "Redirect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRedirect_Message(), ecorePackage.getEString(), "message", null, 0, 1, Redirect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRedirect_Destination(), this.getEventSource(), null, "destination", null, 0, 1, Redirect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statesEClass, States.class, "States", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStates_States(), this.getState(), null, "states", null, 0, -1, States.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1239,10 +1419,14 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
     initEClass(getEventEClass, GetEvent.class, "GetEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGetEvent_Who(), this.getDefine(), null, "who", null, 0, 1, GetEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getGetEvent_Message(), ecorePackage.getEString(), "message", null, 0, 1, GetEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGetEvent_Message(), this.getMessage(), null, "message", null, 0, 1, GetEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sendsEventEClass, SendsEvent.class, "SendsEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSendsEvent_Who(), this.getDefine(), null, "who", null, 0, 1, SendsEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendsEvent_Message(), this.getMessage(), null, "message", null, 0, 1, SendsEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ýsSendEventEClass, IsSendEvent.class, "IsSendEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIsSendEvent_Message(), ecorePackage.getEString(), "message", null, 0, 1, IsSendEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIsSendEvent_Message(), this.getMessage(), null, "message", null, 0, 1, IsSendEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ýnitEClass, Init.class, "Init", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInit_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1254,11 +1438,14 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
     initEClass(otherwiseEClass, Otherwise.class, "Otherwise", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSource_EventSource(), this.getEventSource(), null, "eventSource", null, 0, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(toEClass, To.class, "To", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTo_EventSource(), this.getEventSource(), null, "eventSource", null, 0, 1, To.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fromEClass, From.class, "From", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFrom_EventSource(), this.getEventSource(), null, "eventSource", null, 0, 1, From.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(testEClass, Test.class, "Test", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTest_Operations(), this.getOperation(), null, "operations", null, 0, -1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
