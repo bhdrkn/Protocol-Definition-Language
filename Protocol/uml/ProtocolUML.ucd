@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="ProtocolUML" size="1159,380" id="protocol.cipher" metadata="uml2-1.0" initialized="true" scrolledY="143" tag="10" key="32303037303533312D31302050726F746F636F6C">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="ProtocolUML" size="1159,380" id="protocol.cipher" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D31302050726F746F636F6C">
   <children xsi:type="editmodel:ClassEditModel" name="AsynchronousCipher" location="30,150" size="172,157" id="protocol.cipher/AsynchronousCipher" runTimeClassModel="publicKey,AsynchronousCipher(Ljava.lang.String;Ljava.lang.String;),AsynchronousCipher(Ljava.lang.String;),getPublicKey(),encrypt([B),decrypt([B)">
     <children xsi:type="editmodel:CompartmentEditModel" size="119,18">
       <children xsi:type="editmodel:AttributeEditModel" name="publicKey" id="protocol.cipher/AsynchronousCipher#publicKey"/>
@@ -115,7 +115,7 @@
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:EnumerationEditModel" name="MessageSource" location="411,539" size="152,139" id="example.protocol.message/MessageSource" runTimeClassModel="Alice%,Arbitrary%,None%,Bob%">
+  <children xsi:type="editmodel:EnumerationEditModel" name="MessageSource" location="411,539" size="152,139" id="example.protocol.message/MessageSource" runTimeClassModel="Alice%,None%,Arbitrary%,Bob%">
     <children xsi:type="editmodel:CompartmentEditModel" size="62,72">
       <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Alice" id="example.protocol.message/MessageSource#Alice%"/>
       <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Arbitrary" id="example.protocol.message/MessageSource#Arbitrary%"/>

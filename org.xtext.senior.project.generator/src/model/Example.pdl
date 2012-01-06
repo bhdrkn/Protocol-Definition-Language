@@ -1,69 +1,35 @@
-[MyBigProtocol]
+[KeyProtokol]
 [DEFINITIONS]
-    Alice = Participant
-    Bob = Participant
-    Trent = Arbitrator
-    MyCipher = AsynchronousCipher
+    First = Participant
+    Second = Participant
+    Cipher = SynchronousCipher
     Msg = Message
 [END]
 [TRANSACTIONS]
-    TRANSACTION trentFromAliceAction(Message m)
+    TRANSACTION FirstGetTransaction(Message Msg)
     [BEGIN]
-        decrypt m for Alice
-        encrypt m for Bob
-        m :: Trent -> Bob
+        decrypt Msg for Second
+        print Msg
     [END]
     
-    TRANSACTION trentFromBobAction(Message m)
+    TRANSACTION SecondGetTransaction(Message Msg)
     [BEGIN]
-        decrypt m for Bob
-        encrypt m for Alice
-        m :: Trent -> Alice
-    [END]
-    
-    TRANSACTION AliceAction(Message m)
-    [BEGIN]
-        decrypt m for Alice
-        print m
-    [END]
-    
-    TRANSACTION BobAction(Message m)
-    [BEGIN]
-        decrypt m for Bob
-        print m
+        decrypt Msg for First
+        print Msg
+        Msg::Second->First
     [END]
 [END]
 [STATES]
-    STATE State1 (INIT)
+    STATE State1 (First GET Msg)
     [BEGIN]
-        |always => Alice exchange Trent
-        |always => Bob exchange Trent
+        |always => CALL FirstGetTransaction(Msg)
     [END]
-    STATE State11 (Alice SENDS Msg)
+    STATE State12 (Second GET Msg)
     [BEGIN]
-        |always => Msg redirect Trent
-    [END]
-    STATE State12 (Bob SENDS Msg)
-    [BEGIN]
-        |always => Msg redirect Trent
-    [END]
-    STATE State2 (Trent GET Msg)
-    [BEGIN]
-        |from = Alice => CALL trentFromAliceAction(Msg)
-        |from = Bob => CALL trentFromBobAction(Msg)
-    [END]
-    
-    STATE State3 (Alice GET Msg)
-    [BEGIN]
-        |always => CALL AliceAction(Msg)
-    [END]
-    
-    STATE State4 (Bob GET Msg)
-    [BEGIN]
-        |always => CALL BobAction(Msg)
+        |always => CALL SecondGetTransaction(Msg)
     [END]
 [END]
 [TEST]
-     Msg::Alice->Bob
+     Msg::First->Second
 [END]
 [END]

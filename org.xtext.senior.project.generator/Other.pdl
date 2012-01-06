@@ -39,6 +39,14 @@
         |always => Alice exchange Trent
         |always => Bob exchange Trent
     [END]
+    STATE State11 (Alice SENDS Msg)
+    [BEGIN]
+        |always => Msg redirect Trent
+    [END]
+    STATE State12 (Bob SENDS Msg)
+    [BEGIN]
+        |always => Msg redirect Trent
+    [END]
     STATE State2 (Trent GET Msg)
     [BEGIN]
         |from = Alice => CALL trentFromAliceAction(Msg)
@@ -54,5 +62,8 @@
     [BEGIN]
         |always => CALL BobAction(Msg)
     [END]
+[END]
+[TEST]
+     Msg::Alice->Bob
 [END]
 [END]

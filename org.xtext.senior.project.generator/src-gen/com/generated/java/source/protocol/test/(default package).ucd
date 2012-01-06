@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="(default package)" size="895,661" id="" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130206F72672E78746578742E73656E696F722E70726F6A6563742E67656E657261746F72">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.1 //@children.3/@sourceConnections.2" name="First" location="15,180" size="155,81" id="com.generated.java.source/First">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="51,18">
+      <children xsi:type="editmodel:MethodEditModel" name="First" id="com.generated.java.source/First#First(LCipher;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0 //@children.3/@sourceConnections.1" name="Second" location="367,205" size="155,81" id="com.generated.java.source/Second">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,18">
+      <children xsi:type="editmodel:MethodEditModel" name="Second" id="com.generated.java.source/Second#Second(LCipher;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="KeyProtokol" location="160,15" size="197,153" id="com.generated.java.source.protocol/KeyProtokol" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),init(),KeyProtokol(Lcom.generated.java.source.First;Lcom.generated.java.source.Second;),SecondGetTransaction(Lexample.protocol.message.Message;),FirstGetTransaction(Lexample.protocol.message.Message;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="141,90">
+      <children xsi:type="editmodel:MethodEditModel" name="FirstGetTransaction" id="com.generated.java.source.protocol/KeyProtokol#FirstGetTransaction(Lexample.protocol.message.Message;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="KeyProtokol" location="11,59" id="com.generated.java.source.protocol/KeyProtokol#KeyProtokol(Lcom.generated.java.source.First;Lcom.generated.java.source.Second;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SecondGetTransaction" id="com.generated.java.source.protocol/KeyProtokol#SecondGetTransaction(Lexample.protocol.message.Message;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="init" id="com.generated.java.source.protocol/KeyProtokol#init()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" id="com.generated.java.source.protocol/KeyProtokol#update(Ljava.util.Observable;Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.generated.java.source.protocol/KeyProtokol-Standard::Call->com.generated.java.source/Second*com.generated.java.source.protocol/KeyProtokol-Soyatec::Import->com.generated.java.source/Second" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="191,153" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="29,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.generated.java.source.protocol/KeyProtokol-Standard::Call->com.generated.java.source/First*com.generated.java.source.protocol/KeyProtokol-Soyatec::Import->com.generated.java.source/First" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="4,153" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="149,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="KeyProtokolTest" location="150,345" size="218,117" id="com.generated.java.source.protocol.test/KeyProtokolTest">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,54">
+      <children xsi:type="editmodel:MethodEditModel" name="KeyProtokolTest" id="com.generated.java.source.protocol.test/KeyProtokolTest#KeyProtokolTest()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="com.generated.java.source.protocol.test/KeyProtokolTest#main([Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="run" id="com.generated.java.source.protocol.test/KeyProtokolTest#run()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.generated.java.source.protocol.test/KeyProtokolTest-Standard::Instantiate->com.generated.java.source.protocol/KeyProtokol*com.generated.java.source.protocol.test/KeyProtokolTest-Soyatec::Import->com.generated.java.source.protocol/KeyProtokol" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Instantiate»" size="96,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="98,153"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.generated.java.source.protocol.test/KeyProtokolTest-Standard::Instantiate->com.generated.java.source/Second*com.generated.java.source.protocol.test/KeyProtokolTest-Soyatec::Import->com.generated.java.source/Second" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Instantiate»" size="96,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="217,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,81"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="com.generated.java.source.protocol.test/KeyProtokolTest-Standard::Call->com.generated.java.source/First*com.generated.java.source.protocol.test/KeyProtokolTest-Standard::Instantiate->com.generated.java.source/First*com.generated.java.source.protocol.test/KeyProtokolTest-Soyatec::Import->com.generated.java.source/First" source="//@children.3" target="//@children.0" targetEnd="//@children.3/@sourceConnections.2/@children.2" label="//@children.3/@sourceConnections.2/@children.0" sourceEnd="//@children.3/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import, Instantiate»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="9,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="144,81"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

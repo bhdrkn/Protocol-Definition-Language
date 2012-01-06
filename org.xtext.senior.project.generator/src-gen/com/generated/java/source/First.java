@@ -4,11 +4,11 @@ import protocol.cipher.BaseCipher;
 import example.protocol.message.Message;
 import source.Participant;
 
-public class Alice<Cipher extends BaseCipher>
+public class First<Cipher extends BaseCipher>
 		extends
 			Participant<Message, Cipher> {
 
-	public Alice(Cipher cipher) {
+	public First(Cipher cipher) {
 		super(cipher);
 	}
 	/*

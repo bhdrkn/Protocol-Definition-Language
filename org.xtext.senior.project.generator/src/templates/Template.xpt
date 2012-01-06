@@ -28,19 +28,9 @@
 «REM»Classes from definitions are generating below here«ENDREM»
 «DEFINE definitionsPath FOR Definitions»
     «EXPAND defines FOREACH this.sources »
-    e«EXPAND generateAsyncronusCipherJava FOR this.cipher»
-    «REM»An Enum Class for Message.java is generating. But Message.java has not yet generated«ENDREM»
-    «FILE  "com/generated/java/source/message/MyMessageSource.java"»
-package com.generated.java.source.message;
-    
-public enum MyMessageSource{
-    «EXPAND generateMessageSource FOREACH this.sources »
-    None   
-}
-    «ENDFILE »
 «ENDDEFINE»
 
-«REM»MyChipher, Alice, Bob and Trent like class'es are generating«ENDREM»
+«REM»Alice, Bob and Trent like class'es are generating«ENDREM»
 «DEFINE defines FOR EventSource»
     «IF this.keyword.compareTo("Participant") == 0»
         «EXPAND generateParticipantJava FOR this»
@@ -114,27 +104,6 @@ public class «this.name»<Cipher extends BaseCipher> extends
     «ENDFILE»
 «ENDDEFINE»
 
-«REM»MyCipher like classes are generating below«ENDREM»
-«DEFINE generateAsyncronusCipherJava FOR Cipher»
-    «FILE "com/generated/java/source/cipher/"+this.name+".java"»
-package com.generated.java.source.cipher;
-
-import protocol.cipher.AsynchronousCipher;
-
-public class «this.name» extends «this.keyword»{
-
-    public «this.name»(String key) {
-        super(key);
-    }
-
-}
-    «ENDFILE»
-«ENDDEFINE»
-
-«DEFINE generateMessageSource FOR EventSource»
-    «this.name»,
-«ENDDEFINE»
-
 «REM»The Main Part is Starting here. MyBigProtocol.java building by using both Transactions and States.«ENDREM»
 «DEFINE buildProtocolClass FOR PDLFile»
         «FILE "com/generated/java/source/protocol/"+this.name+".java"»
@@ -184,18 +153,25 @@ public class «this.name»<Cipher extends BaseCipher> implements Observer{
 
 «REM»Building Protocol Constructor.. First Constructor Argumants THEN assign args to attrb«ENDREM»
 «DEFINE buildProtocolConstructor(String name) FOR Definitions»
-    public «name» («EXPAND buildConstructorParameters FOREACH  this.sources»){
+    public «name» («EXPAND buildConstructorParameters(this.sources) FOREACH  this.sources»){
         «EXPAND assingnParametersToAttributes FOREACH this.sources»
         init();
     }
 «ENDDEFINE»
 
 «REM»Protocol Constructor Argumants«ENDREM»
-«DEFINE buildConstructorParameters FOR EventSource»
+«DEFINE buildConstructorParameters(List[EventSource] sources) FOR EventSource»
     «IF this.keyword.compareTo("Participant") == 0»
-        «this.name» «this.name.toLowerCase()»,
+        «this.name» «this.name.toLowerCase()»
     «ELSEIF this.keyword.compareTo("Arbitrator") == 0»
         «this.name» «this.name.toLowerCase()»
+    «ENDIF»
+    «EXPAND isComma(sources) FOR this»
+«ENDDEFINE»
+
+«DEFINE isComma(List[EventSource] sources) FOR EventSource»
+    «IF sources.indexOf(this) + 1 != sources.size»
+        ,
     «ENDIF»
 «ENDDEFINE»
 
@@ -297,9 +273,9 @@ try{
 «REM»DEFINING SEND operation«ENDREM»
 «DEFINE sendOperation FOR Send»
     // SEND
-    «this.message.toLowerCase()».setFrom(«this.source.name.toLowerCase()».getClass().getSimpleName());
-    «this.message.toLowerCase()».setTo(«this.destination.name.toLowerCase()».getClass().getSimpleName());
-    «this.source.name.toLowerCase()».sendMessage(«this.message.toLowerCase()»);
+    «this.message».setFrom(«this.source.name.toLowerCase()».getClass().getSimpleName());
+    «this.message».setTo(«this.destination.name.toLowerCase()».getClass().getSimpleName());
+    «this.source.name.toLowerCase()».sendMessage(«this.message»);
 «ENDDEFINE»
 
 «REM»Defining PRINT operation«ENDREM»
@@ -355,10 +331,8 @@ try{
     «FILE "com/generated/java/source/protocol/test/"+this.name+"Test.java"»
     package com.generated.java.source.protocol.test;
 
-    import com.generated.java.source.Alice;
-    import com.generated.java.source.Bob;
-    import com.generated.java.source.Trent;
-    import com.generated.java.source.protocol.MyBigProtocol;
+    import com.generated.java.source.*;
+    import com.generated.java.source.protocol.*;
 
     import protocol.cipher.*;
 
@@ -375,8 +349,8 @@ try{
         
     @Override
     public void run() {
-        Message msg = new Message(ProtocolType.None);
-        msg.setMessage("Bahadir Akin ITU");
+        Message Msg = new Message(ProtocolType.None);
+        Msg.setMessage("Bahadir Akin ITU");
         «EXPAND buildMethodOperation FOREACH this.test.operations»
         
     }
